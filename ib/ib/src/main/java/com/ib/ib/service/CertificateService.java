@@ -1,5 +1,6 @@
 package com.ib.ib.service;
 
+import com.ib.ib.DTO.CertificateDTO;
 import com.ib.ib.DTO.CertificateRequestDTO;
 import com.ib.ib.model.*;
 import com.ib.ib.repository.CertificateRepository;
@@ -9,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CertificateService {
@@ -56,6 +60,15 @@ public class CertificateService {
             if(issuer.getCertificateType().equals(CertificateType.END))
                 throw new Exception("Type of issuer certificate cannot be end.");
         }
+    }
+
+    public List<CertificateDTO> getAll() {
+        List<Certificate> certificates = this.certificateRepository.findAll();
+        List<CertificateDTO> newCertificates = new ArrayList<>();
+        for(Certificate certificate: certificates){
+            newCertificates.add(new CertificateDTO(certificate));
+        }
+        return newCertificates;
     }
 
 
