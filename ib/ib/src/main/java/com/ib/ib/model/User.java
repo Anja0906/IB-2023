@@ -30,6 +30,8 @@ public class User {
 
     private boolean activated;
 
+    private boolean admin;
+
     public User() {
     }
 

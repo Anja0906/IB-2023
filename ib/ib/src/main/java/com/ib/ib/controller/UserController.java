@@ -144,6 +144,6 @@ public class UserController {
 //            throw new UberException(HttpStatus.BAD_REQUEST, "User not activated (check email)!");
 //        }
 
-        return new ResponseEntity<>(jwtTokenUtil.generateToken(passwordDTO.getEmail(), user.getId()), HttpStatus.OK);
+        return new ResponseEntity<>(jwtTokenUtil.generateToken(passwordDTO.getEmail(), user.isAdmin(), user.getId()), HttpStatus.OK);
     }
 }
