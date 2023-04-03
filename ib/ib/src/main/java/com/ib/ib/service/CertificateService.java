@@ -6,13 +6,16 @@ import com.ib.ib.model.*;
 import com.ib.ib.repository.CertificateRepository;
 import com.ib.ib.repository.RequestRepository;
 import com.ib.ib.repository.UserRepository;
+import org.bouncycastle.cert.cmp.CertificateStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CertificateService {
@@ -69,6 +72,19 @@ public class CertificateService {
             newCertificates.add(new CertificateDTO(certificate));
         }
         return newCertificates;
+    }
+
+    public boolean isValid(Integer id) throws Exception {
+
+        Optional<Certificate> certificate = certificateRepository.findById(id);
+        if(certificate.isEmpty())
+            throw new Exception();
+
+        return !isExpired(certificate.get());
+    }
+
+    private boolean isExpired(Certificate certificate){
+        return  certificate.getValidTo().isBefore(LocalDateTime.now());
     }
 
 
