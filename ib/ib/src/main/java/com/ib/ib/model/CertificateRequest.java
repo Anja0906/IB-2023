@@ -20,16 +20,30 @@ public class CertificateRequest {
     @JoinColumn(name = "issued_to_id")
     private User issuedTo;
 
+    @Column
     private CertificateType certificateType;
 
-    public CertificateRequest() {}
+    @Column
+    private CertificateState status;
 
-    public CertificateRequest(Integer id, Certificate issuer, User issuedTo, CertificateType certificateType) {
+    private String reason;
+
+
+    public CertificateRequest() {}
+    public CertificateRequest(Integer id, Certificate issuer, User issuedTo, CertificateType certificateType, CertificateState status, String reason) {
         this.id              = id;
         this.issuer          = issuer;
         this.issuedTo        = issuedTo;
         this.certificateType = certificateType;
+        this.status          = status;
+        this.reason          = reason;
     }
+
+    public CertificateState getStatus() {return status;}
+    public void setStatus(CertificateState status) {this.status = status;}
+
+    public String getReason() {return reason;}
+    public void setReason(String reason) {this.reason = reason;}
 
     public Integer getId() {return id;}
     public void setId(Integer id) {this.id = id;}
@@ -50,6 +64,8 @@ public class CertificateRequest {
                 ", issuer=" + issuer +
                 ", issuedTo=" + issuedTo +
                 ", certificateType=" + certificateType +
+                ", status=" + status +
+                ", reason='" + reason + '\'' +
                 '}';
     }
 }
