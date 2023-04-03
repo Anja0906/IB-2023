@@ -22,47 +22,26 @@ public class CertificateRequest {
 
     private CertificateType certificateType;
 
-    public CertificateRequest() {
-    }
+    public CertificateRequest() {}
 
     public CertificateRequest(Integer id, Certificate issuer, User issuedTo, CertificateType certificateType) {
-        this.id = id;
-        this.issuer = issuer;
-        this.issuedTo = issuedTo;
+        this.id              = id;
+        this.issuer          = issuer;
+        this.issuedTo        = issuedTo;
         this.certificateType = certificateType;
     }
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer getId() {return id;}
+    public void setId(Integer id) {this.id = id;}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public Certificate getIssuer() {return issuer;}
+    public void setIssuer(Certificate issuer) {this.issuer = issuer;}
 
-    public Certificate getIssuer() {
-        return issuer;
-    }
+    public User getIssuedTo() {return issuedTo;}
+    public void setIssuedTo(User issuedTo) {this.issuedTo = issuedTo;}
 
-    public void setIssuer(Certificate issuer) {
-        this.issuer = issuer;
-    }
-
-    public User getIssuedTo() {
-        return issuedTo;
-    }
-
-    public void setIssuedTo(User issuedTo) {
-        this.issuedTo = issuedTo;
-    }
-
-    public CertificateType getCertificateType() {
-        return certificateType;
-    }
-
-    public void setCertificateType(CertificateType certificateType) {
-        this.certificateType = certificateType;
-    }
+    public CertificateType getCertificateType() {return certificateType;}
+    public void setCertificateType(CertificateType certificateType) {this.certificateType = certificateType;}
 
     @Override
     public String toString() {

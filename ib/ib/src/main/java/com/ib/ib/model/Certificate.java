@@ -32,93 +32,45 @@ public class Certificate {
 
     private CertificateType certificateType;
 
-    public User getIssuedTo() {
-        return issuedTo;
-    }
 
-    public void setIssuedTo(User issuedTo) {
-        this.issuedTo = issuedTo;
-    }
-
-
-    public Certificate getIssuer() {
-        return issuer;
-    }
-
-    public void setIssuer(Certificate issuer) {
-        this.issuer = issuer;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getValidFrom() {
-        return validFrom;
-    }
-
-    public void setValidFrom(LocalDateTime validFrom) {
-        this.validFrom = validFrom;
-    }
-
-    public LocalDateTime getValidTo() {
-        return validTo;
-    }
-
-    public void setValidTo(LocalDateTime validTo) {
-        this.validTo = validTo;
-    }
-
-    public String getPublicKey() {
-        return publicKey;
-    }
-
-    public void setPublicKey(String publicKey) {
-        this.publicKey = publicKey;
-    }
-
-    public String getDigitalSignature() {
-        return digitalSignature;
-    }
-
-    public void setDigitalSignature(String digitalSignature) {
-        this.digitalSignature = digitalSignature;
-    }
-
-    public boolean isValid() {
-        return isValid;
-    }
-
-    public void setValid(boolean valid) {
-        isValid = valid;
-    }
-
-    public CertificateType getCertificateType() {
-        return certificateType;
-    }
-
-    public void setCertificateType(CertificateType certificateType) {
-        this.certificateType = certificateType;
-    }
-
-    public Certificate() {
-    }
-
+    public Certificate() {}
     public Certificate(Integer id, Certificate issuer, User issuedTo, LocalDateTime validFrom, LocalDateTime validTo, String publicKey, String digitalSignature, boolean isValid, CertificateType certificateType) {
-        this.id = id;
-        this.issuer = issuer;
-        this.issuedTo = issuedTo;
-        this.validFrom = validFrom;
-        this.validTo = validTo;
-        this.publicKey = publicKey;
+        this.id               = id;
+        this.issuer           = issuer;
+        this.issuedTo         = issuedTo;
+        this.validFrom        = validFrom;
+        this.validTo          = validTo;
+        this.publicKey        = publicKey;
         this.digitalSignature = digitalSignature;
-        this.isValid = isValid;
-        this.certificateType = certificateType;
+        this.isValid          = isValid;
+        this.certificateType  = certificateType;
     }
+    public User getIssuedTo() {return issuedTo;}
+    public void setIssuedTo(User issuedTo) {this.issuedTo = issuedTo;}
+
+    public Certificate getIssuer() {return issuer;}
+    public void setIssuer(Certificate issuer) {this.issuer = issuer;}
+
+    public Integer getId() {return id;}
+    public void setId(Integer id) {this.id = id;}
+
+    public LocalDateTime getValidFrom() {return validFrom;}
+    public void setValidFrom(LocalDateTime validFrom) {this.validFrom = validFrom;}
+
+    public LocalDateTime getValidTo() {return validTo;}
+    public void setValidTo(LocalDateTime validTo) {this.validTo = validTo;}
+
+    public String getPublicKey() {return publicKey;}
+    public void setPublicKey(String publicKey) {this.publicKey = publicKey;}
+
+    public String getDigitalSignature() {return digitalSignature;}
+    public void setDigitalSignature(String digitalSignature) {this.digitalSignature = digitalSignature;}
+
+    public boolean isValid() {return isValid;}
+    public void setValid(boolean valid) {isValid = valid;}
+
+    public CertificateType getCertificateType() {return certificateType;}
+    public void setCertificateType(CertificateType certificateType) {this.certificateType = certificateType;}
 
     @Override
     public String toString() {
