@@ -30,8 +30,7 @@ public class CertificateRequest {
 
 
     public CertificateRequest() {}
-    public CertificateRequest(Integer id, Certificate issuer, User issuedTo, CertificateType certificateType, CertificateState status, String reason) {
-        this.id              = id;
+    public CertificateRequest(Certificate issuer, User issuedTo, CertificateType certificateType, CertificateState status, String reason) {
         this.issuer          = issuer;
         this.issuedTo        = issuedTo;
         this.certificateType = certificateType;

@@ -23,6 +23,7 @@ import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.util.encoders.Base64;
 import org.springframework.cglib.core.Local;
+import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.math.BigInteger;
@@ -37,6 +38,7 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.UUID;
 
+@Service
 public class GenerateCertificateService {
 
     private static String certificatesDir = "certificates";
