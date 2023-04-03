@@ -21,6 +21,4 @@ public interface CertificateRepository extends JpaRepository<Certificate, Intege
     Page<Certificate> findAll(Pageable pageable);
 
     void deleteById(Integer id);
-
-    HashSet<Certificate> findAllCertificatesForUser(Integer id);
 }
