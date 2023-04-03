@@ -21,6 +21,7 @@ public class CertificateRequestDTO {
     public CertificateRequestDTO() {
     }
 
+
     public CertificateRequestDTO(Integer id, String issuerSN, CertificateType type) {
         this.id = id;
         this.issuerSN = issuerSN;

@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.HashSet;
+
 public interface CertificateRepository extends JpaRepository<Certificate, Integer> {
 
     Certificate findCertificateById(Integer id);
@@ -19,4 +21,6 @@ public interface CertificateRepository extends JpaRepository<Certificate, Intege
     Page<Certificate> findAll(Pageable pageable);
 
     void deleteById(Integer id);
+
+    HashSet<Certificate> findAllCertificatesForUser(Integer id);
 }

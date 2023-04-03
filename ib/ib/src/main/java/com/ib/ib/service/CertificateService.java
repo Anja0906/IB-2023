@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +33,8 @@ public class CertificateService {
     Certificate findCertificateById(Integer id){
         return certificateRepository.findCertificateById(id);
     };
+
+
 
     Page<Certificate> findAll(Pageable pageable){
         return certificateRepository.findAll(pageable);
