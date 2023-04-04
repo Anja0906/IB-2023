@@ -34,7 +34,7 @@ public class CertificateService {
         return certificateRepository.findCertificateById(id);
     };
 
-    
+
     Page<Certificate> findAll(Pageable pageable){
         return certificateRepository.findAll(pageable);
     };
