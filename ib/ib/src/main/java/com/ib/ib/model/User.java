@@ -1,11 +1,19 @@
 package com.ib.ib.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,32 +28,12 @@ public class User {
 
     private String telephoneNumber;
 
-    public User() {}
+    private String passwordHash;
 
-    public User(Integer id, String email, String firstName, String lastName, String telephoneNumber, String password) {
-        this.id              = id;
-        this.email           = email;
-        this.firstName       = firstName;
-        this.lastName        = lastName;
-        this.telephoneNumber = telephoneNumber;
-    }
+    private boolean activated;
 
+    private boolean admin;
 
-    public Integer getId() {return id;}
-    public void setId(Integer id) {this.id = id;}
-
-
-    public String getEmail() {return email;}
-    public void setEmail(String email) {this.email = email;}
-
-    public String getFirstName() {return firstName;}
-    public void setFirstName(String firstName) {this.firstName = firstName;}
-
-    public String getLastName() {return lastName;}
-    public void setLastName(String lastName) {this.lastName = lastName;}
-
-    public String getTelephoneNumber() {return telephoneNumber;}
-    public void setTelephoneNumber(String telephoneNumber) {this.telephoneNumber = telephoneNumber;}
 
     @Override
     public String toString() {
