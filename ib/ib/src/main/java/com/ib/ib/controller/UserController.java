@@ -19,6 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.time.LocalDateTime;
 
 @RestController
@@ -146,5 +147,11 @@ public class UserController {
 //        }
 
         return new ResponseEntity<>(jwtTokenUtil.generateToken(passwordDTO.getEmail(), user.isAdmin(), user.getId()), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/me")
+    public ResponseEntity<String> userDTOResponseEntity(Principal principal) {
+        User user = userService.loadUserByEmail(principal.getName());
+        return new ResponseEntity<>(user.getFirstName(), HttpStatus.OK);
     }
 }
