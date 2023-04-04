@@ -1,24 +1,25 @@
 package com.ib.ib.controller;
 
 import com.ib.ib.model.User;
-import com.ib.ib.security.EmailPasswordDTO;
+import com.ib.ib.security.dtos.EmailPasswordDTO;
 import com.ib.ib.security.JwtTokenUtil;
+import com.ib.ib.security.dtos.NewUserDTO;
 import com.ib.ib.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.support.MethodArgumentNotValidException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.security.Principal;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/user")
@@ -32,46 +33,46 @@ public class UserController {
     private AuthenticationManager authenticationManager;
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    // create /api/passenger
+    @PostMapping(value = "/register", consumes = "application/json")
+    public ResponseEntity<Void> register(@Valid @RequestBody NewUserDTO userDTO) throws Exception {
+        User user = new User();
+
+        if(userService.loadUserByEmail(userDTO.getEmail())!=null){
+            throw new Exception("User with that email already exists!");
+        }
+        if(userService.loadUserByEmail(userDTO.getTelephoneNumber())!=null){
+            throw new Exception("User with that telephone number already exists! ");
+        }
+        if(!userDTO.getPasswordConfirmation().equals(userDTO.getPassword())){
+            throw new Exception("Passwords do not match!");
+        }
+        user.setFirstName(userDTO.getFirstName());
+        user.setLastName(userDTO.getLastName());
+        user.setEmail(userDTO.getEmail());
+        user.setPasswordHash(passwordEncoder.encode(userDTO.getPassword()));
+        user.setTelephoneNumber(userDTO.getTelephoneNumber());
+        user.setActivated(true);  // TODO: set false
+        user.setAdmin(false);
+        userService.save(user);
 //
-//    // create /api/passenger
-//    @PostMapping(consumes = "application/json")
-//    public ResponseEntity<User> register(@Valid @RequestBody User passengerDTO) throws Exception {
-//        Passenger passenger = new Passenger();
-//
-//        if(userService.getUser(passengerDTO.getEmail())!=null){
-//            throw new UberException(HttpStatus.BAD_REQUEST, "User with that email already exists! ");
+//        if (passengerActivationRepository.existsByPassenger(user)) {
+//            passengerActivationRepository.deleteByPassenger(user);
 //        }
-//        if(userService.getUserByTelephoneNumber(passengerDTO.getTelephoneNumber())!=null){
-//            throw new UberException(HttpStatus.BAD_REQUEST, "User with that telephone number already exists! ");
-//        }
-//        if(!passengerDTO.getConfirmPassword().equals(passengerDTO.getPassword())){
-//            throw new UberException(HttpStatus.BAD_REQUEST, "Passwords do not match!");
-//        }
-//        passenger.setName(passengerDTO.getName());
-//        passenger.setSurname(passengerDTO.getSurname());
-//        passenger.setEmail(passengerDTO.getEmail());
-//        passenger.setPassword(passwordEncoder.encode(passengerDTO.getPassword()));
-//        passenger.setTelephoneNumber(passengerDTO.getTelephoneNumber());
-//        passenger.setAddress(passengerDTO.getAddress());
-//        passenger.setProfilePicture(passengerDTO.getProfilePicture());
-//        passenger.setActive(false);
-//        passenger.setBlocked(false);
-//        passenger = passengerServiceJPA.save(passenger);
-//
-//        if (passengerActivationRepository.existsByPassenger(passenger)) {
-//            passengerActivationRepository.deleteByPassenger(passenger);
-//        }
-//        PassengerActivation activation = new PassengerActivation(rand.nextInt(Integer.MAX_VALUE), passenger, LocalDateTime.now());
+//        PassengerActivation activation = new PassengerActivation(rand.nextInt(Integer.MAX_VALUE), user, LocalDateTime.now());
 //        passengerActivationRepository.save(activation);
 //
-//        emailService.sendSimpleMessage(passenger.getEmail(), "Confirm your email",
-//                "Dear, " + passenger.getName() + "!\n\nTo finish your registration, please, " +
+//        emailService.sendSimpleMessage(user.getEmail(), "Confirm your email",
+//                "Dear, " + user.getName() + "!\n\nTo finish your registration, please, " +
 //                        "enter this activation code:\n" + activation.getActivationId() + "\n\n" +
 //                        "If you did not perform registration - contact our support:\n" +
 //                        "support@easy.go\n\nBest regards,\nEasyGo team!");
-//        return new ResponseEntity<>(new PassengerDTOResult(passenger), HttpStatus.OK);  // it should be created......
-//    }
-//
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 //    @GetMapping(value="/activate/{activationId}")
 //    public ResponseEntity<MsgDTO> activatePassenger(@PathVariable("activationId") Integer activationId) throws UberException {
 //        passengerActivationService.activate(activationId);
@@ -80,11 +81,11 @@ public class UserController {
 //
 //    }
 //
-
-    @GetMapping(value="/test")
-    public ResponseEntity<String> activatePassenger() {
-        return new ResponseEntity<String>("Yeah", HttpStatus.OK);
-    }
+//
+//    @GetMapping(value="/test")
+//    public ResponseEntity<String> activatePassenger() {
+//        return new ResponseEntity<String>("Yeah", HttpStatus.OK);
+//    }
 
 //
 //    @PutMapping(value = "/{id}/changePassword")
