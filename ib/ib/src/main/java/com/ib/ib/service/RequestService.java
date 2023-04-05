@@ -14,10 +14,7 @@ public class RequestService {
 
     RequestRepository requestRepository;
 
-    public RequestService(RequestRepository requestRepository) {
-        this.requestRepository = requestRepository;
-    }
-
+    public RequestService(RequestRepository requestRepository) {this.requestRepository = requestRepository;}
     public List<CertificateRequest> findAllCertificateRequestsForUser(Integer id){
         return requestRepository.findAllCertificateRequestsForUser(id);
     }

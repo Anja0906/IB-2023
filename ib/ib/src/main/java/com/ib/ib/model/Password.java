@@ -1,6 +1,6 @@
 package com.ib.ib.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -11,11 +11,8 @@ public class Password {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
-
     private LocalDateTime validTo;
-
     private String currentPassword;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -39,8 +36,6 @@ public class Password {
 
     public String getCurrentPassword() {return currentPassword;}
     public void setCurrentPassword(String currentPassword) {this.currentPassword = currentPassword;}
-
-
 
     @Override
     public String toString() {

@@ -1,6 +1,6 @@
 package com.ib.ib.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -11,21 +11,16 @@ public class CertificateRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
-
     @ManyToOne
     @JoinColumn(name = "issuer_id")
     private Certificate issuer;
-
     @ManyToOne
     @JoinColumn(name = "issued_to_id")
     private User issuedTo;
-
     @Column
     private CertificateType certificateType;
-
     @Column
     private CertificateState status;
-
     private String reason;
 
 

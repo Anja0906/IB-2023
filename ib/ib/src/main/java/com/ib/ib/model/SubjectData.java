@@ -13,7 +13,6 @@ public class SubjectData {
     private LocalDate endDate;
 
     public SubjectData() {}
-
     public SubjectData(PublicKey publicKey, X500Name x500name, String serialNumber, LocalDate startDate, LocalDate endDate) {
         this.publicKey      = publicKey;
         this.x500name       = x500name;

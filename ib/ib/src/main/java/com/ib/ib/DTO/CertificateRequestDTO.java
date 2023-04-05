@@ -17,40 +17,21 @@ public class CertificateRequestDTO {
         }
         this.type = certificateRequest.getCertificateType();
     }
-
-    public CertificateRequestDTO() {
-    }
-
-
+    public CertificateRequestDTO() {}
     public CertificateRequestDTO(Integer id, String issuerSN, CertificateType type) {
-        this.id = id;
-        this.issuerSN = issuerSN;
-        this.type = type;
+        this.id         = id;
+        this.issuerSN   = issuerSN;
+        this.type       = type;
     }
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer getId() {return id;}
+    public void setId(Integer id) {this.id = id;}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public String getIssuerSN() {return issuerSN;}
+    public void setIssuerSN(String issuerSN) {this.issuerSN = issuerSN;}
 
-    public String getIssuerSN() {
-        return issuerSN;
-    }
-
-    public void setIssuerSN(String issuerSN) {
-        this.issuerSN = issuerSN;
-    }
-
-    public CertificateType getType() {
-        return type;
-    }
-
-    public void setType(CertificateType type) {
-        this.type = type;
-    }
+    public CertificateType getType() {return type;}
+    public void setType(CertificateType type) {this.type = type;}
 
     @Override
     public String toString() {

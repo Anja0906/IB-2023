@@ -49,8 +49,8 @@ public class GenerateCertificateService {
 
     public GenerateCertificateService(UserRepository userRepository, CertificateRepository certificateRepository)
     {
-        this.userRepository = userRepository;
-        this.certificateRepository = certificateRepository;
+        this.userRepository         = userRepository;
+        this.certificateRepository  = certificateRepository;
     }
 
     private KeyPair generateKeys() {
@@ -71,12 +71,10 @@ public class GenerateCertificateService {
             builder = builder.setProvider("BC");
             ContentSigner contentSigner = builder.build(issuerData.getPrivateKey());
             X509v3CertificateBuilder certGen = new JcaX509v3CertificateBuilder(
-                    issuerData.getX500name(),
-                    new BigInteger(subjectData.getSerialNumber()),
+                    issuerData.getX500name(), new BigInteger(subjectData.getSerialNumber()),
                     Date.from(subjectData.getStartDate().atStartOfDay(ZoneId.systemDefault()).toInstant()),
                     Date.from(subjectData.getEndDate().atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                    subjectData.getX500name(),
-                    subjectData.getPublicKey());
+                    subjectData.getX500name(), subjectData.getPublicKey());
             X509CertificateHolder certHolder = certGen.build(contentSigner);
             JcaX509CertificateConverter certConverter = new JcaX509CertificateConverter();
             certConverter = certConverter.setProvider("BC");
@@ -94,7 +92,9 @@ public class GenerateCertificateService {
         builder.addRDN(BCStyle.SURNAME, certificate.getIssuedTo().getLastName());
         builder.addRDN(BCStyle.GIVENNAME, certificate.getIssuedTo().getFirstName());
         builder.addRDN(BCStyle.UID, String.valueOf(certificate.getIssuedTo().getId()));
-        return new SubjectData(keyPairSubject.getPublic(), builder.build(), certificate.getSerialNumber(), certificate.getValidFrom().toLocalDate(), certificate.getValidTo().toLocalDate());
+        return new SubjectData(keyPairSubject.getPublic(), builder.build(),
+                            certificate.getSerialNumber(), certificate.getValidFrom().toLocalDate(),
+                            certificate.getValidTo().toLocalDate());
     }
 
     public LocalDateTime getEndDate(Certificate issuer, CertificateType type) throws Exception {
@@ -105,14 +105,16 @@ public class GenerateCertificateService {
             return LocalDateTime.now().plusMonths(3);
         }
         else {
-            if(issuer.getCertificateType() == type){
-                if(issuer.getValidTo().minusMonths(1).isAfter(LocalDateTime.now()))
+            if(issuer.getCertificateType() == type)
+                if(issuer.getValidTo().minusMonths(1).isAfter(LocalDateTime.now())) {
                     return issuer.getValidTo().minusMonths(1);
-                else
+                }
+                else {
                     throw new Exception();
-            }
-            if(issuer.getValidTo().isBefore(LocalDateTime.now().plusMonths(6))) {
-                throw new Exception();            }
+                }
+                if(issuer.getValidTo().isBefore(LocalDateTime.now().plusMonths(6))) {
+                    throw new Exception();
+                }
             return LocalDateTime.now().plusMonths(6);
         }
     }
@@ -123,13 +125,12 @@ public class GenerateCertificateService {
             validTo.plusYears(5);
         }else{
             validTo = getEndDate(certificateRequest.getIssuer(),certificateRequest.getCertificateType());
-
         }
-
         Certificate certificate = new Certificate(UUID.randomUUID().toString(),certificateRequest.getIssuer(),
                 "SHA256WithRSAEncryption",certificateRequest.getIssuedTo(),
-                LocalDateTime.now(),validTo,
-                keyPair.getPublic().toString(),"branislav",true,certificateRequest.getCertificateType());
+                                      LocalDateTime.now(),validTo,
+                                      keyPair.getPublic().toString(),"branislav",
+                                   true,certificateRequest.getCertificateType());
 
         SubjectData subjectData = generateSubjectData(certificate);
         IssuerData issuerData  = generateIssuerData(keyPair.getPrivate(),certificate);
@@ -174,7 +175,6 @@ public class GenerateCertificateService {
 
     public PrivateKey getPrivateKey(String certificateSN) {
         try {
-
             File keyFile = new File("certificates/" + new BigInteger(certificateSN.replace("-", ""), 16) + ".key");
             PEMParser pemParser = new PEMParser(new FileReader(keyFile));
             Object obj = pemParser.readObject();

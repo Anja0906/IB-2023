@@ -10,7 +10,6 @@ public class IssuerData {
     private PrivateKey privateKey;
 
     public IssuerData() {}
-
     public IssuerData(X500Name x500name, PrivateKey privateKey) {
         this.x500name   = x500name;
         this.privateKey = privateKey;

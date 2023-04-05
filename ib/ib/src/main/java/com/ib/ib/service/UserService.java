@@ -13,20 +13,9 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    User findUserById(Integer id){
-        return userRepository.findUserById(id);
-    };
-
-    User findUserByEmail(String email){
-        return userRepository.findUserByEmail(email);
-    };
-
-    Page<User> findAll(Pageable pageable){
-        return userRepository.findAll(pageable);
-    };
-
-    void deleteById(Integer id){
-        userRepository.deleteById(id);
-    };
+    User findUserById(Integer id){return userRepository.findUserById(id);}
+    User findUserByEmail(String email){return userRepository.findUserByEmail(email);}
+    Page<User> findAll(Pageable pageable){return userRepository.findAll(pageable);}
+    void deleteById(Integer id){userRepository.deleteById(id);}
 
 }

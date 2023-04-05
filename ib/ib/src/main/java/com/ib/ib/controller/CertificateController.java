@@ -19,10 +19,8 @@ import java.util.List;
 @RestController
 @RequestMapping("api/certificate")
 public class CertificateController {
-
     @Autowired
     CertificateService certificateService;
-
     @Autowired
     RequestService requestService;
 

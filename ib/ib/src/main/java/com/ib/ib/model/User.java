@@ -1,6 +1,6 @@
 package com.ib.ib.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -11,15 +11,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
-
     private String email;
-
     private String firstName;
-
     private String lastName;
-
     private String telephoneNumber;
-
     public User() {}
 
     public User(Integer id, String email, String firstName, String lastName, String telephoneNumber, String password) {
