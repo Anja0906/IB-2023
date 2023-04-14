@@ -1,36 +1,36 @@
 HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
+ib/ib/target/
+!ib/ib/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
 ### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+ib/ib/.apt_generated
+ib/ib/.classpath
+ib/ib/.factorypath
+ib/ib/.project
+ib/ib/.settings
+ib/ib/.springBeans
+ib/ib/.sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+ib/ib/.idea
+ib/ib/*.iws
+ib/ib/*.iml
+ib/ib/*.ipr
 
 ### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
+ib/ib/nbproject/private/
+ib/ib/nbbuild/
+ib/ib/dist/
+ib/ib/nbdist/
+ib/ib/.nb-gradle/
+ib/ib/build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
 ### VS Code ###
-.vscode/
+ib/ib/.vscode/
 
 # Exclude application properties file
-/application.properties
+ib/ib/application.properties
