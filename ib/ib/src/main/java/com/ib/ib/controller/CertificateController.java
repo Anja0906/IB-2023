@@ -4,11 +4,15 @@ import com.ib.ib.DTO.CertificateDTO;
 import com.ib.ib.DTO.CertificateRequestDTO;
 import com.ib.ib.model.Certificate;
 import com.ib.ib.model.CertificateRequest;
+import com.ib.ib.model.User;
 import com.ib.ib.service.CertificateService;
 import com.ib.ib.service.RequestService;
+import com.ib.ib.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -22,6 +26,8 @@ public class CertificateController {
     @Autowired
     CertificateService certificateService;
     @Autowired
+    UserService userService;
+    @Autowired
     RequestService requestService;
 
     public CertificateController(CertificateService certificateService, RequestService requestService) {
@@ -30,7 +36,8 @@ public class CertificateController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CertificateDTO>> getCertificates(){
+    public ResponseEntity<List<CertificateDTO>> getCertificates(@AuthenticationPrincipal OidcUser principal){
+        User user = userService.getUserByPrincipal(principal);
         List<CertificateDTO> allCertificates = this.certificateService.getAll();
         return new ResponseEntity<>(allCertificates, HttpStatus.OK);
     }
