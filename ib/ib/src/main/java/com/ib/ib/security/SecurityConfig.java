@@ -9,6 +9,7 @@ import org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator;
 import org.springframework.security.oauth2.core.OAuth2TokenValidator;
 import org.springframework.security.oauth2.jwt.*;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * Configures our application with Spring Security to restrict access to our API endpoints.
@@ -21,12 +22,18 @@ public class SecurityConfig {
     @Value("${spring.security.oauth2.resourceserver.jwt.issuer-uri}")
     private String issuer;
 
+    @Autowired
+    private LogoutHandler logoutHandler;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .mvcMatchers("/api/**").authenticated()
                 .and().cors()
-                .and().oauth2Login();
+                .and().oauth2Login()
+                .and().logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .addLogoutHandler(logoutHandler);
         return http.build();
     }
 
