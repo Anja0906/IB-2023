@@ -51,7 +51,12 @@ public class CertificateController {
         return new ResponseEntity<>(isValid, HttpStatus.OK);
     }
     @GetMapping(value="/requests/overview/{id}")
-    public ResponseEntity<?> getAllCertificateRequestsForUser(@PathVariable("id") Integer id){
+    public ResponseEntity<?> getAllCertificateRequestsForUser(@PathVariable("id") Integer id, @AuthenticationPrincipal OidcUser principal){
+        User user = userService.getUserByPrincipal(principal);
+        if (!user.IsAdministrator()) {
+            return new ResponseEntity<>("Only admin can access this method!", HttpStatus.FORBIDDEN);
+        }
+
         List<CertificateRequest> certificateRequests = this.requestService.findAllCertificateRequestsForUser(id);
         List<CertificateRequestDTO> certificateRequestDTOS = new ArrayList<>();
         for(CertificateRequest certReq: certificateRequests){

@@ -14,15 +14,27 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public User findUserById(Integer id){return userRepository.findUserById(id);}
-    public User findUserByEmail(String email){return userRepository.findUserByEmail(email);}
-    public Page<User> findAll(Pageable pageable){return userRepository.findAll(pageable);}
-    public void deleteById(Integer id){userRepository.deleteById(id);}
+    public User findUserById(Integer id) {
+        return userRepository.findUserById(id);
+    }
+
+    public User findUserByEmail(String email) {
+        return userRepository.findUserByEmail(email);
+    }
+
+    public Page<User> findAll(Pageable pageable) {
+        return userRepository.findAll(pageable);
+    }
+
+    public void deleteById(Integer id) {
+        userRepository.deleteById(id);
+    }
 
     public User getUserByPrincipal(OidcUser principal) {
         if (principal == null) return null;
         if (findUserByEmail(principal.getEmail()) == null) {
-            User newUser = new User(principal.getEmail(), principal.getGivenName(), principal.getFamilyName(), principal.getPhoneNumber());
+            User newUser = new User(principal.getEmail(), principal.getGivenName(), principal.getFamilyName(), principal.getPhoneNumber(), false);
+            // Side user can not be admin, those false
             userRepository.save(newUser);
         }
         return findUserByEmail(principal.getEmail());

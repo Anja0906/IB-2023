@@ -15,13 +15,15 @@ public class User {
     private String firstName;
     private String lastName;
     private String telephoneNumber;
+    private Boolean isAdmin;
     public User() {}
 
-    public User(String email, String firstName, String lastName, String telephoneNumber) {
+    public User(String email, String firstName, String lastName, String telephoneNumber, Boolean isAdmin) {
         this.email           = email;
         this.firstName       = firstName;
         this.lastName        = lastName;
         this.telephoneNumber = telephoneNumber;
+        this.isAdmin         = isAdmin;
     }
 
 
@@ -40,6 +42,8 @@ public class User {
 
     public String getTelephoneNumber() {return telephoneNumber;}
     public void setTelephoneNumber(String telephoneNumber) {this.telephoneNumber = telephoneNumber;}
+
+    public Boolean IsAdministrator() {return isAdmin;}
 
     @Override
     public String toString() {
