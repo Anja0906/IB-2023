@@ -50,8 +50,8 @@ public class UserService {
 
     public User getUserByPrincipal(Object principal) throws JsonProcessingException, ExecutionControl.NotImplementedException {
         if (principal == null) return null;
-        if (principal instanceof OidcUser) return getUserByOidcUser((OidcUser) principal);
-        if (principal instanceof Jwt) return getUserByJwt((Jwt) principal);
+        if (principal instanceof OidcUser) return getUserByAuth0UserId(((OidcUser) principal).getClaimAsString("sub"));
+        if (principal instanceof Jwt) return getUserByAuth0UserId(((Jwt) principal).getClaimAsString("sub"));
         throw new ExecutionControl
                 .NotImplementedException("This type of login is not yet supported. Use Oidc or Jwt instead.");
     }
@@ -92,17 +92,16 @@ public class UserService {
         return (node != null && !node.isNull()) ? node.textValue() : null;
     }
 
-    private User getUserByJwt(Jwt jwt) throws JsonProcessingException {
-        if (jwt == null) return null;
+    private User getUserByAuth0UserId(String userId) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + jwt.getTokenValue());
+        headers.set("Authorization", "Bearer " + getManagementApiToken());
 
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(
-                "https://dev-uox28mbzk3p270l1.us.auth0.com/userinfo",
+                "https://dev-uox28mbzk3p270l1.us.auth0.com/api/v2/users/" + userId,
                 HttpMethod.GET,
                 entity,
                 String.class);
@@ -112,9 +111,9 @@ public class UserService {
         if (findUserByEmail(root.get("email").textValue()) == null) {
             User newUser = new User(
                     stringOrNullFromJackson(root, "email"),
-                    stringOrNullFromJackson(root,"given_name"),
-                    stringOrNullFromJackson(root,"family_name"),
-                    stringOrNullFromJackson(root,"phone_number"), false);
+                    stringOrNullFromJackson(root.get("user_metadata"),"given_name"),
+                    stringOrNullFromJackson(root.get("user_metadata"),"family_name"),
+                    stringOrNullFromJackson(root.get("user_metadata"),"phone_number"), false);
             // Side user can not be admin, those false
             userRepository.save(newUser);
         }
