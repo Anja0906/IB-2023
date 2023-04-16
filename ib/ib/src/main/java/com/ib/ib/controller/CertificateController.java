@@ -36,8 +36,8 @@ public class CertificateController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CertificateDTO>> getCertificates(@AuthenticationPrincipal OidcUser principal){
-        User user = userService.getUserByPrincipal(principal);
+    public ResponseEntity<List<CertificateDTO>> getCertificates(@AuthenticationPrincipal Object principal){
+//        User user = userService.getUserByPrincipal((OidcUser) principal);
         List<CertificateDTO> allCertificates = this.certificateService.getAll();
         return new ResponseEntity<>(allCertificates, HttpStatus.OK);
     }

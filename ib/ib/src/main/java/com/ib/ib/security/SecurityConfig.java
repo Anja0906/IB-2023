@@ -33,7 +33,8 @@ public class SecurityConfig {
                 .and().oauth2Login()
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .addLogoutHandler(logoutHandler);
+                .addLogoutHandler(logoutHandler)
+                .and().oauth2ResourceServer().jwt();
         return http.build();
     }
 
