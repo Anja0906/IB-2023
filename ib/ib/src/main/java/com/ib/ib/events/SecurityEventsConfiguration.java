@@ -1,8 +1,10 @@
 package com.ib.ib.events;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ib.ib.model.User;
 import com.ib.ib.repository.UserRepository;
 import com.ib.ib.service.UserService;
+import jdk.jshell.spi.ExecutionControl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Configuration;
@@ -24,8 +26,8 @@ public class SecurityEventsConfiguration {
     }
 
     @EventListener(AuthenticationSuccessEvent.class)
-    public void onSuccessfulLogin(AuthenticationSuccessEvent event) {
-        var user = userService.getUserByPrincipal((OidcUser) event.getAuthentication().getPrincipal());
+    public void onSuccessfulLogin(AuthenticationSuccessEvent event) throws ExecutionControl.NotImplementedException, JsonProcessingException {
+        var user = userService.getUserByPrincipal(event.getAuthentication().getPrincipal());
         System.out.println(user.getEmail() + " logged in. IsAdmin = " + user.IsAdministrator());
     }
 }
