@@ -97,39 +97,51 @@ public class GenerateCertificateService {
                             certificate.getValidTo().toLocalDate());
     }
 
-    public LocalDateTime getEndDate(Certificate issuer, CertificateType type) throws Exception {
-        if (type == CertificateType.END){
+    public LocalDateTime getEndDate(Certificate issuer, CertificateType type,int duration) throws Exception {
+        if (type == CertificateType.END && duration <= 3){
             if(issuer.getValidTo().isBefore(LocalDateTime.now().plusMonths(3))) {
                 throw new Exception();
             }
             return LocalDateTime.now().plusMonths(3);
-        }
-        else {
+        } else if (type == CertificateType.INTERMEDIATE && duration <= 6) {
             if(issuer.getCertificateType() == type)
-                if(issuer.getValidTo().minusMonths(1).isAfter(LocalDateTime.now())) {
+                if(issuer.getValidTo().minusMonths(1).isAfter(LocalDateTime.now()))
                     return issuer.getValidTo().minusMonths(1);
-                }
-                else {
+                else
                     throw new Exception();
-                }
-                if(issuer.getValidTo().isBefore(LocalDateTime.now().plusMonths(6))) {
+            if(issuer.getValidTo().isBefore(LocalDateTime.now().plusMonths(6)))
+                throw new Exception();
+            return LocalDateTime.now().plusMonths(duration);
+        } else {
+            if(issuer.getCertificateType() == type)
+                if(issuer.getValidTo().minusMonths(1).isAfter(LocalDateTime.now()))
+                    return issuer.getValidTo().minusMonths(1);
+                else
                     throw new Exception();
-                }
-            return LocalDateTime.now().plusMonths(6);
+                if(issuer.getValidTo().isBefore(LocalDateTime.now().plusMonths(6)))
+                    throw new Exception();
+            return LocalDateTime.now().plusMonths(duration);
         }
     }
 
     public Certificate createCertificate(CertificateRequest certificateRequest, KeyPair keyPair) throws Exception {
         LocalDateTime validTo = LocalDateTime.now();
         if(certificateRequest.getCertificateType() == CertificateType.ROOT){
-            validTo.plusYears(5);
+            validTo.plusYears(certificateRequest.getDurationInMonths());
         }else{
-            validTo = getEndDate(certificateRequest.getIssuer(),certificateRequest.getCertificateType());
+            validTo = getEndDate(certificateRequest.getIssuer(),certificateRequest.getCertificateType(),certificateRequest.getDurationInMonths());
         }
+        byte[] data = new byte[128];
+        SecureRandom random = new SecureRandom();
+        random.nextBytes(data);
+        Signature signature = Signature.getInstance("SHA256withRSA");
+        signature.initSign(keyPair.getPrivate());
+        signature.update(data);
+        byte[] digitalSignature = signature.sign();
         Certificate certificate = new Certificate(UUID.randomUUID().toString(),certificateRequest.getIssuer(),
                 "SHA256WithRSAEncryption",certificateRequest.getIssuedTo(),
                                       LocalDateTime.now(),validTo,
-                                      keyPair.getPublic().toString(),"branislav",
+                                      keyPair.getPublic().toString(),digitalSignature,
                                    true,certificateRequest.getCertificateType());
 
         SubjectData subjectData = generateSubjectData(certificate);

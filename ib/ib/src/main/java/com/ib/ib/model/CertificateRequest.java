@@ -22,6 +22,7 @@ public class CertificateRequest {
     @Column
     private CertificateState status;
     private String reason;
+    private Integer durationInMonths;
 
 
     public CertificateRequest() {}
@@ -32,6 +33,18 @@ public class CertificateRequest {
         this.status          = status;
         this.reason          = reason;
     }
+
+    public CertificateRequest(Certificate issuer, User issuedTo, CertificateType certificateType, CertificateState status, String reason,Integer durationInMonths) {
+        this.issuer           = issuer;
+        this.issuedTo         = issuedTo;
+        this.certificateType  = certificateType;
+        this.status           = status;
+        this.reason           = reason;
+        this.durationInMonths = durationInMonths;
+    }
+
+    public Integer getDurationInMonths() {return durationInMonths;}
+    public void setDurationInMonths(Integer durationInMonths) {this.durationInMonths = durationInMonths;}
 
     public CertificateState getStatus() {return status;}
     public void setStatus(CertificateState status) {this.status = status;}

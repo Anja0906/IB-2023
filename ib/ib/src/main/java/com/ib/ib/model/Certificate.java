@@ -30,7 +30,7 @@ public class Certificate {
 
     private String publicKey;
 
-    private String digitalSignature;
+    private byte[] digitalSignature;
 
     private boolean isValid;
 
@@ -39,7 +39,7 @@ public class Certificate {
 
     public Certificate() {}
 
-    public Certificate(Integer id, String serialNumber, Certificate issuer, String signatureAlgorithm, User issuedTo, LocalDateTime validFrom, LocalDateTime validTo, String publicKey, String digitalSignature, boolean isValid, CertificateType certificateType) {
+    public Certificate(Integer id, String serialNumber, Certificate issuer, String signatureAlgorithm, User issuedTo, LocalDateTime validFrom, LocalDateTime validTo, String publicKey, byte[] digitalSignature, boolean isValid, CertificateType certificateType) {
         this.id                 = id;
         this.serialNumber       = serialNumber;
         this.issuer             = issuer;
@@ -53,7 +53,7 @@ public class Certificate {
         this.certificateType    = certificateType;
     }
 
-    public Certificate(String toString, Certificate issuer, String sha256WithRSAEncryption, User issuedTo, LocalDateTime now, LocalDateTime endDate, String toString1, String branislav, boolean b, CertificateType certificateType) {
+    public Certificate(String serialNumber, Certificate issuer, String signatureAlgorithm, User issuedTo, LocalDateTime validFrom, LocalDateTime validTo, String publicKey, byte[] digitalSignature, boolean isValid, CertificateType certificateType) {
         this.serialNumber       = serialNumber;
         this.issuer             = issuer;
         this.signatureAlgorithm = signatureAlgorithm;
@@ -65,6 +65,8 @@ public class Certificate {
         this.isValid            = isValid;
         this.certificateType    = certificateType;
     }
+
+
 
     public String getSerialNumber() {return serialNumber;}
     public void setSerialNumber(String serialNumber) {this.serialNumber = serialNumber;}
@@ -90,8 +92,8 @@ public class Certificate {
     public String getPublicKey() {return publicKey;}
     public void setPublicKey(String publicKey) {this.publicKey = publicKey;}
 
-    public String getDigitalSignature() {return digitalSignature;}
-    public void setDigitalSignature(String digitalSignature) {this.digitalSignature = digitalSignature;}
+    public byte[] getDigitalSignature() {return digitalSignature;}
+    public void setDigitalSignature(byte[] digitalSignature) {this.digitalSignature = digitalSignature;}
 
     public boolean isValid() {return isValid;}
     public void setValid(boolean valid) {isValid = valid;}

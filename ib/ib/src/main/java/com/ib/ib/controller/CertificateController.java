@@ -3,7 +3,6 @@ package com.ib.ib.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ib.ib.DTO.CertificateDTO;
 import com.ib.ib.DTO.CertificateRequestDTO;
-import com.ib.ib.model.Certificate;
 import com.ib.ib.model.CertificateRequest;
 import com.ib.ib.model.User;
 import com.ib.ib.service.CertificateService;
@@ -14,12 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.oidc.user.OidcUser;
-import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 @CrossOrigin
@@ -45,12 +42,12 @@ public class CertificateController {
         return new ResponseEntity<>(allCertificates, HttpStatus.OK);
     }
 
+
+
     @GetMapping(value = "/valid/{id}")
     public ResponseEntity<Boolean> getCertificateValidation(
             @PathVariable("id")Integer id) throws Exception {
-
-        //prepraviti nakon logina
-        boolean isValid = this.certificateService.isValid(Integer.getInteger("1"));
+        boolean isValid = this.certificateService.isValid(id);
         return new ResponseEntity<>(isValid, HttpStatus.OK);
     }
     @GetMapping(value="/requests/overview/{id}")
