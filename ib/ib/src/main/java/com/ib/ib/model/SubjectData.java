@@ -4,6 +4,7 @@ import org.bouncycastle.asn1.x500.X500Name;
 
 import java.security.PublicKey;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class SubjectData {
     private PublicKey publicKey;
@@ -19,6 +20,19 @@ public class SubjectData {
         this.serialNumber   = serialNumber;
         this.startDate      = startDate;
         this.endDate        = endDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SubjectData that = (SubjectData) o;
+        return publicKey.equals(that.publicKey) && x500name.equals(that.x500name) && serialNumber.equals(that.serialNumber) && startDate.equals(that.startDate) && endDate.equals(that.endDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(publicKey, x500name, serialNumber, startDate, endDate);
     }
 
     public PublicKey getPublicKey() {return publicKey;}

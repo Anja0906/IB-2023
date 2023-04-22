@@ -43,10 +43,15 @@ public class CertificateService {
 
     public CertificateRequest createRequest(CertificateRequestDTO certificateRequestDTO, User issuedTo) throws Exception {
         Certificate issuer = null;
+        issuedTo.setAdmin(true);
+        System.out.println(issuedTo.IsAdministrator());
         if (!certificateRequestDTO.getIssuerSN().isEmpty()){
+            System.out.println("1");
             issuer = this.certificateRepository.findCertificateByIssuerSerialNumber(certificateRequestDTO.getIssuerSN());
         }
         if (issuer != null){
+            System.out.println("2");
+
             issuer.setIssuedTo(this.certificateRepository.getUserByCertificateId(issuer.getId()));
             validateIssuerEndCertificate(certificateRequestDTO, issuer);
         }
@@ -54,26 +59,35 @@ public class CertificateService {
         CertificateRequest certificateRequest = new CertificateRequest(issuer, issuedTo, certificateRequestDTO.getType(), CertificateState.PENDING, "",certificateRequestDTO.getDurationInMonths());
         if(issuedTo.IsAdministrator()){
             if (issuer!=null){
+                System.out.println("3");
+
                 validateIssuer(certificateRequestDTO);
             }
             CertificateRequest newRequest = this.requestRepository.save(certificateRequest);
             if(certificateRequest.getIssuer() != null && issuedTo.getId().equals(certificateRequest.getIssuer().getIssuedTo().getId())) {
+                System.out.println("4");
+
                 this.acceptRequest(newRequest.getId(), issuedTo);
                 newRequest.setStatus(CertificateState.ACCEPTED);
             }
             else if(certificateRequest.getIssuer() == null){
+                System.out.println("5");
+
                 this.acceptRequest(newRequest.getId(), issuedTo);
                 newRequest.setStatus(CertificateState.ACCEPTED);
             }
             return newRequest;
         }
         if(certificateRequestDTO.getType().equals(CertificateType.ROOT)){
+            System.out.println(certificateRequestDTO.getType());
             throw new Exception("Cannot create root certificate as a default user");
         }
         validateIssuer(certificateRequestDTO);
         certificateRequest.setCertificateType(certificateRequestDTO.getType());
         certificateRequest = this.requestRepository.save(certificateRequest);
         if (issuer != null && issuer.getIssuedTo().getId().equals(issuedTo.getId())) {
+            System.out.println("6");
+
             this.acceptRequest(certificateRequest.getId(), issuedTo);
         }
         return certificateRequest;

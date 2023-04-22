@@ -69,17 +69,23 @@ public class GenerateCertificateService {
 
     public X509Certificate generateCertificate(SubjectData subjectData, IssuerData issuerData) {
         try {
+            System.out.println("ANJAAAAAAAAPI");
             JcaContentSignerBuilder builder = new JcaContentSignerBuilder("SHA256WithRSAEncryption");
             builder = builder.setProvider(new BouncyCastleProvider());
             ContentSigner contentSigner = builder.build(issuerData.getPrivateKey());
+            System.out.println("ANJAAAAAAAAPI");
+            System.out.println(subjectData.getSerialNumber());
+
             X509v3CertificateBuilder certGen = new JcaX509v3CertificateBuilder(
-                    issuerData.getX500name(), new BigInteger(subjectData.getSerialNumber()),
+                    issuerData.getX500name(), new BigInteger(subjectData.getSerialNumber().replace("-", ""), 16),
                     Date.from(subjectData.getStartDate().atStartOfDay(ZoneId.systemDefault()).toInstant()),
                     Date.from(subjectData.getEndDate().atStartOfDay(ZoneId.systemDefault()).toInstant()),
                     subjectData.getX500name(), subjectData.getPublicKey());
             X509CertificateHolder certHolder = certGen.build(contentSigner);
             JcaX509CertificateConverter certConverter = new JcaX509CertificateConverter();
             certConverter = certConverter.setProvider(new BouncyCastleProvider());
+            System.out.println("ANJAAAAAAAAPI");
+
             return certConverter.getCertificate(certHolder);
         } catch (IllegalArgumentException | IllegalStateException | OperatorCreationException | CertificateException e) {
             e.printStackTrace();
@@ -169,7 +175,7 @@ public class GenerateCertificateService {
 
     private void savePrivateKey(X509Certificate certificate,KeyPair keyPair){
         try {
-            JcaPEMWriter pemWriter = new JcaPEMWriter(new FileWriter("certificates/" + certificate.getSerialNumber() + ".key"));
+            JcaPEMWriter pemWriter = new JcaPEMWriter(new FileWriter("src/main/java/com/ib/ib/certificates/" + certificate.getSerialNumber() + ".key"));
             pemWriter.writeObject(keyPair.getPrivate());
             pemWriter.close();
         } catch (IOException e) {
@@ -180,7 +186,7 @@ public class GenerateCertificateService {
     private void saveCertificate(X509Certificate certificate){
         try {
             X509CertificateHolder certHolder = new JcaX509CertificateHolder(certificate);
-            FileOutputStream fos = new FileOutputStream("certificates/" + certificate.getSerialNumber() + ".crt");
+            FileOutputStream fos = new FileOutputStream("src/main/java/com/ib/ib/certificates/" + certificate.getSerialNumber() + ".crt");
             fos.write(certHolder.getEncoded());
             fos.close();
         } catch (CertificateEncodingException | IOException e) {
@@ -190,7 +196,7 @@ public class GenerateCertificateService {
 
     public PrivateKey getPrivateKey(String certificateSN) {
         try {
-            File keyFile = new File("certificates/" + new BigInteger(certificateSN.replace("-", ""), 16) + ".key");
+            File keyFile = new File("src/main/java/com/ib/ib/certificates/" + new BigInteger(certificateSN.replace("-", ""), 16) + ".key");
             PEMParser pemParser = new PEMParser(new FileReader(keyFile));
             Object obj = pemParser.readObject();
             pemParser.close();

@@ -27,7 +27,7 @@ public class Certificate {
     private LocalDateTime validFrom;
 
     private LocalDateTime validTo;
-
+    @Lob
     private String publicKey;
 
     private byte[] digitalSignature;

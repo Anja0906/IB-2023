@@ -27,6 +27,14 @@ public class User {
     }
 
 
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
+    }
+
     public Integer getId() {return id;}
     public void setId(Integer id) {this.id = id;}
 
