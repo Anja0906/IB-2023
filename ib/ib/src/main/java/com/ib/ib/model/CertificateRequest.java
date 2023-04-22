@@ -26,14 +26,6 @@ public class CertificateRequest {
 
 
     public CertificateRequest() {}
-    public CertificateRequest(Certificate issuer, User issuedTo, CertificateType certificateType, CertificateState status, String reason) {
-        this.issuer          = issuer;
-        this.issuedTo        = issuedTo;
-        this.certificateType = certificateType;
-        this.status          = status;
-        this.reason          = reason;
-    }
-
     public CertificateRequest(Certificate issuer, User issuedTo, CertificateType certificateType, CertificateState status, String reason,Integer durationInMonths) {
         this.issuer           = issuer;
         this.issuedTo         = issuedTo;

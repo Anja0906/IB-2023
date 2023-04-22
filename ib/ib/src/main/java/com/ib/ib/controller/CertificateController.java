@@ -5,7 +5,9 @@ import com.ib.ib.DTO.CertificateDTO;
 import com.ib.ib.DTO.CertificateRequestDTO;
 import com.ib.ib.model.CertificateRequest;
 import com.ib.ib.model.User;
+import com.ib.ib.model.*;
 import com.ib.ib.service.CertificateService;
+import com.ib.ib.service.GenerateCertificateService;
 import com.ib.ib.service.RequestService;
 import com.ib.ib.service.UserService;
 import jdk.jshell.spi.ExecutionControl;
@@ -14,10 +16,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
-
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @CrossOrigin
 @RestController
@@ -26,13 +27,16 @@ public class CertificateController {
     @Autowired
     CertificateService certificateService;
     @Autowired
+    GenerateCertificateService generateCertificateService;
+    @Autowired
     UserService userService;
     @Autowired
     RequestService requestService;
 
-    public CertificateController(CertificateService certificateService, RequestService requestService) {
+    public CertificateController(CertificateService certificateService, RequestService requestService, GenerateCertificateService generateCertificateService) {
         this.certificateService = certificateService;
         this.requestService     = requestService;
+        this.generateCertificateService = generateCertificateService;
     }
 
     @GetMapping
@@ -63,5 +67,19 @@ public class CertificateController {
             certificateRequestDTOS.add(new CertificateRequestDTO(certReq));
         }
         return new ResponseEntity<>(certificateRequestDTOS, HttpStatus.OK);
+    }
+
+    @PostMapping("/new")
+    public ResponseEntity<?> createCertificate(@AuthenticationPrincipal Object principal, @RequestBody CertificateRequestDTO requestDTO) throws Exception {
+        User user = userService.getUserByPrincipal(principal);
+        if (!requestDTO.getType().equals(CertificateType.END) && !requestDTO.getType().equals(CertificateType.INTERMEDIATE) && !requestDTO.getType().equals(CertificateType.ROOT))
+            return new ResponseEntity<>("Bad request body", HttpStatus.BAD_REQUEST);
+        if (requestDTO.getType().equals(CertificateType.END) || requestDTO.getType().equals(CertificateType.INTERMEDIATE)){
+            if(requestDTO.getIssuerSN().isEmpty()){
+                return new ResponseEntity<>("Bad request body", HttpStatus.BAD_REQUEST);
+            }
+        }
+        CertificateRequest newRequest = this.certificateService.createRequest(requestDTO, user);
+        return new ResponseEntity<>(new CertificateRequestDTO(newRequest), HttpStatus.OK);
     }
 }

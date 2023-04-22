@@ -4,6 +4,7 @@ import com.ib.ib.model.*;
 import com.ib.ib.model.Certificate;
 import com.ib.ib.repository.CertificateRepository;
 import com.ib.ib.repository.UserRepository;
+import com.sun.mail.iap.ByteArray;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x500.X500NameBuilder;
 import org.bouncycastle.asn1.x500.style.BCStyle;
@@ -14,6 +15,7 @@ import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
 import org.bouncycastle.cert.jcajce.JcaX509v3CertificateBuilder;
 import org.bouncycastle.jcajce.provider.asymmetric.RSA;
 import org.bouncycastle.jce.X509KeyUsage;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.openssl.PEMKeyPair;
 import org.bouncycastle.openssl.PEMParser;
 import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
@@ -53,7 +55,7 @@ public class GenerateCertificateService {
         this.certificateRepository  = certificateRepository;
     }
 
-    private KeyPair generateKeys() {
+    public KeyPair generateKeys() {
         try {
             KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
             SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN");
@@ -68,7 +70,7 @@ public class GenerateCertificateService {
     public X509Certificate generateCertificate(SubjectData subjectData, IssuerData issuerData) {
         try {
             JcaContentSignerBuilder builder = new JcaContentSignerBuilder("SHA256WithRSAEncryption");
-            builder = builder.setProvider("BC");
+            builder = builder.setProvider(new BouncyCastleProvider());
             ContentSigner contentSigner = builder.build(issuerData.getPrivateKey());
             X509v3CertificateBuilder certGen = new JcaX509v3CertificateBuilder(
                     issuerData.getX500name(), new BigInteger(subjectData.getSerialNumber()),
@@ -77,7 +79,7 @@ public class GenerateCertificateService {
                     subjectData.getX500name(), subjectData.getPublicKey());
             X509CertificateHolder certHolder = certGen.build(contentSigner);
             JcaX509CertificateConverter certConverter = new JcaX509CertificateConverter();
-            certConverter = certConverter.setProvider("BC");
+            certConverter = certConverter.setProvider(new BouncyCastleProvider());
             return certConverter.getCertificate(certHolder);
         } catch (IllegalArgumentException | IllegalStateException | OperatorCreationException | CertificateException e) {
             e.printStackTrace();
@@ -127,7 +129,7 @@ public class GenerateCertificateService {
     public Certificate createCertificate(CertificateRequest certificateRequest, KeyPair keyPair) throws Exception {
         LocalDateTime validTo = LocalDateTime.now();
         if(certificateRequest.getCertificateType() == CertificateType.ROOT){
-            validTo.plusYears(certificateRequest.getDurationInMonths());
+            validTo.plusMonths(certificateRequest.getDurationInMonths());
         }else{
             validTo = getEndDate(certificateRequest.getIssuer(),certificateRequest.getCertificateType(),certificateRequest.getDurationInMonths());
         }
@@ -137,11 +139,12 @@ public class GenerateCertificateService {
         Signature signature = Signature.getInstance("SHA256withRSA");
         signature.initSign(keyPair.getPrivate());
         signature.update(data);
+        String bane = "bane";
         byte[] digitalSignature = signature.sign();
         Certificate certificate = new Certificate(UUID.randomUUID().toString(),certificateRequest.getIssuer(),
                 "SHA256WithRSAEncryption",certificateRequest.getIssuedTo(),
                                       LocalDateTime.now(),validTo,
-                                      keyPair.getPublic().toString(),digitalSignature,
+                                      keyPair.getPublic().toString(), bane.getBytes(),
                                    true,certificateRequest.getCertificateType());
 
         SubjectData subjectData = generateSubjectData(certificate);
