@@ -8,23 +8,15 @@ import com.ib.ib.repository.UserRepository;
 import jdk.jshell.spi.ExecutionControl;
 import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.oauth2.core.oidc.OidcIdToken;
-import org.springframework.security.oauth2.core.oidc.OidcUserInfo;
-import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class UserService {
@@ -83,6 +75,33 @@ public class UserService {
 
         RestTemplate restTemplate = new RestTemplate();
         HashMap<String, String> result = restTemplate.postForObject("https://dev-uox28mbzk3p270l1.us.auth0.com/oauth/token", request, HashMap.class);
+
+        return result.get("access_token");
+    }
+
+    public String getUserApiToken(String oneTimeCode, String redirectUrl) {
+        /*
+        This method is used to log in user by his one-time code.
+         */
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        JSONObject requestBody = new JSONObject();
+        requestBody.put("client_id", "okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n");
+        requestBody.put("client_secret", "OMfcJyR-DSJRRdd-L0AQQnxNeohhNfIv3_bOUTZgfVGQjKLFlHlKjh6k58hJnHmL");
+        requestBody.put("code", oneTimeCode);
+        requestBody.put("audience", "localhost");
+        requestBody.put("grant_type", "authorization_code");
+        requestBody.put("redirect_uri", redirectUrl);
+
+        HttpEntity<String> request = new HttpEntity<String>(requestBody.toString(), headers);
+
+        RestTemplate restTemplate = new RestTemplate();
+        HashMap<String, String> result = restTemplate.postForObject(
+                "https://dev-uox28mbzk3p270l1.us.auth0.com/oauth/token",
+                request,
+                HashMap.class
+        );
 
         return result.get("access_token");
     }
