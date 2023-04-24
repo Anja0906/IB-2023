@@ -1,0 +1,9 @@
+<a *ngIf="userService.user.value == null" [href]="
+'https://' + 'dev-uox28mbzk3p270l1.us.auth0.com' + '/authorize?audience=localhost&response_type=code&client_id=' + 'okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n' + '&redirect_uri=' + 
+encodeURIComponent('http://localhost:4200') + 
+'&scope=' +
+encodeURIComponent('email profile openid')">Sign In</a>
+<a *ngIf="userService.user.value" [href]="'https://' + 'dev-uox28mbzk3p270l1.us.auth0.com' + '/v2/logout?client_id=' +
+ 'okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n' + '&' +
+ 'returnTo=' + encodeURIComponent('http://localhost:4200')">Sign out from <b>{{userService.user.value.name}}</b></a>
+<img *ngIf="userService.user.value?.imgSrc" [src]="userService.user.value?.imgSrc"/>
