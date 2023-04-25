@@ -10,7 +10,6 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.authentication.event.AuthenticationSuccessEvent;
-import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 
 @Configuration
 public class SecurityEventsConfiguration {
@@ -28,6 +27,6 @@ public class SecurityEventsConfiguration {
     @EventListener(AuthenticationSuccessEvent.class)
     public void onSuccessfulLogin(AuthenticationSuccessEvent event) throws ExecutionControl.NotImplementedException, JsonProcessingException {
         var user = userService.getUserByPrincipal(event.getAuthentication().getPrincipal());
-        System.out.println(user.getEmail() + " logged in. IsAdmin = " + user.IsAdministrator());
+        System.out.println(user.getEmail() + " logged in. IsAdmin = " + user.getIsAdministrator());
     }
 }

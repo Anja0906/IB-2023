@@ -1,0 +1,44 @@
+.user-panel {
+    max-width: 30vw;
+    width: 20vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-panel-anchor {
+    position: relative;
+}
+
+.user-panel-name {
+    width: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.user-panel-img {
+    height: 10vh;
+    margin-right: 1vh;
+}
+
+.user-panel-inner {
+    position: absolute;
+    height: 10vh;
+    width: 100%;
+    bottom: -10vh;
+    background-color: #666A7E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #000; /* Change this to set the color of the triangle */
+  margin: 5vh 2vh;
+}

@@ -43,7 +43,7 @@ public class User {
     public String getTelephoneNumber() {return telephoneNumber;}
     public void setTelephoneNumber(String telephoneNumber) {this.telephoneNumber = telephoneNumber;}
 
-    public Boolean IsAdministrator() {return isAdmin;}
+    public Boolean getIsAdministrator() {return isAdmin;}
 
     @Override
     public String toString() {

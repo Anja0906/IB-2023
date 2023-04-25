@@ -3,7 +3,6 @@ package com.ib.ib.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ib.ib.DTO.CertificateDTO;
 import com.ib.ib.DTO.CertificateRequestDTO;
-import com.ib.ib.model.Certificate;
 import com.ib.ib.model.CertificateRequest;
 import com.ib.ib.model.User;
 import com.ib.ib.service.CertificateService;
@@ -14,12 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.oidc.user.OidcUser;
-import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 @CrossOrigin
@@ -59,7 +55,7 @@ public class CertificateController {
     @CrossOrigin
     public ResponseEntity<?> getAllCertificateRequestsForUser(@PathVariable("id") Integer id, @AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException {
         User user = userService.getUserByPrincipal(principal);
-        if (!user.IsAdministrator()) {
+        if (!user.getIsAdministrator()) {
             return new ResponseEntity<>("Only admin can access this method!", HttpStatus.FORBIDDEN);
         }
 

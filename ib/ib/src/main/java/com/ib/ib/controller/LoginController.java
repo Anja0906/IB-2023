@@ -1,6 +1,9 @@
 package com.ib.ib.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.ib.ib.model.User;
 import com.ib.ib.service.UserService;
+import jdk.jshell.spi.ExecutionControl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +19,7 @@ import java.util.Map;
  * Controller for the home page.
  */
 @Controller
-public class HomeController {
+public class LoginController {
     @Autowired
     UserService userService;
 
@@ -33,6 +36,13 @@ public class HomeController {
     public ResponseEntity<?> returnToken(@RequestBody Map<String, Object> requestBody) {
         String code = (String) requestBody.get("code");
         String url = (String) requestBody.get("url");
-        return  new ResponseEntity<>(userService.getUserApiToken(code, url), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getUserApiToken(code, url), HttpStatus.OK);
+    }
+
+    @GetMapping("/api/user")
+    @CrossOrigin
+    public ResponseEntity<?> returnToken(@AuthenticationPrincipal Object principal) throws JsonProcessingException, ExecutionControl.NotImplementedException {
+        User user = userService.getUserByPrincipal(principal);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }
