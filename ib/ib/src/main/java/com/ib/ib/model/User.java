@@ -44,6 +44,14 @@ public class User {
     public void setTelephoneNumber(String telephoneNumber) {this.telephoneNumber = telephoneNumber;}
 
     public Boolean getIsAdministrator() {return isAdmin;}
+    
+    /**
+     * @deprecated I accidentally named it not as code style require, lol. Please use getIsAdmin...
+     */
+    @Deprecated
+    public Boolean IsAdministrator() {
+        return isAdmin;
+    }
 
     @Override
     public String toString() {
