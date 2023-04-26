@@ -1,0 +1,13 @@
+.nav-bar {
+    background-color: #666A7E;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-bar-img {
+    height: 8vh;
+    display: block;
+    padding: 1vh;
+}

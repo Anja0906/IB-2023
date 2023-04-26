@@ -34,3 +34,48 @@ ib/ib/.vscode/
 
 # Exclude application properties file
 ib/ib/application.properties
+
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+ib-front/ib-front/dist
+ib-front/ib-front/tmp
+ib-front/ib-front/out-tsc
+ib-front/ib-front/bazel-out
+
+# Node
+ib-front/ib-front/node_modules
+ib-front/ib-front/npm-debug.log
+ib-front/ib-front/yarn-error.log
+
+# IDEs and editors
+ib-front/ib-front/.idea/
+ib-front/ib-front/.project
+ib-front/ib-front/.classpath
+ib-front/ib-front/.c9/
+ib-front/ib-front/*.launch
+ib-front/ib-front/.settings/
+ib-front/ib-front/*.sublime-workspace
+
+# Visual Studio Code
+ib-front/ib-front/.vscode/*
+ib-front/ib-front/!.vscode/settings.json
+ib-front/ib-front/!.vscode/tasks.json
+ib-front/ib-front/!.vscode/launch.json
+ib-front/ib-front/!.vscode/extensions.json
+ib-front/ib-front/.history/*
+
+# Miscellaneous
+ib-front/ib-front/.angular/cache
+ib-front/ib-front/.sass-cache/
+ib-front/ib-front/connect.lock
+ib-front/ib-front/coverage
+ib-front/ib-front/libpeerconnection.log
+ib-front/ib-front/testem.log
+ib-front/ib-front/typings
+
+# System files
+ib-front/ib-front/.DS_Store
+ib-front/ib-front/Thumbs.db
+ib-front/ib-front/debug.log

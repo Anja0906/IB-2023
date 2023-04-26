@@ -40,6 +40,7 @@ public class CertificateController {
     }
 
     @GetMapping
+    @CrossOrigin
     public ResponseEntity<List<CertificateDTO>> getCertificates(@AuthenticationPrincipal Object principal) throws JsonProcessingException, ExecutionControl.NotImplementedException {
         User user = userService.getUserByPrincipal(principal);
         List<CertificateDTO> allCertificates = this.certificateService.getAll();
@@ -49,15 +50,17 @@ public class CertificateController {
 
 
     @GetMapping(value = "/valid/{id}")
+    @CrossOrigin
     public ResponseEntity<Boolean> getCertificateValidation(
             @PathVariable("id")Integer id) throws Exception {
         boolean isValid = this.certificateService.isValid(id);
         return new ResponseEntity<>(isValid, HttpStatus.OK);
     }
     @GetMapping(value="/requests/overview/{id}")
+    @CrossOrigin
     public ResponseEntity<?> getAllCertificateRequestsForUser(@PathVariable("id") Integer id, @AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException {
         User user = userService.getUserByPrincipal(principal);
-        if (!user.IsAdministrator()) {
+        if (!user.getIsAdministrator()) {
             return new ResponseEntity<>("Only admin can access this method!", HttpStatus.FORBIDDEN);
         }
 

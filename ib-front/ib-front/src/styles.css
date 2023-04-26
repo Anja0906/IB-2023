@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    background: linear-gradient(210.33deg, rgba(73, 65, 109, 0.44) -5.89%, rgba(0, 0, 0, 0) 74.22%), linear-gradient(142.08deg, #000000 -13.48%, rgba(140, 146, 172, 0) 76.45%), #49416D;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Open Sans', cursive;
+}
+
+body {
+    margin: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Monoton&family=Open+Sans:wght@400;800&display=swap');
+
+/* font-family: 'Black Ops One', cursive;
+font-family: 'Monoton', cursive;
+font-family: 'Open Sans', sans-serif; */
