@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button-component',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./button-component.component.css']
 })
 export class ButtonComponentComponent {
-
+  @Input() loading: boolean = false;
+  @Input() disabled: boolean = false;
 }

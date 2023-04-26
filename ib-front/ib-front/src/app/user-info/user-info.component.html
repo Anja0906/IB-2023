@@ -1,4 +1,4 @@
-<app-button-component *ngIf="userService.user.value == null" (click)="userService.onSignUp()">Sign In</app-button-component>
+<app-button-component *ngIf="userService.user.value == null" (click)="userService.onSignUp()" [loading]="userService.loading.value">Sign In</app-button-component>
 
 <div class="user-panel-anchor" (mouseenter)="hover = true" (mouseleave)="hover = false">
     <div class="user-panel" *ngIf="userService.user.value">

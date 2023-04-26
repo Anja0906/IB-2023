@@ -43,7 +43,7 @@ const scope = encodeURIComponent('email profile openid');
 const signInUrl = `${domain}/authorize?audience=${audience}&response_type=code&client_id=${clientId}&redirect_uri=${redirectUrlEnc}&scope=${scope}`;
 
 const returnToUrl = redirectUrl;
-const logOutUrl = `${domain}//v2/logout?client_id=${clientId}&returnTo=${returnToUrl}`;
+const logOutUrl = `${domain}/v2/logout?client_id=${clientId}&returnTo=${returnToUrl}`;
 
 const serverUrl = 'http://localhost:8080';
 const logInUrl = serverUrl + '/front/login';
@@ -60,6 +60,8 @@ export class AuthenticationService {
 export class UserService {
   // Monitor parametres, after getting one-time code as parameter log in user and get all it's info from both Auth0 and Spring
   user: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
+  // It is true until all User data is present or something fails
+  loading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private auth: AuthenticationService, private route: ActivatedRoute, private http: HttpClient, private router: Router) {
     this.route.queryParams.subscribe(this.checkParams);
@@ -70,13 +72,14 @@ export class UserService {
   checkParams = (params: { [x: string]: any; }) => {
     // When we get one-time code we need to send it to Spring and get JWT tokens
     if (params['code']) {
+      this.loading.next(true);
       this.http.post(
         logInUrl,
         { code: params['code'], url: redirectUrl },
         { responseType: 'text' }
       ).subscribe({
         next: (token)=>this.auth.token.next(token),
-        error: console.error
+        error: this.handleError
       }).add(this.routerRemoveParams);
     }
   }
@@ -93,8 +96,9 @@ export class UserService {
           auth0: auth0UserInfo,
           spring: springUserInfo
         })
+        this.loading.next(false);
       },
-      error: console.error
+      error: this.handleError
     });
   }
 
@@ -107,10 +111,19 @@ export class UserService {
 
   onSignUp() {
     window.location.href = signInUrl;
+    this.loading.next(true);
   }
 
   onLogOut() {
+    this.user.next(null);
+    this.auth.token.next(null);
     window.location.href = logOutUrl;
+    this.loading.next(false);
+  }
+
+  handleError = (error: any) => {
+    console.error(error);
+    this.loading.next(false);
   }
 }
 
