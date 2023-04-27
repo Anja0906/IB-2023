@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dc9ce04-11ff-418c-8b5a-6feb5675ff43" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/DTO/CertificateRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/DTO/CertificateRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/certificates/268391793051087879553137022219651972818.crt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/certificates/49708381723474379552910565018262012100.crt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/certificates/49708381723474379552910565018262012100.key" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/model/Certificate.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/model/Certificate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/model/CertificateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/model/CertificateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/repository/CertificateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/repository/CertificateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/repository/RequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/repository/RequestRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/CertificateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/CertificateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/GenerateCertificateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/GenerateCertificateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="8dc9ce04-11ff-418c-8b5a-6feb5675ff43" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +84,7 @@
       <workItem from="1682160801236" duration="665000" />
       <workItem from="1682161489494" duration="9385000" />
       <workItem from="1682587538011" duration="10750000" />
-      <workItem from="1682625160923" duration="1139000" />
+      <workItem from="1682625160923" duration="1373000" />
     </task>
     <servers />
   </component>
