@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface CertificateRepository extends JpaRepository<Certificate, Integer> {
 
     Certificate findCertificateById(Integer id);
-    Certificate findCertificateByIssuerSerialNumber(String serialNumber);
+    Certificate findCertificateBySerialNumber(String serialNumber);
     @Query("select c.issuedTo from Certificate c where c.id=:id")
     User getUserByCertificateId(Integer id);
     Page<Certificate> findAll(Pageable pageable);

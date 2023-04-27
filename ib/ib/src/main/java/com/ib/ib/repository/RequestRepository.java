@@ -14,5 +14,5 @@ public interface RequestRepository extends JpaRepository<CertificateRequest, Int
 
     @Query("select u.id from CertificateRequest cr inner join Certificate c on cr.issuer=c " +
             "inner join User u on c.issuedTo.id=u.id where cr.id=:requestId")
-    Long getIssuerCertificateUserIdByRequestId(Integer requestId);
+    Integer getIssuerCertificateUserIdByRequestId(Integer requestId);
 }

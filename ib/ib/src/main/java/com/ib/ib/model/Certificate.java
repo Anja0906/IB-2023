@@ -29,7 +29,7 @@ public class Certificate {
     private LocalDateTime validTo;
     @Lob
     private String publicKey;
-
+    @Lob
     private byte[] digitalSignature;
 
     private boolean isValid;

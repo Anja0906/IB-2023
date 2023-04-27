@@ -7,7 +7,7 @@ public class CertificateRequestDTO {
     private Integer id;
     private String issuerSN;
     private CertificateType type;
-    private Integer durationInMonths;
+    private long durationInMonths;
 
     public CertificateRequestDTO(CertificateRequest certificateRequest){
         this.id = certificateRequest.getId();
@@ -36,11 +36,11 @@ public class CertificateRequestDTO {
     public CertificateType getType() {return type;}
     public void setType(CertificateType type) {this.type = type;}
 
-    public Integer getDurationInMonths() {
+    public long getDurationInMonths() {
         return durationInMonths;
     }
 
-    public void setDurationInMonths(Integer durationInMonths) {
+    public void setDurationInMonths(long durationInMonths) {
         this.durationInMonths = durationInMonths;
     }
 

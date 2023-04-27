@@ -22,7 +22,7 @@ public class CertificateRequest {
     @Column
     private CertificateState status;
     private String reason;
-    private Integer durationInMonths;
+    private long durationInMonths;
 
 
     public CertificateRequest() {}
@@ -35,8 +35,8 @@ public class CertificateRequest {
         this.durationInMonths = durationInMonths;
     }
 
-    public Integer getDurationInMonths() {return durationInMonths;}
-    public void setDurationInMonths(Integer durationInMonths) {this.durationInMonths = durationInMonths;}
+    public long getDurationInMonths() {return durationInMonths;}
+    public void setDurationInMonths(long durationInMonths) {this.durationInMonths = durationInMonths;}
 
     public CertificateState getStatus() {return status;}
     public void setStatus(CertificateState status) {this.status = status;}

@@ -43,7 +43,7 @@ import java.util.UUID;
 @Service
 public class GenerateCertificateService {
 
-    private static String certificatesDir = "certificates";
+    private static String certificatesDir = "certificates/";
 
     private UserRepository userRepository;
     private CertificateRepository certificateRepository;
@@ -69,13 +69,9 @@ public class GenerateCertificateService {
 
     public X509Certificate generateCertificate(SubjectData subjectData, IssuerData issuerData) {
         try {
-            System.out.println("ANJAAAAAAAAPI");
             JcaContentSignerBuilder builder = new JcaContentSignerBuilder("SHA256WithRSAEncryption");
             builder = builder.setProvider(new BouncyCastleProvider());
             ContentSigner contentSigner = builder.build(issuerData.getPrivateKey());
-            System.out.println("ANJAAAAAAAAPI");
-            System.out.println(subjectData.getSerialNumber());
-
             X509v3CertificateBuilder certGen = new JcaX509v3CertificateBuilder(
                     issuerData.getX500name(), new BigInteger(subjectData.getSerialNumber().replace("-", ""), 16),
                     Date.from(subjectData.getStartDate().atStartOfDay(ZoneId.systemDefault()).toInstant()),
@@ -84,7 +80,6 @@ public class GenerateCertificateService {
             X509CertificateHolder certHolder = certGen.build(contentSigner);
             JcaX509CertificateConverter certConverter = new JcaX509CertificateConverter();
             certConverter = certConverter.setProvider(new BouncyCastleProvider());
-            System.out.println("ANJAAAAAAAAPI");
 
             return certConverter.getCertificate(certHolder);
         } catch (IllegalArgumentException | IllegalStateException | OperatorCreationException | CertificateException e) {
@@ -105,7 +100,7 @@ public class GenerateCertificateService {
                             certificate.getValidTo().toLocalDate());
     }
 
-    public LocalDateTime getEndDate(Certificate issuer, CertificateType type,int duration) throws Exception {
+    public LocalDateTime getEndDate(Certificate issuer, CertificateType type,long duration) throws Exception {
         if (type == CertificateType.END && duration <= 3){
             if(issuer.getValidTo().isBefore(LocalDateTime.now().plusMonths(3))) {
                 throw new Exception();
@@ -135,7 +130,7 @@ public class GenerateCertificateService {
     public Certificate createCertificate(CertificateRequest certificateRequest, KeyPair keyPair) throws Exception {
         LocalDateTime validTo = LocalDateTime.now();
         if(certificateRequest.getCertificateType() == CertificateType.ROOT){
-            validTo.plusMonths(certificateRequest.getDurationInMonths());
+            validTo = validTo.plusMonths(certificateRequest.getDurationInMonths());
         }else{
             validTo = getEndDate(certificateRequest.getIssuer(),certificateRequest.getCertificateType(),certificateRequest.getDurationInMonths());
         }
@@ -145,12 +140,11 @@ public class GenerateCertificateService {
         Signature signature = Signature.getInstance("SHA256withRSA");
         signature.initSign(keyPair.getPrivate());
         signature.update(data);
-        String bane = "bane";
         byte[] digitalSignature = signature.sign();
         Certificate certificate = new Certificate(UUID.randomUUID().toString(),certificateRequest.getIssuer(),
                 "SHA256WithRSAEncryption",certificateRequest.getIssuedTo(),
                                       LocalDateTime.now(),validTo,
-                                      keyPair.getPublic().toString(), bane.getBytes(),
+                                      keyPair.getPublic().toString(), digitalSignature,
                                    true,certificateRequest.getCertificateType());
 
         SubjectData subjectData = generateSubjectData(certificate);
@@ -175,7 +169,9 @@ public class GenerateCertificateService {
 
     private void savePrivateKey(X509Certificate certificate,KeyPair keyPair){
         try {
-            JcaPEMWriter pemWriter = new JcaPEMWriter(new FileWriter("src/main/java/com/ib/ib/certificates/" + certificate.getSerialNumber() + ".key"));
+            File convertFile = new File(certificatesDir + certificate.getSerialNumber() + ".key");
+            convertFile.createNewFile();
+            JcaPEMWriter pemWriter = new JcaPEMWriter(new FileWriter(convertFile));
             pemWriter.writeObject(keyPair.getPrivate());
             pemWriter.close();
         } catch (IOException e) {
@@ -185,8 +181,10 @@ public class GenerateCertificateService {
 
     private void saveCertificate(X509Certificate certificate){
         try {
+            File convertFile = new File(certificatesDir + certificate.getSerialNumber() + ".crt");
+            convertFile.createNewFile();
             X509CertificateHolder certHolder = new JcaX509CertificateHolder(certificate);
-            FileOutputStream fos = new FileOutputStream("src/main/java/com/ib/ib/certificates/" + certificate.getSerialNumber() + ".crt");
+            FileOutputStream fos = new FileOutputStream(convertFile);
             fos.write(certHolder.getEncoded());
             fos.close();
         } catch (CertificateEncodingException | IOException e) {
@@ -196,7 +194,7 @@ public class GenerateCertificateService {
 
     public PrivateKey getPrivateKey(String certificateSN) {
         try {
-            File keyFile = new File("src/main/java/com/ib/ib/certificates/" + new BigInteger(certificateSN.replace("-", ""), 16) + ".key");
+            File keyFile = new File(certificatesDir + new BigInteger(certificateSN.replace("-", ""), 16) + ".key");
             PEMParser pemParser = new PEMParser(new FileReader(keyFile));
             Object obj = pemParser.readObject();
             pemParser.close();
