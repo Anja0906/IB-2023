@@ -49,7 +49,8 @@ public class CertificateRequestDTO {
         return "CertificateRequestDTO{" +
                 "id=" + id +
                 ", issuerSN='" + issuerSN + '\'' +
-                ", type='" + type + '\'' +
+                ", type=" + type +
+                ", durationInMonths=" + durationInMonths +
                 '}';
     }
 }

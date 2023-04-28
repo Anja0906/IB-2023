@@ -16,9 +16,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.ByteArrayInputStream;
+import java.math.BigInteger;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @CrossOrigin
 @RestController
@@ -82,6 +87,16 @@ public class CertificateController {
         boolean isValid = this.certificateService.isValid(id);
         return new ResponseEntity<>(isValid, HttpStatus.OK);
     }
+
+    @PostMapping("/validUploaded")
+    public ResponseEntity<?> checkIsValid(@RequestParam("file") MultipartFile file) throws Exception {
+        if (!file.getContentType().equals("application/x-x509-ca-cert")) {
+            return ResponseEntity.badRequest().body("Invalid file type");
+        }
+        byte[] bytes = file.getBytes();
+        return new ResponseEntity<>(this.certificateService.validateByIssuerSN(bytes), HttpStatus.OK);
+    }
+
     @GetMapping(value="/requests/overview/{id}")
     @CrossOrigin
     public ResponseEntity<?> getAllCertificateRequestsForUser(@PathVariable("id") Integer id, @AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException {

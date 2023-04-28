@@ -14,9 +14,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.math.BigInteger;
 import java.security.KeyPair;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -188,6 +191,30 @@ CertificateService {
 
     public Certificate findById(Integer id){
         return certificateRepository.findById(id).get();
+    }
+
+    BigInteger convertToX509Certificate(byte[] certificateBytes) throws Exception {
+        CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(certificateBytes);
+        X509Certificate x509Certificate = (X509Certificate) certificateFactory.generateCertificate(byteArrayInputStream);
+        return x509Certificate.getSerialNumber();
+    }
+
+    public boolean validateByIssuerSN(byte[] bytes) throws Exception {
+        BigInteger issuerSNBigInt = this.convertToX509Certificate(bytes);
+        Certificate certificate = null;
+        List<Certificate> certificates = this.certificateRepository.findAll();
+        for (Certificate cert:certificates) {
+            if (issuerSNBigInt.equals(new BigInteger(cert.getSerialNumber().replace("-", ""), 16))){
+                certificate = cert;
+            }
+        }
+        if (certificate==null){
+            return false;
+        }
+        else {
+            return certificate.isValid();
+        }
     }
 }
 
