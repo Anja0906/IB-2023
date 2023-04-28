@@ -7,7 +7,6 @@ import com.ib.ib.repository.CertificateRepository;
 import com.ib.ib.repository.RequestRepository;
 import com.ib.ib.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
@@ -168,7 +167,6 @@ CertificateService {
                 throw new Exception("The request with the given id doesn't exist");
             }
         }
-
         if (request.get().getStatus()!=CertificateState.PENDING){
             throw new Exception("The request has already been processed");
         }
@@ -177,6 +175,25 @@ CertificateService {
         request.get().setStatus(CertificateState.ACCEPTED);
         this.requestRepository.save(request.get());
         return "Request accepted";
+    }
+
+    public String accept(Integer id, User issuer) throws Exception {
+        Optional<CertificateRequest> request = this.requestRepository.findById(id);
+        if(request.isEmpty()) throw new Exception("The request with the given id doesn't exist");
+
+        if(issuer.equals(request.get().getIssuer().getIssuedTo())){
+            if (request.get().getStatus()!=CertificateState.PENDING){
+                throw new Exception("The request has already been processed");
+            }
+            KeyPair keyPair = generateCertificateService.generateKeys();
+            this.generateCertificateService.createCertificate(request.get(), keyPair);
+            request.get().setStatus(CertificateState.ACCEPTED);
+            this.requestRepository.save(request.get());
+            return "Request accepted";
+        }
+        else{
+            throw new Exception("You have no authorities for this request!");
+        }
     }
 
     public Resource download(Certificate certificate){
