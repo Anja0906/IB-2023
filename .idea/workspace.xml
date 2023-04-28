@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dc9ce04-11ff-418c-8b5a-6feb5675ff43" name="Changes" comment="" />
+    <list default="true" id="8dc9ce04-11ff-418c-8b5a-6feb5675ff43" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib/ib/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/GenerateCertificateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/GenerateCertificateService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,6 +90,7 @@
       <workItem from="1682161489494" duration="9385000" />
       <workItem from="1682587538011" duration="10750000" />
       <workItem from="1682625160923" duration="1373000" />
+      <workItem from="1682694327488" duration="681000" />
     </task>
     <servers />
   </component>
