@@ -10,7 +10,5 @@ public class PasswordService {
     @Autowired
     PasswordRepository passwordRepository;
 
-    User findByUserId(Integer id){
-        return passwordRepository.findByUserId(id);
-    }
+    User findByUserId(Integer id){return passwordRepository.findByUserId(id);}
 }

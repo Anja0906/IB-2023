@@ -1,6 +1,6 @@
 package com.ib.ib.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -11,58 +11,50 @@ public class CertificateRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
-
     @ManyToOne
     @JoinColumn(name = "issuer_id")
     private Certificate issuer;
-
     @ManyToOne
     @JoinColumn(name = "issued_to_id")
     private User issuedTo;
-
+    @Column
     private CertificateType certificateType;
+    @Column
+    private CertificateState status;
+    private String reason;
+    private long durationInMonths;
 
-    public CertificateRequest() {
+
+    public CertificateRequest() {}
+    public CertificateRequest(Certificate issuer, User issuedTo, CertificateType certificateType, CertificateState status, String reason,Integer durationInMonths) {
+        this.issuer           = issuer;
+        this.issuedTo         = issuedTo;
+        this.certificateType  = certificateType;
+        this.status           = status;
+        this.reason           = reason;
+        this.durationInMonths = durationInMonths;
     }
 
-    public CertificateRequest(Integer id, Certificate issuer, User issuedTo, CertificateType certificateType) {
-        this.id = id;
-        this.issuer = issuer;
-        this.issuedTo = issuedTo;
-        this.certificateType = certificateType;
-    }
+    public long getDurationInMonths() {return durationInMonths;}
+    public void setDurationInMonths(long durationInMonths) {this.durationInMonths = durationInMonths;}
 
-    public Integer getId() {
-        return id;
-    }
+    public CertificateState getStatus() {return status;}
+    public void setStatus(CertificateState status) {this.status = status;}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public String getReason() {return reason;}
+    public void setReason(String reason) {this.reason = reason;}
 
-    public Certificate getIssuer() {
-        return issuer;
-    }
+    public Integer getId() {return id;}
+    public void setId(Integer id) {this.id = id;}
 
-    public void setIssuer(Certificate issuer) {
-        this.issuer = issuer;
-    }
+    public Certificate getIssuer() {return issuer;}
+    public void setIssuer(Certificate issuer) {this.issuer = issuer;}
 
-    public User getIssuedTo() {
-        return issuedTo;
-    }
+    public User getIssuedTo() {return issuedTo;}
+    public void setIssuedTo(User issuedTo) {this.issuedTo = issuedTo;}
 
-    public void setIssuedTo(User issuedTo) {
-        this.issuedTo = issuedTo;
-    }
-
-    public CertificateType getCertificateType() {
-        return certificateType;
-    }
-
-    public void setCertificateType(CertificateType certificateType) {
-        this.certificateType = certificateType;
-    }
+    public CertificateType getCertificateType() {return certificateType;}
+    public void setCertificateType(CertificateType certificateType) {this.certificateType = certificateType;}
 
     @Override
     public String toString() {
@@ -71,6 +63,8 @@ public class CertificateRequest {
                 ", issuer=" + issuer +
                 ", issuedTo=" + issuedTo +
                 ", certificateType=" + certificateType +
+                ", status=" + status +
+                ", reason='" + reason + '\'' +
                 '}';
     }
 }

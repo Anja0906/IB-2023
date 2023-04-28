@@ -1,0 +1,14 @@
+<app-button-component *ngIf="userService.user.value == null" (click)="userService.onSignUp()" [loading]="userService.loading.value">Sign In</app-button-component>
+
+<div class="user-panel-anchor" (mouseenter)="hover = true" (mouseleave)="hover = false">
+    <div class="user-panel" *ngIf="userService.user.value">
+        <img class="user-panel-img" *ngIf="userService.user.value?.auth0?.picture" [src]="userService.user.value.auth0.picture" />
+        <div class="user-panel-name">{{userService.user.value.spring.email}}</div>
+        <div class="triangle"></div>
+    </div>
+    <div class="user-panel-inner" *ngIf="hover">
+        <app-button-component (click)="userService.onLogOut()">
+            Sign out from
+        </app-button-component>
+    </div>
+</div>
