@@ -3,6 +3,7 @@ package com.ib.ib.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ib.ib.DTO.CertificateDTO;
 import com.ib.ib.DTO.CertificateRequestDTO;
+import com.ib.ib.DTO.DeclineRequestDTO;
 import com.ib.ib.model.CertificateRequest;
 import com.ib.ib.model.User;
 import com.ib.ib.model.*;
@@ -16,9 +17,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.ByteArrayInputStream;
+import java.math.BigInteger;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @CrossOrigin
 @RestController
@@ -47,7 +53,7 @@ public class CertificateController {
         return new ResponseEntity<>(allCertificates, HttpStatus.OK);
     }
 
-    @GetMapping(value="download/{id}")
+    @GetMapping(value="/download/{id}")
     @CrossOrigin
     public ResponseEntity<?> downloadCertificate(@AuthenticationPrincipal Object principal, @PathVariable("id")Integer id) throws JsonProcessingException, ExecutionControl.NotImplementedException {
         User user = userService.getUserByPrincipal(principal);
@@ -62,7 +68,7 @@ public class CertificateController {
         }
     }
 
-    @GetMapping(value="downloadKey/{id}")
+    @GetMapping(value="/downloadKey/{id}")
     @CrossOrigin
     public ResponseEntity<?> downloadKeyFile(@AuthenticationPrincipal Object principal, @PathVariable("id")Integer id) throws JsonProcessingException, ExecutionControl.NotImplementedException {
         User user = userService.getUserByPrincipal(principal);
@@ -82,15 +88,21 @@ public class CertificateController {
         boolean isValid = this.certificateService.isValid(id);
         return new ResponseEntity<>(isValid, HttpStatus.OK);
     }
-    @GetMapping(value="/requests/overview/{id}")
-    @CrossOrigin
-    public ResponseEntity<?> getAllCertificateRequestsForUser(@PathVariable("id") Integer id, @AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException {
-        User user = userService.getUserByPrincipal(principal);
-        if (!user.getIsAdministrator()) {
-            return new ResponseEntity<>("Only admin can access this method!", HttpStatus.FORBIDDEN);
-        }
 
-        List<CertificateRequest> certificateRequests = this.requestService.findAllCertificateRequestsForUser(id);
+    @PostMapping("/validUploaded")
+    public ResponseEntity<?> checkIsValid(@RequestParam("file") MultipartFile file) throws Exception {
+        if (!file.getContentType().equals("application/x-x509-ca-cert")) {
+            return ResponseEntity.badRequest().body("Invalid file type");
+        }
+        byte[] bytes = file.getBytes();
+        return new ResponseEntity<>(this.certificateService.validateByIssuerSN(bytes), HttpStatus.OK);
+    }
+
+    @GetMapping(value="/requests")
+    @CrossOrigin
+    public ResponseEntity<?> getAllCertificateRequestsForUser(@AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException {
+        User user = userService.getUserByPrincipal(principal);
+        List<CertificateRequest> certificateRequests = this.requestService.findAllCertificateRequestsForUser(user.getId());
         List<CertificateRequestDTO> certificateRequestDTOS = new ArrayList<>();
         for(CertificateRequest certReq: certificateRequests){
             certificateRequestDTOS.add(new CertificateRequestDTO(certReq));
@@ -98,6 +110,22 @@ public class CertificateController {
         return new ResponseEntity<>(certificateRequestDTOS, HttpStatus.OK);
     }
 
+    @GetMapping(value="/requests/all")
+    @CrossOrigin
+    public ResponseEntity<?> getAllCertificateRequestsForAdmin(@AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException {
+        User user = userService.getUserByPrincipal(principal);
+        if (user.getIsAdministrator()){
+            List<CertificateRequest> certificateRequests = this.requestService.findAll();
+            List<CertificateRequestDTO> certificateRequestDTOS = new ArrayList<>();
+            for(CertificateRequest certReq: certificateRequests){
+                certificateRequestDTOS.add(new CertificateRequestDTO(certReq));
+            }
+            return new ResponseEntity<>(certificateRequestDTOS, HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>("Only admin can access this method", HttpStatus.BAD_REQUEST);
+        }
+    }
     @PostMapping("/new")
     public ResponseEntity<?> createCertificate(@AuthenticationPrincipal Object principal, @RequestBody CertificateRequestDTO requestDTO) throws Exception {
         User user = userService.getUserByPrincipal(principal);
@@ -110,5 +138,26 @@ public class CertificateController {
         }
         CertificateRequest newRequest = this.certificateService.createRequest(requestDTO, user);
         return new ResponseEntity<>(new CertificateRequestDTO(newRequest), HttpStatus.OK);
+    }
+
+    @PostMapping("/accept/{id}")
+    public ResponseEntity<?> acceptCertificate(@AuthenticationPrincipal Object principal, @PathVariable("id")Integer id) throws ExecutionControl.NotImplementedException, JsonProcessingException {
+        User user = userService.getUserByPrincipal(principal);
+        try {
+            return new ResponseEntity<>(this.certificateService.accept(id, user), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/decline/{id}")
+    public ResponseEntity<?> declineCertificate(@AuthenticationPrincipal Object principal, @PathVariable("id")Integer id, @RequestBody DeclineRequestDTO declineRequestDTO) throws ExecutionControl.NotImplementedException, JsonProcessingException {
+        User user = userService.getUserByPrincipal(principal);
+        try {
+            this.certificateService.declineRequest(id, declineRequestDTO.getReason(), user);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 }

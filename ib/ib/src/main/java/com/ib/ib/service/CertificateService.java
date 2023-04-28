@@ -7,16 +7,18 @@ import com.ib.ib.repository.CertificateRepository;
 import com.ib.ib.repository.RequestRepository;
 import com.ib.ib.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.math.BigInteger;
 import java.security.KeyPair;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -165,7 +167,6 @@ CertificateService {
                 throw new Exception("The request with the given id doesn't exist");
             }
         }
-
         if (request.get().getStatus()!=CertificateState.PENDING){
             throw new Exception("The request has already been processed");
         }
@@ -174,6 +175,25 @@ CertificateService {
         request.get().setStatus(CertificateState.ACCEPTED);
         this.requestRepository.save(request.get());
         return "Request accepted";
+    }
+
+    public String accept(Integer id, User issuer) throws Exception {
+        Optional<CertificateRequest> request = this.requestRepository.findById(id);
+        if(request.isEmpty()) throw new Exception("The request with the given id doesn't exist");
+
+        if(issuer.equals(request.get().getIssuer().getIssuedTo())){
+            if (request.get().getStatus()!=CertificateState.PENDING){
+                throw new Exception("The request has already been processed");
+            }
+            KeyPair keyPair = generateCertificateService.generateKeys();
+            this.generateCertificateService.createCertificate(request.get(), keyPair);
+            request.get().setStatus(CertificateState.ACCEPTED);
+            this.requestRepository.save(request.get());
+            return "Request accepted";
+        }
+        else{
+            throw new Exception("You have no authorities for this request!");
+        }
     }
 
     public Resource download(Certificate certificate){
@@ -188,6 +208,30 @@ CertificateService {
 
     public Certificate findById(Integer id){
         return certificateRepository.findById(id).get();
+    }
+
+    BigInteger convertToX509Certificate(byte[] certificateBytes) throws Exception {
+        CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(certificateBytes);
+        X509Certificate x509Certificate = (X509Certificate) certificateFactory.generateCertificate(byteArrayInputStream);
+        return x509Certificate.getSerialNumber();
+    }
+
+    public boolean validateByIssuerSN(byte[] bytes) throws Exception {
+        BigInteger issuerSNBigInt = this.convertToX509Certificate(bytes);
+        Certificate certificate = null;
+        List<Certificate> certificates = this.certificateRepository.findAll();
+        for (Certificate cert:certificates) {
+            if (issuerSNBigInt.equals(new BigInteger(cert.getSerialNumber().replace("-", ""), 16))){
+                certificate = cert;
+            }
+        }
+        if (certificate==null){
+            return false;
+        }
+        else {
+            return certificate.isValid();
+        }
     }
 }
 
