@@ -7,16 +7,23 @@ import com.ib.ib.repository.CertificateRepository;
 import com.ib.ib.repository.RequestRepository;
 import com.ib.ib.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.math.BigInteger;
 import java.security.KeyPair;
 import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
-public class CertificateService {
+public class
+CertificateService {
+    private static String certificatesDir = "certificates/";
 
     @Autowired
     CertificateRepository certificateRepository;
@@ -167,6 +174,20 @@ public class CertificateService {
         request.get().setStatus(CertificateState.ACCEPTED);
         this.requestRepository.save(request.get());
         return "Request accepted";
+    }
+
+    public Resource download(Certificate certificate){
+        String serialNumber = certificate.getSerialNumber();
+        return new FileSystemResource(certificatesDir + new BigInteger(serialNumber.replace("-", ""), 16) + ".crt");
+    }
+
+    public Resource downloadKey(Certificate certificate){
+        String serialNumber = certificate.getSerialNumber();
+        return new FileSystemResource(certificatesDir + new BigInteger(serialNumber.replace("-", ""), 16) + ".key");
+    }
+
+    public Certificate findById(Integer id){
+        return certificateRepository.findById(id).get();
     }
 }
 
