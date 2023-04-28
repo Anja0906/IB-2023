@@ -47,7 +47,33 @@ public class CertificateController {
         return new ResponseEntity<>(allCertificates, HttpStatus.OK);
     }
 
+    @GetMapping(value="download/{id}")
+    @CrossOrigin
+    public ResponseEntity<?> downloadCertificate(@AuthenticationPrincipal Object principal, @PathVariable("id")Integer id) throws JsonProcessingException, ExecutionControl.NotImplementedException {
+        User user = userService.getUserByPrincipal(principal);
+        Certificate certificate = this.certificateService.findById(id);
+        if (certificate.getIssuedTo().equals(user)){
+            return new ResponseEntity<>(this.certificateService.download(certificate), HttpStatus.OK);
+        } else if (certificate.getIssuer()!=null && certificate.getIssuer().getIssuedTo().equals(user)) {
+            return new ResponseEntity<>(this.certificateService.download(certificate), HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>("You have no authority for this certificate!", HttpStatus.BAD_REQUEST);
+        }
+    }
 
+    @GetMapping(value="downloadKey/{id}")
+    @CrossOrigin
+    public ResponseEntity<?> downloadKeyFile(@AuthenticationPrincipal Object principal, @PathVariable("id")Integer id) throws JsonProcessingException, ExecutionControl.NotImplementedException {
+        User user = userService.getUserByPrincipal(principal);
+        Certificate certificate = this.certificateService.findById(id);
+        if (certificate.getIssuedTo().equals(user)){
+            return new ResponseEntity<>(this.certificateService.downloadKey(certificate), HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>("You have no authority for this .key file!", HttpStatus.BAD_REQUEST);
+        }
+    }
 
     @GetMapping(value = "/valid/{id}")
     @CrossOrigin
