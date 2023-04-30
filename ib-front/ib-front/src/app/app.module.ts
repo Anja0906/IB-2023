@@ -8,30 +8,32 @@ import { AuthenticationService, TokenInterceptor, UserService } from './auth-ser
 import { ButtonComponentComponent } from './button-component/button-component.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { IndexPageComponent } from './index-page/index-page.component';
+import { FormsModule } from '@angular/forms';
+
+import { RecaptchaModule, RecaptchaFormsModule, RecaptchaSettings, RECAPTCHA_SETTINGS } from "ng-recaptcha";
+const globalSettings: RecaptchaSettings = { siteKey: '6LdS680lAAAAAAilDhTT_KiLheEg2bGwsRA2eBeM' };
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponentComponent,
     NavBarComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    IndexPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
-    // Import the module into the application, with configuration
-    // AuthModule.forRoot({
-    //   domain: 'dev-uox28mbzk3p270l1.us.auth0.com',
-    //   clientId: 'okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n',
-    //   authorizationParams: {
-    //     redirect_uri: window.location.origin,
-    //     audience: 'localhost',
-    //     scope: 'email profile openid'
-    //   }
-    // }),
+    HttpClientModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
+    FormsModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }, AuthenticationService, UserService],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }, AuthenticationService, UserService, {
+    provide: RECAPTCHA_SETTINGS,
+    useValue: globalSettings,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
