@@ -9,21 +9,19 @@ public class CertificateRequestDTO {
     private CertificateType type;
     private long durationInMonths;
 
+    public CertificateRequestDTO() {}
     public CertificateRequestDTO(CertificateRequest certificateRequest){
         this.id = certificateRequest.getId();
-        if(certificateRequest.getIssuer() == null){
-            this.issuerSN = "";
-        }else{
+        this.issuerSN = "";
+        if(certificateRequest.getIssuer() != null)
             this.issuerSN = certificateRequest.getIssuer().getId().toString();
-        }
         this.type = certificateRequest.getCertificateType();
         this.durationInMonths = certificateRequest.getDurationInMonths();
     }
-    public CertificateRequestDTO() {}
     public CertificateRequestDTO(Integer id, String issuerSN, CertificateType type, Integer durationInMonths) {
-        this.id         = id;
-        this.issuerSN   = issuerSN;
-        this.type       = type;
+        this.id               = id;
+        this.issuerSN         = issuerSN;
+        this.type             = type;
         this.durationInMonths = durationInMonths;
     }
 

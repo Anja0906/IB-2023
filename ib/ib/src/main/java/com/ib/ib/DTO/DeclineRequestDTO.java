@@ -3,9 +3,7 @@ package com.ib.ib.DTO;
 public class DeclineRequestDTO {
     private String reason;
 
-    public DeclineRequestDTO() {
-    }
-
+    public DeclineRequestDTO() {}
     public DeclineRequestDTO(String reason) {
         this.reason = reason;
     }

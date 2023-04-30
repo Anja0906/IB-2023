@@ -18,7 +18,6 @@ public class RequestService {
     public List<CertificateRequest> findAllCertificateRequestsForUser(Integer id){
         return requestRepository.findAllCertificateRequestsForUser(id);
     }
-
     public List<CertificateRequest> findAll() {
         return requestRepository.findAll();
     }

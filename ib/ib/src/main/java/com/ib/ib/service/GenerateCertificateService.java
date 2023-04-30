@@ -42,7 +42,6 @@ import java.util.UUID;
 public class GenerateCertificateService {
 
     private static String certificatesDir = "certificates/";
-
     private UserRepository userRepository;
     private CertificateRepository certificateRepository;
 
@@ -176,7 +175,6 @@ public class GenerateCertificateService {
             throw new RuntimeException(e);
         }
     }
-
     private void saveCertificate(X509Certificate certificate){
         try {
             File convertFile = new File(certificatesDir + certificate.getSerialNumber() + ".crt");
@@ -186,25 +184,6 @@ public class GenerateCertificateService {
             fos.write(certHolder.getEncoded());
             fos.close();
         } catch (CertificateEncodingException | IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public PrivateKey getPrivateKey(String certificateSN) {
-        try {
-            File keyFile = new File(certificatesDir + new BigInteger(certificateSN.replace("-", ""), 16) + ".key");
-            PEMParser pemParser = new PEMParser(new FileReader(keyFile));
-            Object obj = pemParser.readObject();
-            pemParser.close();
-            JcaPEMKeyConverter converter = new JcaPEMKeyConverter().setProvider("BC");
-            PrivateKey privateKey = null;
-            if (obj instanceof PEMKeyPair) {
-                privateKey = converter.getPrivateKey(((PEMKeyPair) obj).getPrivateKeyInfo());
-            } else if (obj instanceof PrivateKeyInfo) {
-                privateKey = converter.getPrivateKey((PrivateKeyInfo) obj);
-            }
-            return privateKey;
-        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

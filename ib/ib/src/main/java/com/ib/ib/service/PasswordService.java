@@ -9,6 +9,5 @@ import org.springframework.stereotype.Service;
 public class PasswordService {
     @Autowired
     PasswordRepository passwordRepository;
-
     User findByUserId(Integer id){return passwordRepository.findByUserId(id);}
 }

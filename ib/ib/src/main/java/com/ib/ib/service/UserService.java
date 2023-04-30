@@ -44,10 +44,8 @@ public class UserService {
         if (principal == null) return null;
         if (principal instanceof OidcUser) return getUserByAuth0UserId(((OidcUser) principal).getClaimAsString("sub"));
         if (principal instanceof Jwt) return getUserByAuth0UserId(((Jwt) principal).getClaimAsString("sub"));
-        throw new ExecutionControl
-                .NotImplementedException("This type of login is not yet supported. Use Oidc or Jwt instead.");
+        throw new ExecutionControl.NotImplementedException("This type of login is not yet supported. Use Oidc or Jwt instead.");
     }
-
     private User getUserByOidcUser(OidcUser principal) {
         if (principal == null) return null;
         if (findUserByEmail(principal.getEmail()) == null) {

@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-/**
- * Controller for the home page.
- */
 @Controller
 public class LoginController {
     @Autowired
@@ -25,12 +22,10 @@ public class LoginController {
 
     @GetMapping("/")
     public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
-        if (principal != null) {
+        if (principal != null)
             model.addAttribute("profile", principal.getClaims());
-        }
         return "index";
     }
-
     @PostMapping("/front/login")
     @CrossOrigin
     public ResponseEntity<?> returnToken(@RequestBody Map<String, Object> requestBody) {
@@ -38,7 +33,6 @@ public class LoginController {
         String url = (String) requestBody.get("url");
         return new ResponseEntity<>(userService.getUserApiToken(code, url), HttpStatus.OK);
     }
-
     @GetMapping("/api/user")
     @CrossOrigin
     public ResponseEntity<?> returnToken(@AuthenticationPrincipal Object principal) throws JsonProcessingException, ExecutionControl.NotImplementedException {
