@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dc9ce04-11ff-418c-8b5a-6feb5675ff43" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a86c35a4-b205-4813-9455-0f599ba8c65a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a86c35a4-b205-4813-9455-0f599ba8c65a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/DTO/CertificateRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/DTO/CertificateRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/DTO/DeclineRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/DTO/DeclineRequestDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/controller/CertificateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/controller/CertificateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/repository/CertificateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/repository/CertificateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/security/AudienceValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/security/AudienceValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/CertificateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/CertificateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/GenerateCertificateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/GenerateCertificateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/PasswordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/PasswordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/RequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/RequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +100,8 @@
       <workItem from="1682625160923" duration="1373000" />
       <workItem from="1682694327488" duration="681000" />
       <workItem from="1682759864318" duration="11983000" />
-      <workItem from="1682799901922" duration="2683000" />
+      <workItem from="1682799901922" duration="4343000" />
+      <workItem from="1682968111127" duration="439000" />
     </task>
     <servers />
   </component>

@@ -163,10 +163,16 @@ public class CertificateController {
     }
     @PutMapping("/withdraw/{id}")
     @CrossOrigin
-    public void withdrawCertificate(@AuthenticationPrincipal Object principal,@PathVariable("id")Integer id) throws ExecutionControl.NotImplementedException, IOException {
+    public ResponseEntity<?> withdrawCertificate(@AuthenticationPrincipal Object principal,@PathVariable("id")Integer id) throws ExecutionControl.NotImplementedException, IOException {
         User user = userService.getUserByPrincipal(principal);
         Certificate certificate = this.certificateService.findCertificateById(id);
-        if(user.getId().equals(certificate.getIssuedTo().getId()))
+        if(user.getId().equals(certificate.getIssuedTo().getId()) && certificate.getCertificateType() != CertificateType.ROOT){
             this.certificateService.deleteCertificate(certificate);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else if (user.IsAdministrator()) {
+            this.certificateService.deleteCertificate(certificate);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }
