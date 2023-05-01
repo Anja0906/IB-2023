@@ -166,10 +166,7 @@ public class CertificateController {
     public ResponseEntity<?> withdrawCertificate(@AuthenticationPrincipal Object principal,@PathVariable("id")Integer id) throws ExecutionControl.NotImplementedException, IOException {
         User user = userService.getUserByPrincipal(principal);
         Certificate certificate = this.certificateService.findCertificateById(id);
-        if(user.getId().equals(certificate.getIssuedTo().getId()) && certificate.getCertificateType() != CertificateType.ROOT){
-            this.certificateService.deleteCertificate(certificate);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } else if (user.IsAdministrator()) {
+        if((user.getId().equals(certificate.getIssuedTo().getId()) && certificate.getCertificateType() != CertificateType.ROOT) || user.IsAdministrator()) {
             this.certificateService.deleteCertificate(certificate);
             return new ResponseEntity<>(HttpStatus.OK);
         }
