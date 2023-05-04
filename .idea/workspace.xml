@@ -5,8 +5,75 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dc9ce04-11ff-418c-8b5a-6feb5675ff43" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ib-front/ib-front/src/assets/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a86c35a4-b205-4813-9455-0f599ba8c65a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a86c35a4-b205-4813-9455-0f599ba8c65a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/controller/CertificateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/controller/CertificateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/119018798959261133510815026898731303761.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/119018798959261133510815026898731303761.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/137816791848503561979324182954583494975.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/137816791848503561979324182954583494975.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/153129501366862833789662687728663162220.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/153129501366862833789662687728663162220.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/158521504861040536135007930685493255259.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/158521504861040536135007930685493255259.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/165725001771999664749243854200594080393.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/165725001771999664749243854200594080393.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/17619826441258528164976745180069059753.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/17619826441258528164976745180069059753.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/177250446987087828827563892393851614168.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/177250446987087828827563892393851614168.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/186686683705274525519967228786527120810.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/186686683705274525519967228786527120810.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/18767352008908586133459804072310223422.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/18767352008908586133459804072310223422.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/189892778051553622180461808693345828812.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/189892778051553622180461808693345828812.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/204103621285912464007676008398639485241.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/204103621285912464007676008398639485241.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/206879674195872081655776369409199326063.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/206879674195872081655776369409199326063.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/239830869675137110493027269475146574717.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/239830869675137110493027269475146574717.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/242813150643552422841912432340659042386.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/242813150643552422841912432340659042386.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/244335050404938911426532846806611999309.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/244335050404938911426532846806611999309.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/258656035843113229077074052370489681432.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/258656035843113229077074052370489681432.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/29017913767118845186910049515530085496.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/29017913767118845186910049515530085496.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/39436273252770483684404554178206230339.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/39436273252770483684404554178206230339.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/47970604043518409798462780759171475799.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/47970604043518409798462780759171475799.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/49492430165125318434201233963059409637.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/49492430165125318434201233963059409637.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/54945715297400848987717818362120398486.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/54945715297400848987717818362120398486.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/74317039761873528053140399039690188367.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/74317039761873528053140399039690188367.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/77498144137981364702320911776176484388.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/77498144137981364702320911776176484388.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/78947741838842795430862607460213377111.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/78947741838842795430862607460213377111.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/81872796738919901327127097765488057801.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/certificates/81872796738919901327127097765488057801.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/nav-bar/nav-bar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/nav-bar/nav-bar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/nav-bar/nav-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/nav-bar/nav-bar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/user-info/user-info.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/user-info/user-info.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/user-info/user-info.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/user-info/user-info.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/user-info/user-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/user-info/user-info.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +169,7 @@
       <workItem from="1682759864318" duration="11983000" />
       <workItem from="1682799901922" duration="4343000" />
       <workItem from="1682968111127" duration="439000" />
+      <workItem from="1683146749487" duration="3207000" />
     </task>
     <servers />
   </component>

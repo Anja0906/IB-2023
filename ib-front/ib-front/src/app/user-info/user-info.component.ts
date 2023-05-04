@@ -16,8 +16,12 @@ export class UserInfoComponent implements OnInit {
   metadata: any = {};
   encodeURIComponent = encodeURIComponent;
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, private router : Router) { }
 
   ngOnInit(): void {
+  }
+
+  certificatesOverview() {
+    this.router.navigate(["certificates"]);
   }
 }

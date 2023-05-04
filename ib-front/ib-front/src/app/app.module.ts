@@ -8,18 +8,34 @@ import { AuthenticationService, TokenInterceptor, UserService } from './auth-ser
 import { ButtonComponentComponent } from './button-component/button-component.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { CardComponent } from './card/card.component';
+import {FormsModule} from "@angular/forms";
+import { CertificatesComponent } from './certificates/certificates.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatLegacyCardModule} from "@angular/material/legacy-card";
+import {MatButtonModule} from "@angular/material/button";
+import { CertificateDetailsComponent } from './certificate-details/certificate-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponentComponent,
     NavBarComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    CardComponent,
+    CertificatesComponent,
+    CertificateDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NoopAnimationsModule,
+    MatGridListModule,
+    MatLegacyCardModule,
+    MatButtonModule,
     // Import the module into the application, with configuration
     // AuthModule.forRoot({
     //   domain: 'dev-uox28mbzk3p270l1.us.auth0.com',
