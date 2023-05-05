@@ -61,6 +61,19 @@ CertificateService {
             newCertificates.add(new CertificateDTO(certificate));
         return newCertificates;
     }
+
+    public List<CertificateDTO> getAllValid() {
+        List<Certificate> certificates = this.certificateRepository.findAll();
+        List<CertificateDTO> newCertificates = new ArrayList<>();
+        for(Certificate certificate: certificates){
+            if (certificate.isValid() && certificate.getCertificateType()!=CertificateType.END
+                    && !this.isExpired(certificate)){
+                newCertificates.add(new CertificateDTO(certificate));
+            }
+        }
+        return newCertificates;
+    }
+
     public CertificateRequest createRequest(CertificateRequestDTO certificateRequestDTO, User issuedTo) throws Exception {
         Certificate issuer = null;
         if (!certificateRequestDTO.getIssuerSN().isEmpty())

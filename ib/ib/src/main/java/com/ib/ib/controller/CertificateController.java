@@ -185,4 +185,17 @@ public class CertificateController {
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping("/allowedIssuers")
+    @CrossOrigin
+    public ResponseEntity<?> getAllowedIssuers(@AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException {
+        try {
+            User user = userService.getUserByPrincipal(principal);
+            return new ResponseEntity<>(this.certificateService.getAllValid(), HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+
+    }
 }

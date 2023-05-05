@@ -18,6 +18,10 @@ export class CertificateService {
     return this.http.get<Certificate[]>(serverUrl + 'api/certificate');
   }
 
+  getValidIssuers(): Observable<Certificate[]> {
+    return this.http.get<Certificate[]>(serverUrl + 'api/certificate/allowedIssuers');
+  }
+
   getCertificate() : Certificate {
     return this.certificate
   }

@@ -4,7 +4,7 @@
     <h4>Issuer:</h4>
     <select class="input-elem" id="issuer" [(ngModel)]="selectedItem">
       <option value="">Select an item</option>
-      <option *ngFor="let item of items" [value]="item.serialNumber">{{ item.id }} {{item?.user?.email}} {{item.type}}</option>
+      <option *ngFor="let item of items" [value]="item">{{ item.id }} {{item?.user?.email}} {{item.type}}</option>
     </select>
     <h4>Certificate type:</h4>
     <label *ngFor="let option of options" class="input-elem">
@@ -12,8 +12,7 @@
       {{ option }}
     </label>
     <h4>Duration in months:</h4>
-    <input class="input-elem" type="number"
-           formControlName="durationInMonths" max="24"
+    <input class="input-elem" type="number" max="24"
            placeholder="Duration in months"  [(ngModel)]="duration">
     <button class="btn" (click)="onSubmit()">Submit</button>
   </mat-card>
