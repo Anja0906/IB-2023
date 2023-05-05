@@ -11,7 +11,7 @@ export class CardComponent {
   @Input() certificate : Certificate = {
     id : 1,
     issuedAt : new Date(),
-    certificateType : 0,
+    type : "ROOT",
     serialNumber : "awjdjaskdjsa",
     validTo : new Date(),
   };

@@ -1,0 +1,20 @@
+<h1 style="text-align: center">Create new certificate</h1>
+<div class="cardDiv">
+  <mat-card class="card">
+    <h4>Issuer:</h4>
+    <select class="input-elem" id="issuer" [(ngModel)]="selectedItem">
+      <option value="">Select an item</option>
+      <option *ngFor="let item of items" [value]="item.serialNumber">{{ item.id }} {{item?.user?.email}} {{item.type}}</option>
+    </select>
+    <h4>Certificate type:</h4>
+    <label *ngFor="let option of options" class="input-elem">
+      <input type="radio" name="options" [value]="options.indexOf(option)" [(ngModel)]="selectedOption">
+      {{ option }}
+    </label>
+    <h4>Duration in months:</h4>
+    <input class="input-elem" type="number"
+           formControlName="durationInMonths" max="24"
+           placeholder="Duration in months"  [(ngModel)]="duration">
+    <button class="btn" (click)="onSubmit()">Submit</button>
+  </mat-card>
+</div>

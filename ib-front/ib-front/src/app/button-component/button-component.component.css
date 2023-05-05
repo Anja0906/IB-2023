@@ -1,0 +1,13 @@
+.button {
+  display: inline-block;
+  background-color: black;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 0.5rem;
+}

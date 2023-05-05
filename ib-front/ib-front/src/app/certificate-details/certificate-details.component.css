@@ -1,0 +1,65 @@
+.card{
+  text-align: left;
+  margin: 1rem;
+  color: black;
+  border: solid 2px black;
+  box-shadow: 10px 10px 10px #aaaa;
+  width: fit-content;
+  min-width: 300px;
+}
+
+
+.cardDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 3rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  float: right;
+  box-shadow: 5px 5px 5px #aaaa;
+  width: 6rem;
+}
+
+.rightBtn {
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #ccff33;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  float: right;
+  margin-bottom: 0.5rem;
+  box-shadow: 5px 5px 5px #aaaa;
+  width: 6rem;
+}
+
+
+.btn-red {
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #ff3300;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  float: left;
+  box-shadow: 5px 5px 5px #aaaa;
+  width: 6rem;
+}

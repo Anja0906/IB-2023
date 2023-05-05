@@ -1,0 +1,22 @@
+<h1 style="text-align: center">Upload certificate for check:</h1>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+  <mat-card style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+    <mat-card-content>
+      <div class="upload-area" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
+        <mat-icon>cloud_upload</mat-icon>
+        <p>Drag and drop a file here or click to select a file</p>
+      </div>
+    </mat-card-content>
+    <mat-card-footer style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+      <label class="file-input-label">
+        <span>Choose a file</span>
+        <input type="file" (change)="onFileSelected($event)" accept=".crt" />
+      </label>
+    </mat-card-footer>
+  </mat-card>
+  <mat-card *ngIf="isUploaded" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+    <p>Selected file: {{file.name}}</p>
+    <button class="btn" (click)="check()">Check</button>
+    <p>Valid -> {{validUpload}}</p>
+  </mat-card>
+</div>

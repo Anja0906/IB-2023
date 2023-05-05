@@ -86,7 +86,7 @@ export class UserService {
 
   updateUser = (token: string | null) => {
     if (token == null) return;
-    
+
     const getUserInfoAuth0$ = this.http.get<UserAuth0>(getUserInfoAuth0Url);
     const getUserInfoSpring$ = this.http.get<UserSpring>(getUserInfoSpringUrl);
 
@@ -119,6 +119,10 @@ export class UserService {
     this.auth.token.next(null);
     window.location.href = logOutUrl;
     this.loading.next(false);
+  }
+
+  getCurrentUser(): Observable<UserSpring> {
+    return this.http.get<UserSpring>(serverUrl + '/api/user');
   }
 
   handleError = (error: any) => {

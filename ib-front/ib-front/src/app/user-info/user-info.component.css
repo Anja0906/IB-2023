@@ -26,10 +26,8 @@
 
 .user-panel-inner {
     position: absolute;
-    height: 10vh;
     width: 100%;
-    bottom: -10vh;
-    background-color: white;
+    background-color: black;
     display: flex;
   flex-direction: column;
     align-items: center;

@@ -1,5 +1,13 @@
-.certificateContainer{
+.card-container {
   display: flex;
-  flex-direction: row;
-  width: 90%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 30%;
+  margin: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
 }

@@ -121,7 +121,7 @@ CertificateService {
         return !isExpired(certificate.get());
     }
     private boolean isExpired(Certificate certificate){
-        return  certificate.getValidTo().isBefore(LocalDateTime.now());
+        return  certificate.getValidTo().isBefore(LocalDateTime.now()) || !certificate.isValid();
     }
 
     public void declineRequest(Integer id, String declineReason, User user) throws RequestNotFoundException, RequestAlreadyProcessedException {

@@ -4,7 +4,7 @@ export class Certificate {
   id ?: number;
   issuedAt ?: Date;
   user ?: UserSpring;
-  certificateType ?: number;
+  type ?: string;
   serialNumber ?: string;
   validTo ?: Date;
 }
@@ -12,7 +12,7 @@ export class Certificate {
 export class CertificateRequest{
   id ?: number;
   issuerSN ?: string;
-  certificateType ?: number;
+  type ?: number;
   durationInMonths ?: number;
 }
 

@@ -1,0 +1,45 @@
+.card{
+  margin: 1rem;
+  color: black;
+  border: solid 2px black;
+  box-shadow: 10px 10px 10px #aaaa;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  min-width: 400px;
+}
+
+.cardDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+.input-elem{
+  width: 20rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: solid 1px black;
+  box-shadow: 4px 4px 4px #aaaa;
+  margin: 0.5rem;
+}
+
+.btn{
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  background-color: #ccff33;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  width: 10rem;
+}

@@ -1,8 +1,7 @@
 .card{
-  background-color: #eee;
   text-align: center;
-  margin: 1rem;
   color: black;
-  border: dashed black 2px;
+  border: solid 2px black;
+  box-shadow: 10px 10px 10px #aaaa;
 }
 

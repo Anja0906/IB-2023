@@ -1,5 +1,6 @@
-<mat-grid-list cols="3" rowHeight="300px">
-  <mat-grid-tile *ngFor="let certificate of certificates" (click)="goToCertificateDetails(certificate)">
-    <app-card [certificate]="certificate"></app-card>
-  </mat-grid-tile>
-</mat-grid-list>
+<h1 style="text-align: center">All certificates overview</h1>
+<div class="card-container">
+  <div class="card" *ngFor="let certificate of certificates">
+    <app-card [certificate]="certificate" (click)="goToCertificateDetails(certificate)"></app-card>
+  </div>
+</div>

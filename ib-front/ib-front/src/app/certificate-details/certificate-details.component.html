@@ -1,1 +1,25 @@
-<app-card [certificate]="certificate"></app-card>
+<h1 style="text-align: center">Certificate {{certificate.id}} details</h1>
+<div class="cardDiv">
+  <mat-card class="card">
+    <mat-card-content>
+      <h4 class="card-title">Issued at: {{issuedAt}}</h4>
+      <h4 class="card-title">Issued to: {{certificate?.user?.email}}</h4>
+      <h4 class="card-title">Certificate type: {{certificate?.type}}</h4>
+      <div *ngIf="clickedIsValid">
+        <h4 class="card-title">Valid by id: {{valid}}</h4>
+      </div>
+      <button class="rightBtn" (click)="isValid()">Is valid</button>
+      <br>
+      <div *ngIf="hasAuthorities">
+        <h4 class="card-title">Id: {{certificate.id}}</h4>
+        <h4 class="card-title">Serial number: {{certificate?.serialNumber}}</h4>
+        <h4 class="card-title">Valid to: {{validTo}}</h4>
+        <button class="btn-red" (click)="withdraw()">Withdraw</button>
+        <button class="btn" (click)="download()">Download</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+

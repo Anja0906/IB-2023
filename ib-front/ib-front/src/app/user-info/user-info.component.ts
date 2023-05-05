@@ -24,4 +24,12 @@ export class UserInfoComponent implements OnInit {
   certificatesOverview() {
     this.router.navigate(["certificates"]);
   }
+
+  newCertificate() {
+    this.router.navigate(["newCertificate"]);
+  }
+
+  checkIsValid() {
+    this.router.navigate(["checkUpload"]);
+  }
 }
