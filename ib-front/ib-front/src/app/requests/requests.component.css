@@ -1,0 +1,20 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 30%;
+  margin: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.single{
+  text-align: center;
+  color: black;
+  border: solid 2px black;
+  box-shadow: 10px 10px 10px #aaaa;
+}

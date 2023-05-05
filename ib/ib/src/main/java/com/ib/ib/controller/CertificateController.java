@@ -3,6 +3,7 @@ package com.ib.ib.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ib.ib.DTO.CertificateDTO;
 import com.ib.ib.DTO.CertificateRequestDTO;
+import com.ib.ib.DTO.CertificateResponseDTO;
 import com.ib.ib.DTO.DeclineRequestDTO;
 import com.ib.ib.model.CertificateRequest;
 import com.ib.ib.model.User;
@@ -99,9 +100,21 @@ public class CertificateController {
     {
         User user = userService.getUserByPrincipal(principal);
         List<CertificateRequest> certificateRequests = this.requestService.findAllCertificateRequestsForUser(user.getId());
-        List<CertificateRequestDTO> certificateRequestDTOS = new ArrayList<>();
+        List<CertificateResponseDTO> certificateRequestDTOS = new ArrayList<>();
         for(CertificateRequest certReq: certificateRequests)
-            certificateRequestDTOS.add(new CertificateRequestDTO(certReq));
+            certificateRequestDTOS.add(new CertificateResponseDTO(certReq));
+        return new ResponseEntity<>(certificateRequestDTOS, HttpStatus.OK);
+    }
+
+    @GetMapping(value="/requestsIssuer")
+    @CrossOrigin
+    public ResponseEntity<?> getAllCertificateRequestsForIssuer(@AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException
+    {
+        User user = userService.getUserByPrincipal(principal);
+        List<CertificateRequest> certificateRequests = this.requestService.findAllCertificateRequestsForIssuer(user.getId());
+        List<CertificateResponseDTO> certificateRequestDTOS = new ArrayList<>();
+        for(CertificateRequest certReq: certificateRequests)
+            certificateRequestDTOS.add(new CertificateResponseDTO(certReq));
         return new ResponseEntity<>(certificateRequestDTOS, HttpStatus.OK);
     }
 
@@ -112,9 +125,9 @@ public class CertificateController {
         User user = userService.getUserByPrincipal(principal);
         if (user.getIsAdministrator()){
             List<CertificateRequest> certificateRequests = this.requestService.findAll();
-            List<CertificateRequestDTO> certificateRequestDTOS = new ArrayList<>();
+            List<CertificateResponseDTO> certificateRequestDTOS = new ArrayList<>();
             for(CertificateRequest certReq: certificateRequests)
-                certificateRequestDTOS.add(new CertificateRequestDTO(certReq));
+                certificateRequestDTOS.add(new CertificateResponseDTO(certReq));
             return new ResponseEntity<>(certificateRequestDTOS, HttpStatus.OK);
         }
         return new ResponseEntity<>("Only admin can access this method", HttpStatus.BAD_REQUEST);

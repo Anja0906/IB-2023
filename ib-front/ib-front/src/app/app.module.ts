@@ -22,6 +22,9 @@ import {MatInputModule} from "@angular/material/input";
 import {MatRadioModule} from "@angular/material/radio";
 import { IsValidUploadComponent } from './is-valid-upload/is-valid-upload.component';
 import {MatIconModule} from "@angular/material/icon";
+import { RequestsComponent } from './requests/requests.component';
+import { RequestComponent } from './request/request.component';
+import { MyRequestsComponent } from './my-requests/my-requests.component';
 
 @NgModule({
   declarations: [
@@ -33,33 +36,36 @@ import {MatIconModule} from "@angular/material/icon";
     CertificatesComponent,
     CertificateDetailsComponent,
     NewCertificateComponent,
-    IsValidUploadComponent
+    IsValidUploadComponent,
+    RequestsComponent,
+    RequestComponent,
+    MyRequestsComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        NoopAnimationsModule,
-        MatGridListModule,
-        MatLegacyCardModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatRadioModule,
-        ReactiveFormsModule,
-        MatIconModule,
-        // Import the module into the application, with configuration
-        // AuthModule.forRoot({
-        //   domain: 'dev-uox28mbzk3p270l1.us.auth0.com',
-        //   clientId: 'okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n',
-        //   authorizationParams: {
-        //     redirect_uri: window.location.origin,
-        //     audience: 'localhost',
-        //     scope: 'email profile openid'
-        //   }
-        // }),
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    NoopAnimationsModule,
+    MatGridListModule,
+    MatLegacyCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    // Import the module into the application, with configuration
+    // AuthModule.forRoot({
+    //   domain: 'dev-uox28mbzk3p270l1.us.auth0.com',
+    //   clientId: 'okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n',
+    //   authorizationParams: {
+    //     redirect_uri: window.location.origin,
+    //     audience: 'localhost',
+    //     scope: 'email profile openid'
+    //   }
+    // }),
+  ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }, AuthenticationService, UserService],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,21 @@
+<h1 style="text-align: center">Request {{certificateRequest.id}} details</h1>
+<div class="cardDiv">
+  <mat-card class="card">
+    <mat-card-content>
+      <h4 class="card-title">Issuer: {{certificateRequest.issuerSN}}</h4>
+      <h4 class="card-title">Duration: {{certificateRequest.durationInMonths}}</h4>
+      <h4 class="card-title">Certificate type: {{certificateRequest.type}}</h4>
+      <h4 class="card-title">Certificate state: {{certificateRequest.certificateState}}</h4>
+      <br>
+      <div *ngIf="clickedDecline">
+        <h4 class="card-title">Reason: </h4>
+        <textarea class="input-elem" [(ngModel)]="reason"></textarea>
+      </div>
+      <div *ngIf="isPending">
+        <button *ngIf="!clickedDecline" class="btn-green" (click)="accept()">Accept</button>
+        <button *ngIf="!clickedDecline" class="btn-red" (click)="decline()">Decline</button>
+        <button *ngIf="clickedDecline" class="btn" (click)="confirmDeclining()">Confirm</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

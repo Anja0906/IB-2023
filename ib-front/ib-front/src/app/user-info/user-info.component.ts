@@ -32,4 +32,12 @@ export class UserInfoComponent implements OnInit {
   checkIsValid() {
     this.router.navigate(["checkUpload"]);
   }
+
+  requestsOverview() {
+    this.router.navigate(["requests"]);
+  }
+
+  myRequestsOverview() {
+    this.router.navigate(["my-requests"]);
+  }
 }

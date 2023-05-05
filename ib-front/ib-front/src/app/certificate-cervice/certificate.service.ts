@@ -42,7 +42,8 @@ export class CertificateService {
     formData.append('file', file);
     return this.http.post<boolean>(serverUrl + 'api/certificate/validUploaded', formData);
   }
-  newCertificate(certReq: CertificateRequest) : Observable<CertificateRequest>{
+
+  newCertificate(certReq: { issuerSN: string; durationInMonths: number; id: number; type: number }) : Observable<CertificateRequest>{
     return this.http.post<CertificateRequest>(serverUrl + 'api/certificate/new', certReq);
   }
 

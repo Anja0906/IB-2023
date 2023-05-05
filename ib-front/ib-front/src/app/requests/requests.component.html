@@ -1,0 +1,13 @@
+<h1 style="text-align: center">Certificate requests overview</h1>
+<div class="card-container">
+  <div class="card single" *ngFor="let request of requests">
+    <mat-card>
+      <mat-card-content>
+        <h4 class="card-title">Issuer: {{request.issuerSN}}</h4>
+        <h4 class="card-title">Duration: {{request.durationInMonths}}</h4>
+        <h4 class="card-title">Certificate type: {{request.type}}</h4>
+        <h4 class="card-title">Certificate state: {{request.certificateState}}</h4>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

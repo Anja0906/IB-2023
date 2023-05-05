@@ -5,29 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dc9ce04-11ff-418c-8b5a-6feb5675ff43" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a86c35a4-b205-4813-9455-0f599ba8c65a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a86c35a4-b205-4813-9455-0f599ba8c65a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ib-front/ib-front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/auth-service/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/auth-service/authentication.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/button-component/button-component.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/button-component/button-component.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/button-component/button-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/button-component/button-component.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/card/card.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/card/card.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/card/card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/card/card.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/card/card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/card/card.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificate-cervice/certificate.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificate-cervice/certificate.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificate-details/certificate-details.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificate-details/certificate-details.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificate-details/certificate-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificate-details/certificate-details.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificate-details/certificate-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificate-details/certificate-details.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificates/certificates.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificates/certificates.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificates/certificates.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificates/certificates.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/user-info/user-info.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/user-info/user-info.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/user-info/user-info.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/user-info/user-info.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/user-info/user-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/user-info/user-info.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/CertificateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/CertificateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/custom-theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/custom-theme.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/controller/CertificateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/controller/CertificateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/repository/RequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/repository/RequestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/RequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/RequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,6 +115,7 @@
       <workItem from="1683146749487" duration="3762000" />
       <workItem from="1683201752501" duration="5848000" />
       <workItem from="1683227574744" duration="1339000" />
+      <workItem from="1683287822374" duration="301000" />
     </task>
     <servers />
   </component>

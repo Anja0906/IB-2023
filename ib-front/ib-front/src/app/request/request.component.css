@@ -1,0 +1,76 @@
+.card{
+  text-align: left;
+  margin: 1rem;
+  color: black;
+  border: solid 2px black;
+  box-shadow: 10px 10px 10px #aaaa;
+  width: fit-content;
+  min-width: 300px;
+}
+
+
+.cardDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 3rem;
+}
+
+.btn-green{
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #ccff33;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  float: right;
+  box-shadow: 5px 5px 5px #aaaa;
+  width: 6rem;
+  margin-right : 1rem
+}
+
+.input-elem{
+  width: 20rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: solid 1px black;
+  box-shadow: 4px 4px 4px #aaaa;
+  margin: 0.5rem;
+}
+
+
+.btn-red {
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #ff3300;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  float: right;
+  box-shadow: 5px 5px 5px #aaaa;
+  width: 6rem;
+  margin-right : 1rem
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  float: right;
+  box-shadow: 5px 5px 5px #aaaa;
+  width: 6rem;
+  margin-right : 1rem
+}

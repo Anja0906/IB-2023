@@ -16,7 +16,17 @@ export class CertificateRequest{
   durationInMonths ?: number;
 }
 
-export class DeclineRequest {
-  reason ?: string;
+export class CertificateResponse{
+  id ?: number;
+  issuerSN ?: string;
+  type ?: string;
+  durationInMonths ?: number;
+  certificateState ?: string;
 }
 
+export class DeclineRequest {
+  constructor(reason: string) {
+    this.reason = reason;
+  }
+  reason ?: string;
+}
