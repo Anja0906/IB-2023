@@ -1,0 +1,7 @@
+<input type="number" [(ngModel)]="id">
+<input type="text" [(ngModel)]="issuerSN">
+<input type="number" [(ngModel)]="type">
+<input type="number" [(ngModel)]="durationInMonths">
+<re-captcha [(ngModel)]="captcha"/>
+<button (click)="send()">Send:</button>
+<!--  FOR ERROR HANDLING: <re-captcha [(ngModel)]="captcha" (errored)="error($event)" errorMode="handled"/> -->

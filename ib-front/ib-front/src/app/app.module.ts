@@ -25,6 +25,10 @@ import {MatIconModule} from "@angular/material/icon";
 import { RequestsComponent } from './requests/requests.component';
 import { RequestComponent } from './request/request.component';
 import { MyRequestsComponent } from './my-requests/my-requests.component';
+import { IndexPageComponent } from './index-page/index-page.component';
+
+import { RecaptchaModule, RecaptchaFormsModule, RecaptchaSettings, RECAPTCHA_SETTINGS } from "ng-recaptcha";
+const globalSettings: RecaptchaSettings = { siteKey: '6LdS680lAAAAAAilDhTT_KiLheEg2bGwsRA2eBeM' };
 
 @NgModule({
   declarations: [
@@ -39,13 +43,13 @@ import { MyRequestsComponent } from './my-requests/my-requests.component';
     IsValidUploadComponent,
     RequestsComponent,
     RequestComponent,
-    MyRequestsComponent
+    MyRequestsComponent,
+    IndexPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
     NoopAnimationsModule,
     MatGridListModule,
     MatLegacyCardModule,
@@ -55,18 +59,14 @@ import { MyRequestsComponent } from './my-requests/my-requests.component';
     MatRadioModule,
     ReactiveFormsModule,
     MatIconModule,
-    // Import the module into the application, with configuration
-    // AuthModule.forRoot({
-    //   domain: 'dev-uox28mbzk3p270l1.us.auth0.com',
-    //   clientId: 'okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n',
-    //   authorizationParams: {
-    //     redirect_uri: window.location.origin,
-    //     audience: 'localhost',
-    //     scope: 'email profile openid'
-    //   }
-    // }),
+    RecaptchaModule,
+    RecaptchaFormsModule,
+    FormsModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }, AuthenticationService, UserService],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }, AuthenticationService, UserService, {
+    provide: RECAPTCHA_SETTINGS,
+    useValue: globalSettings,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

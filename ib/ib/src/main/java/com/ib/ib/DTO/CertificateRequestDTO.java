@@ -8,6 +8,7 @@ public class CertificateRequestDTO {
     private String issuerSN;
     private CertificateType type;
     private long durationInMonths;
+    private String captcha;
 
     public CertificateRequestDTO() {}
     public CertificateRequestDTO(CertificateRequest certificateRequest){
@@ -18,11 +19,12 @@ public class CertificateRequestDTO {
         this.type = certificateRequest.getCertificateType();
         this.durationInMonths = certificateRequest.getDurationInMonths();
     }
-    public CertificateRequestDTO(Integer id, String issuerSN, CertificateType type, Integer durationInMonths) {
+    public CertificateRequestDTO(Integer id, String issuerSN, CertificateType type, Integer durationInMonths, String captcha) {
         this.id               = id;
         this.issuerSN         = issuerSN;
         this.type             = type;
         this.durationInMonths = durationInMonths;
+        this.captcha = captcha;
     }
 
     public Integer getId() {return id;}
@@ -40,6 +42,14 @@ public class CertificateRequestDTO {
 
     public void setDurationInMonths(long durationInMonths) {
         this.durationInMonths = durationInMonths;
+    }
+
+    public String getCaptcha() {
+        return captcha;
+    }
+
+    public void setCaptcha(String captcha) {
+        this.captcha = captcha;
     }
 
     @Override

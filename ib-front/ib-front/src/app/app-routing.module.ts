@@ -7,6 +7,7 @@ import {IsValidUploadComponent} from "./is-valid-upload/is-valid-upload.componen
 import {RequestsComponent} from "./requests/requests.component";
 import {RequestComponent} from "./request/request.component";
 import {MyRequestsComponent} from "./my-requests/my-requests.component";
+import { IndexPageComponent } from './index-page/index-page.component';
 
 const routes: Routes = [
   { path:'certificates',component: CertificatesComponent},
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path: 'checkUpload', component: IsValidUploadComponent },
   { path: 'requests', component: RequestsComponent },
   { path: 'my-requests', component: MyRequestsComponent },
-  { path: 'request', component: RequestComponent }];
+  { path: 'request', component: RequestComponent },
+  { path: '', component: IndexPageComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
