@@ -126,11 +126,20 @@ public class UserService {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(response.getBody());
         if (findUserByEmail(root.get("email").textValue()) == null) {
-            User newUser = new User(
-                    stringOrNullFromJackson(root, "email"),
-                    stringOrNullFromJackson(root.get("user_metadata"),"given_name"),
-                    stringOrNullFromJackson(root.get("user_metadata"),"family_name"),
-                    stringOrNullFromJackson(root.get("user_metadata"),"phone_number"), false);
+            User newUser;
+            if (stringOrNullFromJackson(root, "user_metadata") != null) {
+                newUser = new User(
+                        stringOrNullFromJackson(root, "email"),
+                        stringOrNullFromJackson(root.get("user_metadata"),"given_name"),
+                        stringOrNullFromJackson(root.get("user_metadata"),"family_name"),
+                        stringOrNullFromJackson(root.get("user_metadata"),"phone_number"), false);
+            } else {
+                newUser = new User(
+                        stringOrNullFromJackson(root, "email"),
+                        stringOrNullFromJackson(root,"given_name"),
+                        stringOrNullFromJackson(root,"family_name"),
+                        stringOrNullFromJackson(root,"phone_number"), false);
+            }
             // Side user can not be admin, those false
             userRepository.save(newUser);
         }
