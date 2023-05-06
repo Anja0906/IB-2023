@@ -14,6 +14,7 @@
     <h4>Duration in months:</h4>
     <input class="input-elem" type="number" max="24"
            placeholder="Duration in months"  [(ngModel)]="duration">
+    <re-captcha [(ngModel)]="captcha"/>
     <button class="btn" (click)="onSubmit()">Submit</button>
   </mat-card>
 </div>

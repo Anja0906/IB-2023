@@ -16,6 +16,7 @@ export class NewCertificateComponent {
   selectedItem: string = "";
   duration!: number;
   isAdmin : boolean | undefined = false;
+  captcha: string = "";
 
   constructor(private certificateService: CertificateService, private userService: UserService) { }
 
@@ -35,9 +36,10 @@ export class NewCertificateComponent {
       "type": this.selectedOption,
       "durationInMonths": this.duration,
       "issuerSN": this.selectedItem,
+      "captcha": this.captcha
     };
     console.log(request);
-    if (this.validateDuration(this.selectedOption, this.duration)) {
+    if (this.validateDuration(this.selectedOption, this.duration) && this.validateReCaptcha()) {
       this.certificateService.newCertificate(request).subscribe(
         response => {
           this.responseDTO = response;
@@ -81,5 +83,11 @@ export class NewCertificateComponent {
       return false;
     }
     return true;
+  }
+
+  validateReCaptcha(): boolean{
+    if (this.captcha) return true;
+    alert("You must pass ReCaptcha before using this feature!")
+    return false;
   }
 }
