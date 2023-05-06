@@ -7,10 +7,7 @@ import com.ib.ib.DTO.DeclineRequestDTO;
 import com.ib.ib.model.CertificateRequest;
 import com.ib.ib.model.User;
 import com.ib.ib.model.*;
-import com.ib.ib.service.CertificateService;
-import com.ib.ib.service.GenerateCertificateService;
-import com.ib.ib.service.RequestService;
-import com.ib.ib.service.UserService;
+import com.ib.ib.service.*;
 import jdk.jshell.spi.ExecutionControl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,6 +35,8 @@ public class CertificateController {
     UserService userService;
     @Autowired
     RequestService requestService;
+    @Autowired
+    CaptchaService captchaService;
 
     public CertificateController(CertificateService certificateService, RequestService requestService, GenerateCertificateService generateCertificateService) {
         this.certificateService         = certificateService;
@@ -125,6 +124,8 @@ public class CertificateController {
                                                @RequestBody CertificateRequestDTO requestDTO) throws Exception
     {
         User user = userService.getUserByPrincipal(principal);
+        captchaService.processResponse(requestDTO.getCaptcha());
+
         if (!requestDTO.getType().equals(CertificateType.END) && !requestDTO.getType().equals(CertificateType.INTERMEDIATE) && !requestDTO.getType().equals(CertificateType.ROOT))
             return new ResponseEntity<>("Bad request body", HttpStatus.BAD_REQUEST);
         if (requestDTO.getType().equals(CertificateType.END) || requestDTO.getType().equals(CertificateType.INTERMEDIATE))
