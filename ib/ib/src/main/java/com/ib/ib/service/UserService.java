@@ -46,6 +46,7 @@ public class UserService {
         if (principal instanceof Jwt) return getUserByAuth0UserId(((Jwt) principal).getClaimAsString("sub"));
         throw new ExecutionControl.NotImplementedException("This type of login is not yet supported. Use Oidc or Jwt instead.");
     }
+
     private User getUserByOidcUser(OidcUser principal) {
         if (principal == null) return null;
         if (findUserByEmail(principal.getEmail()) == null) {
@@ -146,4 +147,5 @@ public class UserService {
         return findUserByEmail(root.get("email").textValue());
     }
 
+//    private void fetchLogsFromAuth0ByUserId()
 }

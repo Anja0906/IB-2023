@@ -131,6 +131,7 @@ public class CertificateController {
         }
         return new ResponseEntity<>("Only admin can access this method", HttpStatus.BAD_REQUEST);
     }
+
     @PostMapping("/new")
     @CrossOrigin
     public ResponseEntity<?> createCertificate(@AuthenticationPrincipal Object principal,
