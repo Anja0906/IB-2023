@@ -5,6 +5,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -24,7 +25,12 @@ public class LoggingAspect {
 
         Object result = joinPoint.proceed();
 
-        logger.info("Method {}.{} returned {}", className, methodName, result);
+        String status = "some status";
+        if (result.getClass().equals(ResponseEntity.class)) {
+            status = ((ResponseEntity<?>)result).getStatusCode().toString();
+        }
+
+        logger.info("Method {}.{} returned {}", className, methodName, status);
 
         return result;
     }
