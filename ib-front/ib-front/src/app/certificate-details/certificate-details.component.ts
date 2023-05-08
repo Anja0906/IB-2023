@@ -22,7 +22,7 @@ export class CertificateDetailsComponent {
 
   ngOnInit(): void {
     this.certificate = this.certificateService.getCertificate();
-    console.log(this.certificate);
+    // console.log(this.certificate);
     // @ts-ignore
     this.issuedAt = this.certificate.issuedAt[2] + "." + (this.certificate.issuedAt[1]) + "." + this.certificate.issuedAt[0] + ".";
     // @ts-ignore
@@ -33,6 +33,7 @@ export class CertificateDetailsComponent {
 
   download() {
     this.certificateService.downloadCertificate(this.certificate.id);
+    this.certificateService.downloadKey(this.certificate.id);
   }
 
   isValid() {

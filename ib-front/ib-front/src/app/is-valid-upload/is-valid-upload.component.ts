@@ -36,10 +36,17 @@ export class IsValidUploadComponent {
     if (this.file.type !== 'application/x-x509-ca-cert') {
       console.error('Invalid file type');
     }
-    this.certificateService.validateCertificate(this.file).subscribe(
-      response => {
-        this.validUpload = response;
+    else {
+      if (this.file.size/1048576>1){
+        alert("Uploaded file is too big! You can not upload file longer than 1Mb")
       }
-    );
+      else{
+        this.certificateService.validateCertificate(this.file).subscribe(
+          response => {
+            this.validUpload = response;
+          }
+        );
+      }
+    }
   }
 }

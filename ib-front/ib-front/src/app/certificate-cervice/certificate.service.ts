@@ -37,6 +37,13 @@ export class CertificateService {
       });
 
   }
+  downloadKey(id: number | undefined){
+    this.http.get(serverUrl+ 'api/certificate/downloadKey/' + id, { responseType: 'blob' })
+      .subscribe((result) => {
+        saveAs(result, id+'.key');
+      });
+
+  }
   checkIfIsValid(id: number | undefined): Observable<boolean>{
     return this.http.get<boolean>(serverUrl + 'api/certificate/valid/' + id);
   }

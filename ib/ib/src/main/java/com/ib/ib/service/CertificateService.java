@@ -128,10 +128,12 @@ CertificateService {
             throw new IssuerCertificateIsEndException("Issuer cannot be null for intermediate or end certificates.");
     }
     public boolean isValid(Integer id) throws CertificateNotFoundException {
-        Optional<Certificate> certificate = certificateRepository.findCertificateById(id);
-        if(certificate.isEmpty())
-            throw new CertificateNotFoundException("Certificate by id" + id + "was not found");
-        return !isExpired(certificate.get());
+        try{
+            Optional<Certificate> certificate = certificateRepository.findCertificateById(id);
+            return !isExpired(certificate.get());
+        }catch(CertificateNotFoundException exception){
+            return false;
+        }
     }
     private boolean isExpired(Certificate certificate){
         return  certificate.getValidTo().isBefore(LocalDateTime.now()) || !certificate.isValid();
