@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dc9ce04-11ff-418c-8b5a-6feb5675ff43" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/certificates/184005336562917693867860529341143560303.crt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/certificates/184005336562917693867860529341143560303.key" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/certificates/196061673700944722742450843522081678796.crt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/certificates/196061673700944722742450843522081678796.key" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificate-cervice/certificate.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificate-cervice/certificate.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/new-certificate/new-certificate.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/new-certificate/new-certificate.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/new-certificate/new-certificate.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/new-certificate/new-certificate.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/controller/CertificateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/controller/CertificateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/CertificateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/CertificateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="8dc9ce04-11ff-418c-8b5a-6feb5675ff43" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,6 +104,7 @@
       <workItem from="1683227574744" duration="1339000" />
       <workItem from="1683287822374" duration="301000" />
       <workItem from="1683316799750" duration="2760000" />
+      <workItem from="1683572579321" duration="8000" />
     </task>
     <servers />
   </component>
