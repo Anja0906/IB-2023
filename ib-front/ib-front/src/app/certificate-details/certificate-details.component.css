@@ -30,6 +30,7 @@
   float: right;
   box-shadow: 5px 5px 5px #aaaa;
   width: 6rem;
+  margin-right: 1rem;
 }
 
 .rightBtn {

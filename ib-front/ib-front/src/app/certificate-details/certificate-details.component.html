@@ -9,13 +9,13 @@
         <h4 class="card-title">Valid by id: {{valid}}</h4>
       </div>
       <button class="rightBtn" (click)="isValid()">Is valid</button>
+      <button class="btn" (click)="download()">Download</button>
       <br>
       <div *ngIf="hasAuthorities">
         <h4 class="card-title">Id: {{certificate.id}}</h4>
         <h4 class="card-title">Serial number: {{certificate.serialNumber}}</h4>
         <h4 class="card-title">Valid to: {{validTo}}</h4>
         <button class="btn-red" (click)="withdraw()">Withdraw</button>
-        <button class="btn" (click)="download()">Download</button>
       </div>
     </mat-card-content>
   </mat-card>
