@@ -67,7 +67,12 @@
               "browserTarget": "ib-front:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "sslKey": "ssl/key_e0333e50889ea3a0.key",
+            "sslCert": "ssl/certificate_e0333e50889ea3a0.pem",
+            "ssl": true
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

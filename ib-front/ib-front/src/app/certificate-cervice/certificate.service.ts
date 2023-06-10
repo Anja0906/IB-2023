@@ -4,7 +4,7 @@ import {Observable, tap} from "rxjs";
 import {Certificate, CertificateRequest} from "../model";
 import { saveAs } from "file-saver";
 
-const serverUrl = 'http://localhost:8080/';
+const serverUrl = 'https://localhost:8080/';
 
 @Injectable({
   providedIn: 'root'

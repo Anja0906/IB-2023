@@ -37,7 +37,7 @@ export interface User {
 const domain = 'https://dev-uox28mbzk3p270l1.us.auth0.com';
 const audience = 'localhost';
 const clientId = 'okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n';
-const redirectUrl = 'http://localhost:4200';
+const redirectUrl = 'https://localhost:4200';
 const redirectUrlEnc = encodeURIComponent(redirectUrl);
 const scope = encodeURIComponent('email profile openid');
 const signInUrl = `${domain}/authorize?audience=${audience}&response_type=code&client_id=${clientId}&redirect_uri=${redirectUrlEnc}&scope=${scope}`;
@@ -45,7 +45,7 @@ const signInUrl = `${domain}/authorize?audience=${audience}&response_type=code&c
 const returnToUrl = redirectUrl;
 const logOutUrl = `${domain}/v2/logout?client_id=${clientId}&returnTo=${returnToUrl}`;
 
-const serverUrl = 'http://localhost:8080';
+const serverUrl = 'https://localhost:8080';
 const logInUrl = serverUrl + '/front/login';
 const getUserInfoSpringUrl = serverUrl + '/api/user';
 const getUserInfoAuth0Url = domain + '/userinfo';
