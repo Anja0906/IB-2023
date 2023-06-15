@@ -4,6 +4,8 @@ import {User, UserService} from "../auth-service/authentication.service";
 import {CertificateService} from "../certificate-cervice/certificate.service";
 import {RequestService} from "../request-service/request.service";
 import {Router} from "@angular/router";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {LoadingComponentComponent} from "../loading-component/loading-component.component";
 
 @Component({
   selector: 'app-request',
@@ -17,7 +19,7 @@ export class RequestComponent {
   clickedDecline : boolean = false;
   reason: string = "";
 
-  constructor(private requestService: RequestService, private userService : UserService, private router:Router) {
+  constructor(private requestService: RequestService, private userService : UserService, private router:Router, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -32,9 +34,15 @@ export class RequestComponent {
 
   accept() {
     this.clickedDecline = false;
-    this.requestService.accept(this.certificateRequest.id).subscribe(result => {
-      this.router.navigate(["my-requests"]);
-    });
+    let dialogRef: MatDialogRef<LoadingComponentComponent> = this.dialog.open(LoadingComponentComponent);
+    this.requestService.accept(this.certificateRequest.id).subscribe(
+      result => {
+        dialogRef.close();
+        this.router.navigate(["my-requests"]);
+      },
+      error => {
+        dialogRef.close();
+      });
   }
 
   confirmDeclining() {

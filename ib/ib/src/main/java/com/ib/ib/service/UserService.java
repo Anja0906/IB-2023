@@ -142,7 +142,7 @@ public class UserService {
         JsonNode root = mapper.readTree(response.getBody());
         if (findUserByEmail(root.get("email").textValue()) == null) {
             User newUser;
-            if (stringOrNullFromJackson(root, "user_metadata") != null) {
+            if (root.get("user_metadata") != null) {
                 newUser = new User(
                         stringOrNullFromJackson(root, "email"),
                         stringOrNullFromJackson(root.get("user_metadata"),"given_name"),

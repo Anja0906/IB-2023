@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dc9ce04-11ff-418c-8b5a-6feb5675ff43" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/loading-component/loading-component.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/loading-component/loading-component.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/loading-component/loading-component.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/loading-component/loading-component.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/app.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a86c35a4-b205-4813-9455-0f599ba8c65a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a86c35a4-b205-4813-9455-0f599ba8c65a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificate-details/certificate-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/certificate-details/certificate-details.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/controller/CertificateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/controller/CertificateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/CertificateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/CertificateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/new-certificate/new-certificate.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/new-certificate/new-certificate.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib-front/ib-front/src/app/request/request.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ib-front/ib-front/src/app/request/request.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/GenerateCertificateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/GenerateCertificateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/java/com/ib/ib/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ib/ib/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ib/ib/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +120,7 @@
       <workItem from="1683287822374" duration="301000" />
       <workItem from="1683316799750" duration="2760000" />
       <workItem from="1683572579321" duration="8000" />
+      <workItem from="1686836354731" duration="14082000" />
     </task>
     <servers />
   </component>

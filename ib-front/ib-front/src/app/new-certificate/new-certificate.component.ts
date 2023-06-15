@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import {CertificateService} from "../certificate-cervice/certificate.service";
 import {Certificate, CertificateRequest} from "../model";
 import {UserService} from "../auth-service/authentication.service";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {LoadingComponentComponent} from "../loading-component/loading-component.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-new-certificate',
@@ -18,7 +21,7 @@ export class NewCertificateComponent {
   isAdmin : boolean | undefined = false;
   captcha: string = "";
 
-  constructor(private certificateService: CertificateService, private userService: UserService) { }
+  constructor(private certificateService: CertificateService, private userService: UserService, public dialog: MatDialog, private router:Router) { }
 
   ngOnInit(): void {
     this.isAdmin = this.userService.user.getValue()?.spring.isAdministrator;
@@ -40,10 +43,22 @@ export class NewCertificateComponent {
     };
     console.log(request);
     if (this.validateDuration(this.selectedOption, this.duration) && this.validateReCaptcha()) {
+      let dialogRef: MatDialogRef<LoadingComponentComponent> = this.dialog.open(LoadingComponentComponent);
       this.certificateService.newCertificate(request).subscribe(
         response => {
           this.responseDTO = response;
-          alert("Successful request for certificate!")
+          if (response!=null){
+            dialogRef.close();
+            if (this.isAdmin){
+              this.router.navigate(["certificates"]);
+            }
+            else{
+              this.router.navigate(["requests"]);
+            }
+          }
+        },
+        error => {
+          dialogRef.close();
         }
       );
     }

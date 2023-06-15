@@ -1,11 +1,8 @@
 package com.ib.ib.service;
-
 import com.ib.ib.model.*;
 import com.ib.ib.model.Certificate;
 import com.ib.ib.repository.CertificateRepository;
 import com.ib.ib.repository.UserRepository;
-import com.sun.mail.iap.ByteArray;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.x500.X500NameBuilder;
 import org.bouncycastle.asn1.x500.style.BCStyle;
 import org.bouncycastle.cert.X509CertificateHolder;
@@ -13,26 +10,18 @@ import org.bouncycastle.cert.X509v3CertificateBuilder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
 import org.bouncycastle.cert.jcajce.JcaX509v3CertificateBuilder;
-import org.bouncycastle.jcajce.provider.asymmetric.RSA;
-import org.bouncycastle.jce.X509KeyUsage;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.openssl.PEMKeyPair;
-import org.bouncycastle.openssl.PEMParser;
-import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.springframework.stereotype.Service;
-
 import java.io.*;
 import java.math.BigInteger;
 import java.security.*;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.security.interfaces.RSAKey;
-import java.security.interfaces.RSAPrivateKey;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -143,7 +132,9 @@ public class GenerateCertificateService {
                                       LocalDateTime.now(),validTo,
                                       keyPair.getPublic().toString(), digitalSignature,
                                    true,certificateRequest.getCertificateType());
-
+        if(certificateRequest.getCertificateType() == CertificateType.ROOT){
+            certificate.setIssuer(certificate);
+        }
         SubjectData subjectData = generateSubjectData(certificate);
         IssuerData issuerData  = generateIssuerData(keyPair.getPrivate(),certificate);
         X509Certificate newCertificate = generateCertificate(subjectData, issuerData);
@@ -155,12 +146,10 @@ public class GenerateCertificateService {
 
     private IssuerData generateIssuerData(PrivateKey issuerKey, Certificate certificate) {
         X500NameBuilder builder = new X500NameBuilder(BCStyle.INSTANCE);
-        if (certificate.getCertificateType()!=CertificateType.ROOT) {
-            builder.addRDN(BCStyle.CN, certificate.getIssuedTo().getEmail());
-            builder.addRDN(BCStyle.SURNAME, certificate.getIssuedTo().getLastName());
-            builder.addRDN(BCStyle.GIVENNAME, certificate.getIssuedTo().getFirstName());
-            builder.addRDN(BCStyle.UID, String.valueOf(certificate.getIssuedTo().getId()));
-        }
+        builder.addRDN(BCStyle.CN, certificate.getIssuedTo().getEmail());
+        builder.addRDN(BCStyle.SURNAME, certificate.getIssuedTo().getLastName());
+        builder.addRDN(BCStyle.GIVENNAME, certificate.getIssuedTo().getFirstName());
+        builder.addRDN(BCStyle.UID, String.valueOf(certificate.getIssuedTo().getId()));
         return new IssuerData(builder.build(),issuerKey);
     }
 

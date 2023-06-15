@@ -28,6 +28,8 @@ import { MyRequestsComponent } from './my-requests/my-requests.component';
 import { IndexPageComponent } from './index-page/index-page.component';
 
 import { RecaptchaModule, RecaptchaFormsModule, RecaptchaSettings, RECAPTCHA_SETTINGS } from "ng-recaptcha";
+import { LoadingComponentComponent } from './loading-component/loading-component.component';
+import {MatDialogModule} from "@angular/material/dialog";
 const globalSettings: RecaptchaSettings = { siteKey: '6LdS680lAAAAAAilDhTT_KiLheEg2bGwsRA2eBeM' };
 
 @NgModule({
@@ -44,7 +46,8 @@ const globalSettings: RecaptchaSettings = { siteKey: '6LdS680lAAAAAAilDhTT_KiLhe
     RequestsComponent,
     RequestComponent,
     MyRequestsComponent,
-    IndexPageComponent
+    IndexPageComponent,
+    LoadingComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ const globalSettings: RecaptchaSettings = { siteKey: '6LdS680lAAAAAAilDhTT_KiLhe
     MatIconModule,
     RecaptchaModule,
     RecaptchaFormsModule,
+    MatDialogModule,
     FormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }, AuthenticationService, UserService, {
