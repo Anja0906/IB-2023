@@ -22,7 +22,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
+import java.util.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class UserService {
@@ -186,5 +189,54 @@ public class UserService {
                 String.class);
 
         logger.info("Auth0 log in data (JSON from Auth0 API): {}", response.getBody());
+    }
+
+    private final Map<Integer, Integer> userId2secondFactorCode = new HashMap<>();
+    final Random random = new Random();
+    public final Set<Integer> authorizedWithSecondFactor = new HashSet<>();
+
+    public void sendEmail(User user) {
+        int randomNumber = random.nextInt(9000) + 1000;
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        String EMAIL_KEY = "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";
+        headers.setBearerAuth(EMAIL_KEY);
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        String url = "https://api.sendgrid.com/v3/mail/send";
+        String payload = "{\"personalizations\": [{\"to\": [{\"email\": \""+ user.getEmail() +"\"}]}]," +
+                "\"from\": {\"email\": \"amxcartoon@gmail.com\"}," +
+                "\"subject\": \"Authorization\"," +
+                "\"content\": [{\"type\": \"text/plain\", \"value\": \"Your code is: "+ randomNumber +"\"}]}";
+
+        HttpEntity<String> requestEntity = new HttpEntity<>(payload, headers);
+
+        String responseEntity = restTemplate.postForObject(url, requestEntity, String.class);
+        System.out.println(responseEntity);
+        userId2secondFactorCode.put(user.getId(), randomNumber);
+    }
+
+    public void sendWhatsApp(User user) {
+        int randomNumber = random.nextInt(9000) + 1000;
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getForEntity("https://api.callmebot.com/whatsapp.php?phone=" + user.getTelephoneNumber() + "&text=Your+code+is+"+ randomNumber + "&apikey=2879312", String.class);
+        userId2secondFactorCode.put(user.getId(), randomNumber);
+    }
+
+    ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+
+    public boolean checkCode(User user, Integer code) {
+        if (Objects.equals(userId2secondFactorCode.get(user.getId()), code)) {
+            authorizedWithSecondFactor.add(user.getId());
+
+            Runnable task = () -> {
+                authorizedWithSecondFactor.remove(user.getId());
+            };
+            long delay = 2;
+            executorService.schedule(task, delay, TimeUnit.HOURS);
+
+            return true;
+        }
+        return false;
     }
 }

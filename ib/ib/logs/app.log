@@ -1,0 +1,848 @@
+2023-06-17 00:11:00.271  INFO 20772 --- [restartedMain] com.ib.ib.IbApplication                  : Starting IbApplication using Java 17.0.1 on DESKTOP-UNFF2FV with PID 20772 (D:\source\repos\java\IB-2023\ib\ib\target\classes started by Alex in D:\source\repos\java\IB-2023\ib\ib)
+2023-06-17 00:11:00.274  INFO 20772 --- [restartedMain] com.ib.ib.IbApplication                  : No active profile set, falling back to 1 default profile: "default"
+2023-06-17 00:11:00.357  INFO 20772 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-17 00:11:00.358  INFO 20772 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-17 00:11:01.775  INFO 20772 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-17 00:11:01.906  INFO 20772 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 109 ms. Found 4 JPA repository interfaces.
+2023-06-17 00:11:03.743  INFO 20772 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (https)
+2023-06-17 00:11:03.761  INFO 20772 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-17 00:11:03.763  INFO 20772 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-06-17 00:11:03.988  INFO 20772 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-17 00:11:03.989  INFO 20772 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3630 ms
+2023-06-17 00:11:04.367  INFO 20772 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-17 00:11:04.462  INFO 20772 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2023-06-17 00:11:04.752  INFO 20772 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-06-17 00:11:05.004  INFO 20772 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-17 00:11:06.606 ERROR 20772 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ib.ib.IbApplication.main(IbApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+
+2023-06-17 00:11:06.612  WARN 20772 --- [restartedMain] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ib.ib.IbApplication.main(IbApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+
+2023-06-17 00:11:06.633  INFO 20772 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-06-17 00:11:07.888  INFO 20772 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-17 00:11:08.925 ERROR 20772 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.jdbcStatement(GenerationTargetToDatabase.java:77) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:53) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:246) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ib.ib.IbApplication.main(IbApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+
+2023-06-17 00:11:08.928  WARN 20772 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1045, SQLState: 28000
+2023-06-17 00:11:08.929 ERROR 20772 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : Access denied for user 'root'@'localhost' (using password: YES)
+2023-06-17 00:11:08.943 ERROR 20772 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+2023-06-17 00:11:08.945  WARN 20772 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+2023-06-17 00:11:08.949  INFO 20772 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-17 00:11:08.974  INFO 20772 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-06-17 00:11:09.012 ERROR 20772 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
+	at com.ib.ib.IbApplication.main(IbApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.3.jar:2.7.3]
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
+	... 21 common frames omitted
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:71) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.jdbcStatement(GenerationTargetToDatabase.java:77) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:53) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:246) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
+	... 25 common frames omitted
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
+	... 41 common frames omitted
+
+2023-06-17 00:11:32.849  INFO 16696 --- [restartedMain] com.ib.ib.IbApplication                  : Starting IbApplication using Java 17.0.1 on DESKTOP-UNFF2FV with PID 16696 (D:\source\repos\java\IB-2023\ib\ib\target\classes started by Alex in D:\source\repos\java\IB-2023\ib\ib)
+2023-06-17 00:11:32.857  INFO 16696 --- [restartedMain] com.ib.ib.IbApplication                  : No active profile set, falling back to 1 default profile: "default"
+2023-06-17 00:11:33.078  INFO 16696 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-17 00:11:33.078  INFO 16696 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-17 00:11:35.416  INFO 16696 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-17 00:11:35.553  INFO 16696 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118 ms. Found 4 JPA repository interfaces.
+2023-06-17 00:11:37.485  INFO 16696 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (https)
+2023-06-17 00:11:37.505  INFO 16696 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-17 00:11:37.506  INFO 16696 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-06-17 00:11:37.825  INFO 16696 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-17 00:11:37.826  INFO 16696 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4744 ms
+2023-06-17 00:11:38.380  INFO 16696 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-17 00:11:38.474  INFO 16696 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2023-06-17 00:11:38.720  INFO 16696 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-06-17 00:11:39.262  INFO 16696 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-17 00:11:39.963  INFO 16696 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-17 00:11:39.987  INFO 16696 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-06-17 00:11:41.244  INFO 16696 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-17 00:11:41.259  INFO 16696 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-17 00:11:43.541  WARN 16696 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-17 00:11:44.249  INFO 16696 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2a73630d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2a35221e, org.springframework.security.web.context.SecurityContextPersistenceFilter@6a334684, org.springframework.security.web.header.HeaderWriterFilter@60b1bd3, org.springframework.web.filter.CorsFilter@3f2df2ed, org.springframework.security.web.csrf.CsrfFilter@65efaec, org.springframework.security.web.authentication.logout.LogoutFilter@18f6435f, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5adebd61, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2f570bf1, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1554528d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@2dfe2b9b, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@36dcaa35, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d17e0e1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3920dc3a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ca45e22, org.springframework.security.web.session.SessionManagementFilter@676614a4, org.springframework.security.web.access.ExceptionTranslationFilter@7bbead75, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@154d2a23]
+2023-06-17 00:11:44.253  WARN 16696 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/front/login']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-06-17 00:11:44.253  INFO 16696 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/front/login']
+2023-06-17 00:11:44.795  INFO 16696 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-17 00:11:44.993  INFO 16696 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (https) with context path ''
+2023-06-17 00:11:45.006  INFO 16696 --- [restartedMain] com.ib.ib.IbApplication                  : Started IbApplication in 13.419 seconds (JVM running for 15.757)
+2023-06-17 00:13:03.485  INFO 16696 --- [https-jsse-nio-8080-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-17 00:13:03.486  INFO 16696 --- [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-17 00:13:03.487  INFO 16696 --- [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-06-17 00:13:03.551  INFO 16696 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 00:13:03.939  INFO 16696 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 00:13:04.043  INFO 16696 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.returnToken
+2023-06-17 00:13:05.165  INFO 16696 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-16T22:13:02.160Z","type":"s","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"prompts":[],"completedAt":1686953582159,"elapsedTime":null,"session_id":"5s0yZYrEeMcXHwSIVwmtQ1KkD_cOIebK"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230616221303006758000000000000001223372038335607384","_id":"90020230616221303006758000000000000001223372038335607384","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 00:13:05.818  INFO 16696 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 00:13:21.525  INFO 16696 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 00:13:21.890  INFO 16696 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 00:13:21.917  INFO 16696 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.returnToken
+2023-06-17 00:13:22.506  INFO 16696 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-16T22:13:19.512Z","type":"s","connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"prompts":[{"name":"lock-password-authenticate","initiatedAt":1686953598745,"completedAt":1686953599153,"connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","strategy":"auth0","identity":"643a8b1377fb125ef2991c64","stats":{"loginsCount":112},"elapsedTime":408},{"name":"login","flow":"login","initiatedAt":1686953595482,"completedAt":1686953599157,"user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","timers":{"rules":23},"elapsedTime":3675}],"initiatedAt":1686953595475,"completedAt":1686953599509,"elapsedTime":4034,"session_id":"21f1kWDi6Yf-14PCdx0vehPnVC1Wq3vV","stats":{"loginsCount":112}},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","strategy":"auth0","strategy_type":"database","log_id":"90020230616221320309287000000000000001223372038335610718","_id":"90020230616221320309287000000000000001223372038335610718","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 00:13:23.085  INFO 16696 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 10:51:17.836  INFO 11720 --- [restartedMain] com.ib.ib.IbApplication                  : Starting IbApplication using Java 17.0.1 on DESKTOP-UNFF2FV with PID 11720 (D:\source\repos\java\IB-2023\ib\ib\target\classes started by Alex in D:\source\repos\java\IB-2023\ib\ib)
+2023-06-17 10:51:17.839  INFO 11720 --- [restartedMain] com.ib.ib.IbApplication                  : No active profile set, falling back to 1 default profile: "default"
+2023-06-17 10:51:17.934  INFO 11720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-17 10:51:17.935  INFO 11720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-17 10:51:19.802  INFO 11720 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-17 10:51:19.946  INFO 11720 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 113 ms. Found 4 JPA repository interfaces.
+2023-06-17 10:51:21.832  INFO 11720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (https)
+2023-06-17 10:51:21.851  INFO 11720 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-17 10:51:21.852  INFO 11720 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-06-17 10:51:22.037  INFO 11720 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-17 10:51:22.037  INFO 11720 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4094 ms
+2023-06-17 10:51:22.387  INFO 11720 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-17 10:51:22.496  INFO 11720 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2023-06-17 10:51:22.796  INFO 11720 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-06-17 10:51:22.968  INFO 11720 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-17 10:51:23.768  INFO 11720 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-17 10:51:23.800  INFO 11720 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-06-17 10:51:25.580  INFO 11720 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-17 10:51:25.603  INFO 11720 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-17 10:51:28.579  WARN 11720 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-17 10:51:30.138  INFO 11720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@172ea4ae, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ff008e7, org.springframework.security.web.context.SecurityContextPersistenceFilter@3549f19e, org.springframework.security.web.header.HeaderWriterFilter@26b08140, org.springframework.web.filter.CorsFilter@5039d959, org.springframework.security.web.csrf.CsrfFilter@66cead31, org.springframework.security.web.authentication.logout.LogoutFilter@598e531f, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@6b720cd7, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@610b18d5, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@369d6bf1, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@115c5e90, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@ef3c0ed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2ec5f4bc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6d81007a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73b583c1, org.springframework.security.web.session.SessionManagementFilter@331110ee, org.springframework.security.web.access.ExceptionTranslationFilter@6bb7a6a9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3feec70d]
+2023-06-17 10:51:30.147  WARN 11720 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/front/login']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-06-17 10:51:30.148  INFO 11720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/front/login']
+2023-06-17 10:51:30.908  INFO 11720 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-17 10:51:31.151  INFO 11720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (https) with context path ''
+2023-06-17 10:51:31.181  INFO 11720 --- [restartedMain] com.ib.ib.IbApplication                  : Started IbApplication in 14.274 seconds (JVM running for 19.685)
+2023-06-17 10:52:11.141  INFO 11720 --- [https-jsse-nio-8080-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-17 10:52:11.142  INFO 11720 --- [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-17 10:52:11.143  INFO 11720 --- [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-06-17 10:52:11.217  INFO 11720 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 10:52:11.618  INFO 11720 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 10:52:11.737  INFO 11720 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.returnToken
+2023-06-17 10:52:12.350  INFO 11720 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-16T22:13:21.077Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************WD3"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230616221322025426000000000000001223372038335610969","_id":"90020230616221322025426000000000000001223372038335610969","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 10:52:12.970  INFO 11720 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 10:52:29.866  INFO 11720 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method CertificateController.getCertificates
+2023-06-17 10:52:29.914  INFO 11720 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : Method CertificateController.getCertificates returned 200 OK
+2023-06-17 10:53:20.487  INFO 11720 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method CertificateController.getCertificates
+2023-06-17 10:53:20.494  INFO 11720 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : Method CertificateController.getCertificates returned 200 OK
+2023-06-17 10:53:35.253  INFO 11720 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.whatsapp2FA
+2023-06-17 10:53:35.892  INFO 11720 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T08:52:11.352Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************Z_J"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617085216488446000000000000001223372038341623899","_id":"90020230617085216488446000000000000001223372038341623899","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 10:53:41.147  INFO 11720 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : Method LoginController.whatsapp2FA returned 200 OK
+2023-06-17 10:54:16.710  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.whatsapp2FA
+2023-06-17 10:54:17.322  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T08:52:11.352Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************Z_J"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617085216488446000000000000001223372038341623899","_id":"90020230617085216488446000000000000001223372038341623899","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 10:55:07.091  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : Method LoginController.whatsapp2FA returned 200 OK
+2023-06-17 10:55:49.842  INFO 11720 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.checkCode2FA
+2023-06-17 10:55:50.522  INFO 11720 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T08:52:11.352Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************Z_J"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617085216488446000000000000001223372038341623899","_id":"90020230617085216488446000000000000001223372038341623899","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 10:56:09.084  INFO 11720 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : Method LoginController.checkCode2FA returned 200 OK
+2023-06-17 10:56:25.150  INFO 11720 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.email2FA
+2023-06-17 10:56:25.819  INFO 11720 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T08:52:11.352Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************Z_J"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617085216488446000000000000001223372038341623899","_id":"90020230617085216488446000000000000001223372038341623899","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 10:57:04.063  INFO 11720 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Method LoginController.email2FA returned 200 OK
+2023-06-17 11:18:17.502  INFO 11720 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 11:18:18.090  INFO 11720 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:18:18.431  INFO 11720 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.returnToken
+2023-06-17 11:18:19.037  INFO 11720 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:18:15.557Z","type":"s","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"prompts":[],"completedAt":1686993495556,"elapsedTime":null,"session_id":"21f1kWDi6Yf-14PCdx0vehPnVC1Wq3vV"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617091817245386000000000000001223372038341794383","_id":"90020230617091817245386000000000000001223372038341794383","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:18:19.700  INFO 11720 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:18:48.701  INFO 11720 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 11:18:49.080  INFO 11720 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:18:49.108  INFO 11720 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.returnToken
+2023-06-17 11:18:49.679  INFO 11720 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:18:17.788Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************jpB"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617091819747387000000000000001223372038341794690","_id":"90020230617091819747387000000000000001223372038341794690","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:18:50.231  INFO 11720 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:19:13.392  INFO 11720 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 11:19:13.766  INFO 11720 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:19:13.792  INFO 11720 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.returnToken
+2023-06-17 11:19:14.377  INFO 11720 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:18:48.784Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************4z0"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617091850724746000000000000001223372038341797961","_id":"90020230617091850724746000000000000001223372038341797961","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:19:14.926  INFO 11720 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:20:05.956  INFO 11720 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 11:20:06.354  INFO 11720 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:20:06.388  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.returnToken
+2023-06-17 11:20:06.999  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:19:13.472Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************GEO"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617091918293077000000000000001223372038341801258","_id":"90020230617091918293077000000000000001223372038341801258","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:20:07.568  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:20:19.741  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 11:20:20.113  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:20:20.137  INFO 11720 --- [https-jsse-nio-8080-exec-7] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.returnToken
+2023-06-17 11:20:20.804  INFO 11720 --- [https-jsse-nio-8080-exec-7] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:20:18.194Z","type":"s","connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"prompts":[{"name":"lock-password-authenticate","initiatedAt":1686993617323,"completedAt":1686993617827,"connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","strategy":"auth0","identity":"643a62c55c7266dc77f8f4b2","stats":{"loginsCount":41},"elapsedTime":504},{"name":"login","flow":"login","initiatedAt":1686993610632,"completedAt":1686993617832,"user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","timers":{"rules":25},"elapsedTime":7200}],"initiatedAt":1686993610622,"completedAt":1686993618192,"elapsedTime":7570,"session_id":"l11Hlv6GTxvVkHySH089z_4s6Xvl3-f8","stats":{"loginsCount":41}},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","strategy":"auth0","strategy_type":"database","log_id":"90020230617092020002736000000000000001223372038341808504","_id":"90020230617092020002736000000000000001223372038341808504","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:20:21.505  INFO 11720 --- [https-jsse-nio-8080-exec-7] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:22:08.163  INFO 11720 --- [https-jsse-nio-8080-exec-7] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 11:22:08.576  INFO 11720 --- [https-jsse-nio-8080-exec-7] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:22:08.613  INFO 11720 --- [https-jsse-nio-8080-exec-8] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.returnToken
+2023-06-17 11:22:09.150  INFO 11720 --- [https-jsse-nio-8080-exec-8] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:20:19.815Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************PXe"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617092025005072000000000000001223372038341809073","_id":"90020230617092025005072000000000000001223372038341809073","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:22:09.776  INFO 11720 --- [https-jsse-nio-8080-exec-8] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:22:12.583  INFO 11720 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.whatsapp2FA
+2023-06-17 11:22:13.201  INFO 11720 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:22:06.398Z","type":"s","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"prompts":[],"completedAt":1686993726397,"elapsedTime":null,"session_id":"l11Hlv6GTxvVkHySH089z_4s6Xvl3-f8"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617092209103362000000000000001223372038341820664","_id":"90020230617092209103362000000000000001223372038341820664","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:22:23.802  INFO 11720 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : Method LoginController.whatsapp2FA returned 200 OK
+2023-06-17 11:22:35.909  INFO 11720 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.checkCode2FA
+2023-06-17 11:22:36.559  INFO 11720 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:22:08.266Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************cL-"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617092213376810000000000000001223372038341821226","_id":"90020230617092213376810000000000000001223372038341821226","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:22:46.630  INFO 11720 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : Method LoginController.checkCode2FA returned 200 OK
+2023-06-17 11:22:50.585  INFO 11720 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method CertificateController.getCertificates
+2023-06-17 11:22:50.606  INFO 11720 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Method CertificateController.getCertificates returned 200 OK
+2023-06-17 11:24:28.634  INFO 11720 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 11:24:29.046  INFO 11720 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:24:29.373  INFO 11720 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.returnToken
+2023-06-17 11:24:30.092  INFO 11720 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:24:17.972Z","type":"slo","connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"return_to":"https://localhost:4200","allowed_logout_url":["http://localhost:8080","https://localhost:8080","http://localhost:4200","https://localhost:4200"],"session_id":"l11Hlv6GTxvVkHySH089z_4s6Xvl3-f8"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617092418619291000000000000001223372038341835779","_id":"90020230617092418619291000000000000001223372038341835779","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:24:30.623  INFO 11720 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:25:08.967  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.email2FA
+2023-06-17 11:25:09.628  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:24:28.746Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************nqY"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617092432441265000000000000001223372038341837222","_id":"90020230617092432441265000000000000001223372038341837222","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:25:15.353  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : Method LoginController.email2FA returned 200 OK
+2023-06-17 11:25:30.644  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.checkCode2FA
+2023-06-17 11:25:31.338  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:24:28.746Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************nqY"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617092432441265000000000000001223372038341837222","_id":"90020230617092432441265000000000000001223372038341837222","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:25:34.552  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : Method LoginController.checkCode2FA returned 200 OK
+2023-06-17 11:25:40.242  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method CertificateController.getCertificates
+2023-06-17 11:25:40.248  INFO 11720 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : Method CertificateController.getCertificates returned 200 OK
+2023-06-17 11:26:56.312  INFO 11720 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-17 11:26:56.324  INFO 11720 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-06-17 11:26:56.673  INFO 11720 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-06-17 11:26:56.756  INFO 11720 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-06-17 11:35:37.383  INFO 11556 --- [restartedMain] com.ib.ib.IbApplication                  : Starting IbApplication using Java 17.0.1 on DESKTOP-UNFF2FV with PID 11556 (D:\source\repos\java\IB-2023\ib\ib\target\classes started by Alex in D:\source\repos\java\IB-2023\ib\ib)
+2023-06-17 11:35:37.385  INFO 11556 --- [restartedMain] com.ib.ib.IbApplication                  : No active profile set, falling back to 1 default profile: "default"
+2023-06-17 11:35:37.464  INFO 11556 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-17 11:35:37.465  INFO 11556 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-17 11:35:38.603  INFO 11556 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-17 11:35:38.687  INFO 11556 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 4 JPA repository interfaces.
+2023-06-17 11:35:39.908  INFO 11556 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (https)
+2023-06-17 11:35:39.919  INFO 11556 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-17 11:35:39.920  INFO 11556 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-06-17 11:35:40.079  INFO 11556 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-17 11:35:40.080  INFO 11556 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2615 ms
+2023-06-17 11:35:40.483  INFO 11556 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-17 11:35:40.548  INFO 11556 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2023-06-17 11:35:40.735  INFO 11556 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-06-17 11:35:40.895  INFO 11556 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-17 11:35:41.326  INFO 11556 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-17 11:35:41.342  INFO 11556 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-06-17 11:35:43.054  INFO 11556 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-17 11:35:43.095  INFO 11556 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-17 11:35:45.244  WARN 11556 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-17 11:35:46.042  INFO 11556 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@76e61959, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43017fb6, org.springframework.security.web.context.SecurityContextPersistenceFilter@4913e133, org.springframework.security.web.header.HeaderWriterFilter@74999da2, org.springframework.web.filter.CorsFilter@469a2859, org.springframework.security.web.csrf.CsrfFilter@3350b341, org.springframework.security.web.authentication.logout.LogoutFilter@653695aa, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@75e50399, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@40d6d96, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3beefc8a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@61491666, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@48036e00, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31d8481b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@573c82f8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2723e7c7, org.springframework.security.web.session.SessionManagementFilter@2a5d6483, org.springframework.security.web.access.ExceptionTranslationFilter@2e2b2f4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@c640c44]
+2023-06-17 11:35:46.060  WARN 11556 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/front/login']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-06-17 11:35:46.061  INFO 11556 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/front/login']
+2023-06-17 11:35:46.789  INFO 11556 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-17 11:35:47.036  INFO 11556 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (https) with context path ''
+2023-06-17 11:35:47.057  INFO 11556 --- [restartedMain] com.ib.ib.IbApplication                  : Started IbApplication in 10.414 seconds (JVM running for 12.467)
+2023-06-17 11:35:53.857  INFO 11556 --- [https-jsse-nio-8080-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-17 11:35:53.858  INFO 11556 --- [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-17 11:35:53.864  INFO 11556 --- [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2023-06-17 11:35:54.026  INFO 11556 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 11:35:54.479  INFO 11556 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 11:35:54.631  INFO 11556 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.userInfo
+2023-06-17 11:35:55.266  INFO 11556 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:35:51.471Z","type":"s","connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"prompts":[{"name":"lock-password-authenticate","initiatedAt":1686994550382,"completedAt":1686994550896,"connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","strategy":"auth0","identity":"643a62c55c7266dc77f8f4b2","stats":{"loginsCount":43},"elapsedTime":514},{"name":"login","flow":"login","initiatedAt":1686994546538,"completedAt":1686994550900,"user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","timers":{"rules":257},"elapsedTime":4362}],"initiatedAt":1686994546530,"completedAt":1686994551469,"elapsedTime":4939,"session_id":"qBK8720R73tJUvyrht8YSgvXF4OOJMph","stats":{"loginsCount":43}},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","strategy":"auth0","strategy_type":"database","log_id":"90020230617093552130534000000000000001223372038341909672","_id":"90020230617093552130534000000000000001223372038341909672","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:35:55.893  INFO 11556 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : Method LoginController.userInfo returned 200 OK
+2023-06-17 11:36:27.001  WARN 11556 --- [https-jsse-nio-8080-exec-6] o.s.web.servlet.PageNotFound             : No mapping for GET /front/api/certificates
+2023-06-17 11:36:33.469  WARN 11556 --- [https-jsse-nio-8080-exec-7] o.s.web.servlet.PageNotFound             : No mapping for GET /api/certificates
+2023-06-17 11:36:54.785  INFO 11556 --- [https-jsse-nio-8080-exec-8] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method CertificateController.getCertificates
+2023-06-17 11:36:54.809  INFO 11556 --- [https-jsse-nio-8080-exec-8] com.ib.ib.aspects.LoggingAspect          : Method CertificateController.getCertificates returned 200 OK
+2023-06-17 11:37:24.342  WARN 11556 --- [https-jsse-nio-8080-exec-9] o.s.web.servlet.PageNotFound             : No mapping for GET /api/requests
+2023-06-17 11:37:30.285  INFO 11556 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method CertificateController.getAllCertificateRequestsForUser
+2023-06-17 11:37:30.953  INFO 11556 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:35:54.150Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************E_b"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617093556063300000000000000001223372038341910032","_id":"90020230617093556063300000000000000001223372038341910032","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:37:31.547 ERROR 11556 --- [https-jsse-nio-8080-exec-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is javax.validation.ValidationException] with root cause
+
+javax.validation.ValidationException: null
+	at com.ib.ib.controller.CertificateController.getAllCertificateRequestsForUser(CertificateController.java:97) ~[classes/:na]
+	at com.ib.ib.controller.CertificateController$$FastClassBySpringCGLIB$$4d6f148e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89) ~[spring-aop-5.3.22.jar:5.3.22]
+	at com.ib.ib.aspects.LoggingAspect.logMethodCall(LoggingAspect.java:26) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.22.jar:5.3.22]
+	at com.ib.ib.controller.CertificateController$$EnhancerBySpringCGLIB$$21bf3d93.getAllCertificateRequestsForUser(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:142) ~[spring-security-oauth2-resource-server-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:237) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:223) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:178) ~[spring-security-oauth2-client-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-06-17 11:37:37.905  INFO 11556 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.email2FA
+2023-06-17 11:37:38.551  INFO 11556 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:35:54.150Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************E_b"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617093556063300000000000000001223372038341910032","_id":"90020230617093556063300000000000000001223372038341910032","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:37:40.037  INFO 11556 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : Method LoginController.email2FA returned 200 OK
+2023-06-17 11:37:50.273  INFO 11556 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.checkCode2FA
+2023-06-17 11:37:50.929  INFO 11556 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:35:54.150Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************E_b"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617093556063300000000000000001223372038341910032","_id":"90020230617093556063300000000000000001223372038341910032","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:37:51.682  INFO 11556 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : Method LoginController.checkCode2FA returned 200 OK
+2023-06-17 11:37:56.255  INFO 11556 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method CertificateController.getAllCertificateRequestsForUser
+2023-06-17 11:37:56.809  INFO 11556 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:35:54.150Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************E_b"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617093556063300000000000000001223372038341910032","_id":"90020230617093556063300000000000000001223372038341910032","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 11:37:57.357  INFO 11556 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : Method CertificateController.getAllCertificateRequestsForUser returned 200 OK
+2023-06-17 12:34:49.881  INFO 14432 --- [restartedMain] com.ib.ib.IbApplication                  : Starting IbApplication using Java 17.0.1 on DESKTOP-UNFF2FV with PID 14432 (D:\source\repos\java\IB-2023\ib\ib\target\classes started by Alex in D:\source\repos\java\IB-2023\ib\ib)
+2023-06-17 12:34:49.888  INFO 14432 --- [restartedMain] com.ib.ib.IbApplication                  : No active profile set, falling back to 1 default profile: "default"
+2023-06-17 12:34:50.018  INFO 14432 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-17 12:34:50.018  INFO 14432 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-17 12:34:51.803  INFO 14432 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-17 12:34:51.954  INFO 14432 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 129 ms. Found 4 JPA repository interfaces.
+2023-06-17 12:34:54.394  INFO 14432 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (https)
+2023-06-17 12:34:54.427  INFO 14432 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-17 12:34:54.428  INFO 14432 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-06-17 12:34:54.806  INFO 14432 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-17 12:34:54.806  INFO 14432 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4786 ms
+2023-06-17 12:34:55.470  INFO 14432 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-17 12:34:55.671  INFO 14432 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2023-06-17 12:34:56.387  INFO 14432 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-06-17 12:34:56.709  INFO 14432 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-17 12:34:57.656  INFO 14432 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-17 12:34:57.677  INFO 14432 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-06-17 12:34:59.961  INFO 14432 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-17 12:34:59.983  INFO 14432 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-17 12:35:03.195  WARN 14432 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-17 12:35:04.458  INFO 14432 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@16eb8bc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5265c854, org.springframework.security.web.context.SecurityContextPersistenceFilter@2705ab90, org.springframework.security.web.header.HeaderWriterFilter@1ccb427b, org.springframework.web.filter.CorsFilter@23c77b3f, org.springframework.security.web.csrf.CsrfFilter@1350a2, org.springframework.security.web.authentication.logout.LogoutFilter@21426986, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5967dec1, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@6b0f0ba5, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6a941a0d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@52b02c97, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@2231b6f4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@217cc0d1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@538ae2c0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26efc525, org.springframework.security.web.session.SessionManagementFilter@5fd3e261, org.springframework.security.web.access.ExceptionTranslationFilter@5a197904, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@263aab77]
+2023-06-17 12:35:04.475  WARN 14432 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/front/login']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-06-17 12:35:04.475  INFO 14432 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/front/login']
+2023-06-17 12:35:05.717  INFO 14432 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-17 12:35:06.104  INFO 14432 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (https) with context path ''
+2023-06-17 12:35:06.137  INFO 14432 --- [restartedMain] com.ib.ib.IbApplication                  : Started IbApplication in 17.398 seconds (JVM running for 22.538)
+2023-06-17 12:38:47.747  INFO 14432 --- [https-jsse-nio-8080-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-17 12:38:47.748  INFO 14432 --- [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-17 12:38:47.750  INFO 14432 --- [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-06-17 12:38:47.864  INFO 14432 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 12:38:48.382  INFO 14432 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 12:38:48.800  INFO 14432 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.userInfo
+2023-06-17 12:38:49.462  INFO 14432 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:38:44.903Z","type":"s","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"prompts":[],"completedAt":1686998324902,"elapsedTime":null,"session_id":"qBK8720R73tJUvyrht8YSgvXF4OOJMph"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617103845895693000000000000001223372038342381472","_id":"90020230617103845895693000000000000001223372038342381472","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:38:50.682  INFO 14432 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : Method LoginController.userInfo returned 200 OK
+2023-06-17 12:41:06.625  INFO 14432 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 12:41:07.272  INFO 14432 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 12:41:07.708  INFO 14432 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : User auth0|648d8db66ee6f0aa8794976d called method LoginController.userInfo
+2023-06-17 12:41:08.499  INFO 14432 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:41:03.519Z","type":"s","connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"prompts":[{"name":"lock-password-authenticate","initiatedAt":1686998455105,"completedAt":1686998455620,"connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","strategy":"auth0","identity":"648d8db66ee6f0aa8794976d","stats":{"loginsCount":1},"elapsedTime":515},{"name":"login","flow":"login","initiatedAt":1686998337403,"completedAt":1686998455624,"user_id":"auth0|648d8db66ee6f0aa8794976d","user_name":"anchypetkovic0906@gmail.com","timers":{"rules":243},"elapsedTime":118221},{"name":"consent","flow":"consent","initiatedAt":1686998456240,"completedAt":1686998463184,"grantInfo":{"id":"648d8dbf0488e9adf5e72722","audience":"localhost","scope":"openid profile email","expiration":null},"elapsedTime":6944}],"initiatedAt":1686998337396,"completedAt":1686998463517,"elapsedTime":126121,"session_id":"iFB11eEeOWv_-1wVRwQUe__CLymzqpHl","stats":{"loginsCount":1}},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|648d8db66ee6f0aa8794976d","user_name":"anchypetkovic0906@gmail.com","strategy":"auth0","strategy_type":"database","log_id":"90020230617104106958573000000000000001223372038342399243","_id":"90020230617104106958573000000000000001223372038342399243","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:41:09.664  INFO 14432 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : Method LoginController.userInfo returned 200 OK
+2023-06-17 12:43:20.107  INFO 14432 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : User auth0|648d8db66ee6f0aa8794976d called method LoginController.whatsapp2FA
+2023-06-17 12:43:21.588  INFO 14432 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:41:05.980Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************G7C"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|648d8db66ee6f0aa8794976d","user_name":"anchypetkovic0906@gmail.com","log_id":"90020230617104109144888000000000000001223372038342399573","_id":"90020230617104109144888000000000000001223372038342399573","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:43:22.803  INFO 14432 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : Method LoginController.whatsapp2FA returned 200 OK
+2023-06-17 12:46:03.088  INFO 14432 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 12:46:04.051  INFO 14432 --- [https-jsse-nio-8080-exec-5] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 12:46:04.093  INFO 14432 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.userInfo
+2023-06-17 12:46:04.733  INFO 14432 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:45:59.982Z","type":"s","connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"prompts":[{"name":"lock-password-authenticate","initiatedAt":1686998758865,"completedAt":1686998759407,"connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","strategy":"auth0","identity":"643a62c55c7266dc77f8f4b2","stats":{"loginsCount":44},"elapsedTime":542},{"name":"login","flow":"login","initiatedAt":1686998754937,"completedAt":1686998759413,"user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","timers":{"rules":234},"elapsedTime":4476}],"initiatedAt":1686998754930,"completedAt":1686998759981,"elapsedTime":5051,"session_id":"Q1i6Mc7aH5BEkAk1AgA4wkp8SKcVV_73","stats":{"loginsCount":44}},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","strategy":"auth0","strategy_type":"database","log_id":"90020230617104602537517000000000000001223372038342439307","_id":"90020230617104602537517000000000000001223372038342439307","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:46:05.534  INFO 14432 --- [https-jsse-nio-8080-exec-6] com.ib.ib.aspects.LoggingAspect          : Method LoginController.userInfo returned 200 OK
+2023-06-17 12:46:08.169  INFO 14432 --- [https-jsse-nio-8080-exec-8] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.email2FA
+2023-06-17 12:46:08.794  INFO 14432 --- [https-jsse-nio-8080-exec-8] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:45:59.982Z","type":"s","connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"prompts":[{"name":"lock-password-authenticate","initiatedAt":1686998758865,"completedAt":1686998759407,"connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","strategy":"auth0","identity":"643a62c55c7266dc77f8f4b2","stats":{"loginsCount":44},"elapsedTime":542},{"name":"login","flow":"login","initiatedAt":1686998754937,"completedAt":1686998759413,"user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","timers":{"rules":234},"elapsedTime":4476}],"initiatedAt":1686998754930,"completedAt":1686998759981,"elapsedTime":5051,"session_id":"Q1i6Mc7aH5BEkAk1AgA4wkp8SKcVV_73","stats":{"loginsCount":44}},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","strategy":"auth0","strategy_type":"database","log_id":"90020230617104602537517000000000000001223372038342439307","_id":"90020230617104602537517000000000000001223372038342439307","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:46:10.985  INFO 14432 --- [https-jsse-nio-8080-exec-8] com.ib.ib.aspects.LoggingAspect          : Method LoginController.email2FA returned 200 OK
+2023-06-17 12:46:26.204  INFO 14432 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method LoginController.checkCode2FA
+2023-06-17 12:46:27.012  INFO 14432 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:46:02.747Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************lqh"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617104607845288000000000000001223372038342440249","_id":"90020230617104607845288000000000000001223372038342440249","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:46:27.924  INFO 14432 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : Method LoginController.checkCode2FA returned 200 OK
+2023-06-17 12:46:34.612  INFO 14432 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : User auth0|643a62c55c7266dc77f8f4b2 called method CertificateController.getAllowedIssuers
+2023-06-17 12:46:35.722  INFO 14432 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:46:02.747Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************lqh"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a62c55c7266dc77f8f4b2","user_name":"alex.type59@gmail.com","log_id":"90020230617104607845288000000000000001223372038342440249","_id":"90020230617104607845288000000000000001223372038342440249","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:46:36.678  INFO 14432 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Method CertificateController.getAllowedIssuers returned 200 OK
+2023-06-17 12:46:57.849  INFO 14432 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 12:46:58.291  INFO 14432 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 12:46:58.384  INFO 14432 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.userInfo
+2023-06-17 12:46:59.028  INFO 14432 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T09:20:09.461Z","type":"slo","connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"24.135.244.64","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"return_to":"https://localhost:4200","allowed_logout_url":["http://localhost:8080","https://localhost:8080","http://localhost:4200","https://localhost:4200"],"session_id":"21f1kWDi6Yf-14PCdx0vehPnVC1Wq3vV"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617092013563126000000000000001223372038341807809","_id":"90020230617092013563126000000000000001223372038341807809","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Novi Sad","latitude":45.25,"longitude":19.8362,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:47:00.328  INFO 14432 --- [https-jsse-nio-8080-exec-1] com.ib.ib.aspects.LoggingAspect          : Method LoginController.userInfo returned 200 OK
+2023-06-17 12:47:03.248  INFO 14432 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.whatsapp2FA
+2023-06-17 12:47:03.997  INFO 14432 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:46:56.973Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************kxf"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617104701432686000000000000001223372038342449464","_id":"90020230617104701432686000000000000001223372038342449464","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:47:05.005  INFO 14432 --- [https-jsse-nio-8080-exec-3] com.ib.ib.aspects.LoggingAspect          : Method LoginController.whatsapp2FA returned 200 OK
+2023-06-17 12:48:03.084  INFO 14432 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-17 12:48:03.091  INFO 14432 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-06-17 12:48:03.259  INFO 14432 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-06-17 12:48:03.334  INFO 14432 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-06-17 12:48:46.308  INFO 6204 --- [restartedMain] com.ib.ib.IbApplication                  : Starting IbApplication using Java 17.0.1 on DESKTOP-UNFF2FV with PID 6204 (D:\source\repos\java\IB-2023\ib\ib\target\classes started by Alex in D:\source\repos\java\IB-2023\ib\ib)
+2023-06-17 12:48:46.313  INFO 6204 --- [restartedMain] com.ib.ib.IbApplication                  : No active profile set, falling back to 1 default profile: "default"
+2023-06-17 12:48:46.485  INFO 6204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-17 12:48:46.486  INFO 6204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-17 12:48:49.108  INFO 6204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-17 12:48:49.296  INFO 6204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 165 ms. Found 4 JPA repository interfaces.
+2023-06-17 12:48:51.873  INFO 6204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (https)
+2023-06-17 12:48:51.899  INFO 6204 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-17 12:48:51.901  INFO 6204 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-06-17 12:48:52.202  INFO 6204 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-17 12:48:52.203  INFO 6204 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5716 ms
+2023-06-17 12:48:52.691  INFO 6204 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-17 12:48:52.805  INFO 6204 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2023-06-17 12:48:53.225  INFO 6204 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-06-17 12:48:53.457  INFO 6204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-17 12:48:54.191  INFO 6204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-17 12:48:54.226  INFO 6204 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2023-06-17 12:48:56.021  INFO 6204 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-17 12:48:56.039  INFO 6204 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-17 12:48:58.831  WARN 6204 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-17 12:48:59.984  INFO 6204 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@53422398, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18282769, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b64b9f7, org.springframework.security.web.header.HeaderWriterFilter@531e29d7, org.springframework.web.filter.CorsFilter@111cea9d, org.springframework.security.web.csrf.CsrfFilter@6484ef0b, org.springframework.security.web.authentication.logout.LogoutFilter@52bd5794, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@3d8605b6, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@32fe0c7c, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5a2b4099, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@164bdbf2, org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@5e9b6c70, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1019f114, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@20b762b5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54d76440, org.springframework.security.web.session.SessionManagementFilter@5cda78ef, org.springframework.security.web.access.ExceptionTranslationFilter@37fd91eb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@11d78952]
+2023-06-17 12:49:00.002  WARN 6204 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/front/login']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-06-17 12:49:00.003  INFO 6204 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/front/login']
+2023-06-17 12:49:01.093  INFO 6204 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-17 12:49:01.418  INFO 6204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (https) with context path ''
+2023-06-17 12:49:01.446  INFO 6204 --- [restartedMain] com.ib.ib.IbApplication                  : Started IbApplication in 15.989 seconds (JVM running for 18.257)
+2023-06-17 12:49:13.581  INFO 6204 --- [https-jsse-nio-8080-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-17 12:49:13.582  INFO 6204 --- [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-17 12:49:13.584  INFO 6204 --- [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-06-17 12:49:13.686  INFO 6204 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : User anonymous called method LoginController.returnToken
+2023-06-17 12:49:14.248  INFO 6204 --- [https-jsse-nio-8080-exec-9] com.ib.ib.aspects.LoggingAspect          : Method LoginController.returnToken returned 200 OK
+2023-06-17 12:49:14.403  INFO 6204 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.userInfo
+2023-06-17 12:49:15.071  INFO 6204 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:49:10.150Z","type":"s","connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Chrome 114.0.0 / Windows 10.0.0","details":{"prompts":[{"name":"lock-password-authenticate","initiatedAt":1686998949107,"completedAt":1686998949559,"connection":"Username-Password-Authentication","connection_id":"con_yqCaECGpBpoybrLg","strategy":"auth0","identity":"643a8b1377fb125ef2991c64","stats":{"loginsCount":114},"elapsedTime":452},{"name":"login","flow":"login","initiatedAt":1686998945230,"completedAt":1686998949564,"user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","timers":{"rules":243},"elapsedTime":4334}],"initiatedAt":1686998945222,"completedAt":1686998950149,"elapsedTime":4927,"session_id":"lwea6bxblFK5htG2pR5YNCT2edvzLmmy","stats":{"loginsCount":114}},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","strategy":"auth0","strategy_type":"database","log_id":"90020230617104911981843000000000000001223372038342467912","_id":"90020230617104911981843000000000000001223372038342467912","isMobile":false,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:49:15.765  INFO 6204 --- [https-jsse-nio-8080-exec-10] com.ib.ib.aspects.LoggingAspect          : Method LoginController.userInfo returned 200 OK
+2023-06-17 12:49:17.568  INFO 6204 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.whatsapp2FA
+2023-06-17 12:49:18.212  INFO 6204 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:49:12.914Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************K5g"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617104914485146000000000000001223372038342468264","_id":"90020230617104914485146000000000000001223372038342468264","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:49:19.310  INFO 6204 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : Method LoginController.whatsapp2FA returned 200 OK
+2023-06-17 12:49:36.621  INFO 6204 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method LoginController.checkCode2FA
+2023-06-17 12:49:37.398  INFO 6204 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:49:12.914Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************K5g"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617104914485146000000000000001223372038342468264","_id":"90020230617104914485146000000000000001223372038342468264","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:49:38.123  INFO 6204 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : Method LoginController.checkCode2FA returned 200 OK
+2023-06-17 12:49:41.463  INFO 6204 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method CertificateController.getAllowedIssuers
+2023-06-17 12:49:42.509  INFO 6204 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:49:12.914Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************K5g"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617104914485146000000000000001223372038342468264","_id":"90020230617104914485146000000000000001223372038342468264","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:49:43.179  INFO 6204 --- [https-jsse-nio-8080-exec-4] com.ib.ib.aspects.LoggingAspect          : Method CertificateController.getAllowedIssuers returned 200 OK
+2023-06-17 12:50:15.879  INFO 6204 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : User auth0|643a8b1377fb125ef2991c64 called method CertificateController.createCertificate
+2023-06-17 12:50:16.674  INFO 6204 --- [https-jsse-nio-8080-exec-2] com.ib.ib.aspects.LoggingAspect          : Auth0 log in data (JSON from Auth0 API): [{"date":"2023-06-17T10:49:12.914Z","type":"seacft","description":"","connection_id":"","client_id":"okCV1iX8I6mb9BqQZ6YnNF1hDcx3fv5n","client_name":"IB Project","ip":"212.200.181.118","user_agent":"Java 0.1.0 / Other 0.0.0","details":{"code":"******************************************K5g"},"hostname":"dev-uox28mbzk3p270l1.us.auth0.com","user_id":"auth0|643a8b1377fb125ef2991c64","user_name":"t@t.ru","log_id":"90020230617104914485146000000000000001223372038342468264","_id":"90020230617104914485146000000000000001223372038342468264","isMobile":true,"location_info":{"country_code":"RS","country_code3":"SRB","country_name":"Serbia","city_name":"Belgrade","latitude":44.8166,"longitude":20.4721,"time_zone":"Europe/Belgrade","continent_code":"EU"}}]
+2023-06-17 12:50:33.504 ERROR 6204 --- [https-jsse-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: java.io.IOException: РЎРёСЃС‚РµРјРµ РЅРµ СѓРґР°РµС‚СЃСЏ РЅР°Р№С‚Рё СѓРєР°Р·Р°РЅРЅС‹Р№ РїСѓС‚СЊ] with root cause
+
+java.io.IOException: РЎРёСЃС‚РµРјРµ РЅРµ СѓРґР°РµС‚СЃСЏ РЅР°Р№С‚Рё СѓРєР°Р·Р°РЅРЅС‹Р№ РїСѓС‚СЊ
+	at java.base/java.io.WinNTFileSystem.createFileExclusively(Native Method) ~[na:na]
+	at java.base/java.io.File.createNewFile(File.java:1043) ~[na:na]
+	at com.ib.ib.service.GenerateCertificateService.saveCertificate(GenerateCertificateService.java:170) ~[classes/:na]
+	at com.ib.ib.service.GenerateCertificateService.createCertificate(GenerateCertificateService.java:142) ~[classes/:na]
+	at com.ib.ib.service.CertificateService.acceptRequest(CertificateService.java:170) ~[classes/:na]
+	at com.ib.ib.service.CertificateService.createRequest(CertificateService.java:106) ~[classes/:na]
+	at com.ib.ib.controller.CertificateController.createCertificate(CertificateController.java:148) ~[classes/:na]
+	at com.ib.ib.controller.CertificateController$$FastClassBySpringCGLIB$$4d6f148e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89) ~[spring-aop-5.3.22.jar:5.3.22]
+	at com.ib.ib.aspects.LoggingAspect.logMethodCall(LoggingAspect.java:26) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.22.jar:5.3.22]
+	at com.ib.ib.controller.CertificateController$$EnhancerBySpringCGLIB$$b41606ce.createCertificate(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:142) ~[spring-security-oauth2-resource-server-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:237) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:223) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:178) ~[spring-security-oauth2-client-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+

@@ -26,6 +26,7 @@ public class LoginController {
             model.addAttribute("profile", principal.getClaims());
         return "index";
     }
+
     @PostMapping("/front/login")
     @CrossOrigin
     public ResponseEntity<?> returnToken(@RequestBody Map<String, Object> requestBody) {
@@ -33,9 +34,38 @@ public class LoginController {
         String url = (String) requestBody.get("url");
         return new ResponseEntity<>(userService.getUserApiToken(code, url), HttpStatus.OK);
     }
+
+    @GetMapping("/front/login/whatsapp")
+    @CrossOrigin
+    public ResponseEntity<?> whatsapp2FA(@AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException {
+        User user = userService.getUserByPrincipal(principal);
+        userService.sendWhatsApp(user);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/front/login/email")
+    @CrossOrigin
+    public ResponseEntity<?> email2FA(@AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException {
+        User user = userService.getUserByPrincipal(principal);
+        userService.sendEmail(user);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/front/login/2fa")
+    @CrossOrigin
+    public ResponseEntity<?> checkCode2FA(@RequestBody Map<String, Object> requestBody, @AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException {
+        String code = (String) requestBody.get("code");
+        User user = userService.getUserByPrincipal(principal);
+
+        if (userService.checkCode(user, Integer.valueOf(code))) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    }
+
     @GetMapping("/api/user")
     @CrossOrigin
-    public ResponseEntity<?> returnToken(@AuthenticationPrincipal Object principal) throws JsonProcessingException, ExecutionControl.NotImplementedException {
+    public ResponseEntity<?> userInfo(@AuthenticationPrincipal Object principal) throws JsonProcessingException, ExecutionControl.NotImplementedException {
         User user = userService.getUserByPrincipal(principal);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }

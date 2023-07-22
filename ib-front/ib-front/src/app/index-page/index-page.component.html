@@ -1,4 +1,22 @@
-<img src="assets/Picture8.jpg" alt="">
-<img src="assets/d948c8af86276e3a.jpeg" alt="">
-<img src="assets/Picture6.jpg" alt="">
-<img src="assets/Dc1gbARWsAAAKDc.jpg" alt="">
+<img *ngIf="!userService.user.value || userService.secondFactor" src="assets/Picture8.jpg" alt="">
+<img *ngIf="!userService.user.value || userService.secondFactor" src="assets/d948c8af86276e3a.jpeg" alt="">
+<img *ngIf="!userService.user.value || userService.secondFactor" src="assets/Picture6.jpg" alt="">
+<img *ngIf="!userService.user.value || userService.secondFactor" src="assets/Dc1gbARWsAAAKDc.jpg" alt="">
+
+<div *ngIf="userService.user.value && !userService.secondFactor && !sent">
+    <h1>Now you need to verify yourself, via:</h1>
+    <app-button-component (click)="userService.sendWhatsapp(); sent = true">
+        What's App
+    </app-button-component>
+    <app-button-component (click)="userService.sendEmail(); sent = true">
+        Email
+    </app-button-component>
+</div>
+
+
+<div *ngIf="userService.user.value && !userService.secondFactor && sent">
+    <input placeholder="Code (check your phone)" type="text" [(ngModel)]="code">
+    <app-button-component (click)="userService.checkCode(code)">
+      Check code
+    </app-button-component>
+</div>

@@ -21,7 +21,7 @@ public class SecurityEventsConfiguration {
     @EventListener(ApplicationReadyEvent.class)
     public void doSomethingAfterStartup() {
         // His Auth0 password is "t", by the way
-        userRepository.save(new User("t@t.ru", "t", "t", "+7", true));
+        userRepository.save(new User("t@t.ru", "t", "t", "381643566656", true));
     }
 
     @EventListener(AuthenticationSuccessEvent.class)

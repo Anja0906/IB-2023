@@ -60,6 +60,7 @@ export class AuthenticationService {
 export class UserService {
   // Monitor parametres, after getting one-time code as parameter log in user and get all it's info from both Auth0 and Spring
   user: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
+  secondFactor: boolean = false;
   // It is true until all User data is present or something fails
   loading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
@@ -128,6 +129,29 @@ export class UserService {
   handleError = (error: any) => {
     console.error(error);
     this.loading.next(false);
+  }
+
+  sendWhatsapp = () => {
+    this.http.get(logInUrl + '/whatsapp').subscribe({
+      error: this.handleError
+    });
+  }
+  sendEmail = () => {
+    this.http.get(logInUrl + '/email').subscribe({
+      error: this.handleError
+    });
+  }
+  checkCode = (code: string) => {
+    // When we get one-time code we need to send it to Spring and get JWT tokens
+      this.loading.next(true);
+      this.http.post(
+        logInUrl + '/2fa',
+        { code: code },
+        { responseType: 'text' }
+      ).subscribe({
+        next: ()=>this.secondFactor=true,
+        error: this.handleError
+      });
   }
 }
 

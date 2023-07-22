@@ -17,6 +17,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.ValidationException;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -65,6 +66,7 @@ public class CertificateController {
                                              @PathVariable("id")Integer id) throws JsonProcessingException, ExecutionControl.NotImplementedException
     {
         User user = userService.getUserByPrincipal(principal);
+        if (!userService.authorizedWithSecondFactor.contains(user.getId())) throw new ValidationException();
         Certificate certificate = this.certificateService.findCertificateById(id);
         if (certificate.getIssuedTo().equals(user))
             return new ResponseEntity<>(this.certificateService.download(certificate,"key"), HttpStatus.OK);
@@ -92,6 +94,7 @@ public class CertificateController {
     public ResponseEntity<?> getAllCertificateRequestsForUser(@AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException
     {
         User user = userService.getUserByPrincipal(principal);
+        if (!userService.authorizedWithSecondFactor.contains(user.getId())) throw new ValidationException();
         List<CertificateRequest> certificateRequests = this.requestService.findAllCertificateRequestsForUser(user.getId());
         List<CertificateResponseDTO> certificateRequestDTOS = new ArrayList<>();
         for(CertificateRequest certReq: certificateRequests)
@@ -104,6 +107,7 @@ public class CertificateController {
     public ResponseEntity<?> getAllCertificateRequestsForIssuer(@AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException
     {
         User user = userService.getUserByPrincipal(principal);
+        if (!userService.authorizedWithSecondFactor.contains(user.getId())) throw new ValidationException();
         List<CertificateRequest> certificateRequests = this.requestService.findAllCertificateRequestsForIssuer(user.getId());
         List<CertificateResponseDTO> certificateRequestDTOS = new ArrayList<>();
         for(CertificateRequest certReq: certificateRequests)
@@ -116,6 +120,7 @@ public class CertificateController {
     public ResponseEntity<?> getAllCertificateRequestsForAdmin(@AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException
     {
         User user = userService.getUserByPrincipal(principal);
+        if (!userService.authorizedWithSecondFactor.contains(user.getId())) throw new ValidationException();
         if (user.getIsAdministrator()){
             List<CertificateRequest> certificateRequests = this.requestService.findAll();
             List<CertificateResponseDTO> certificateRequestDTOS = new ArrayList<>();
@@ -132,6 +137,7 @@ public class CertificateController {
                                                @RequestBody CertificateRequestDTO requestDTO) throws Exception
     {
         User user = userService.getUserByPrincipal(principal);
+        if (!userService.authorizedWithSecondFactor.contains(user.getId())) throw new ValidationException();
         captchaService.processResponse(requestDTO.getCaptcha());
 
         if (!requestDTO.getType().equals(CertificateType.END) && !requestDTO.getType().equals(CertificateType.INTERMEDIATE) && !requestDTO.getType().equals(CertificateType.ROOT))
@@ -149,6 +155,7 @@ public class CertificateController {
                                                @PathVariable("id")Integer id) throws ExecutionControl.NotImplementedException, JsonProcessingException
     {
         User user = userService.getUserByPrincipal(principal);
+        if (!userService.authorizedWithSecondFactor.contains(user.getId())) throw new ValidationException();
         try {
             return new ResponseEntity<>(this.certificateService.accept(id, user), HttpStatus.OK);
         } catch (Exception e) {
@@ -163,6 +170,7 @@ public class CertificateController {
                                                 @RequestBody DeclineRequestDTO declineRequestDTO) throws ExecutionControl.NotImplementedException, JsonProcessingException
     {
         User user = userService.getUserByPrincipal(principal);
+        if (!userService.authorizedWithSecondFactor.contains(user.getId())) throw new ValidationException();
         try {
             this.certificateService.declineRequest(id, declineRequestDTO.getReason(), user);
             return new ResponseEntity<>(HttpStatus.OK);
@@ -174,6 +182,7 @@ public class CertificateController {
     @CrossOrigin
     public ResponseEntity<?> withdrawCertificate(@AuthenticationPrincipal Object principal,@PathVariable("id")Integer id) throws ExecutionControl.NotImplementedException, IOException {
         User user = userService.getUserByPrincipal(principal);
+        if (!userService.authorizedWithSecondFactor.contains(user.getId())) throw new ValidationException();
         Certificate certificate = this.certificateService.findCertificateById(id);
         if((user.getId().equals(certificate.getIssuedTo().getId()) && certificate.getCertificateType() != CertificateType.ROOT) || user.IsAdministrator()) {
             this.certificateService.deleteCertificate(certificate);
@@ -187,6 +196,7 @@ public class CertificateController {
     public ResponseEntity<?> getAllowedIssuers(@AuthenticationPrincipal Object principal) throws ExecutionControl.NotImplementedException, JsonProcessingException {
         try {
             User user = userService.getUserByPrincipal(principal);
+            if (!userService.authorizedWithSecondFactor.contains(user.getId())) throw new ValidationException();
             return new ResponseEntity<>(this.certificateService.getAllValid(), HttpStatus.OK);
         }
         catch (Exception e){
